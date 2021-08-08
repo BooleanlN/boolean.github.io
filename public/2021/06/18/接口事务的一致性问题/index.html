@@ -15,7 +15,7 @@
   
   <link rel="canonical" href="http://example.com/2021/06/18/%E6%8E%A5%E5%8F%A3%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98/">
   
-  <meta name="description" content="一次工单的问题排查值班时，遇到一个工单问题，出于保密协议，细节不透露了，主要是由于A接口与B接口的同步问题导致的：由于某个场景下，A接口被调用，触发某些活动，此时会调用到B接口，但B接口因为并发量太大，对A超时返回，但B接口设定的超时与A不同，仍然做出相应的活动，导致产生了不一致。">
+  <meta name="description" content="一次工单的问题排查值班时，遇到一个工单问题，出于保密协议，细节不透露了，主要是由于A接口与B接口的同步问题导致的：由于某个场景下，A接口被调用，触发某些活动，此时会调用到B接口，但B接口因为并发量太大，对A超时返回，但B接口设定的超时与A不同，仍然做出相应的活动，导致产生了不一致。 这是一种典型的同">
   
   
   <meta name="author" content="John Doe">
@@ -26,14 +26,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="接口事务的一致性问题" />
   
-  <meta property="og:description" content="一次工单的问题排查值班时，遇到一个工单问题，出于保密协议，细节不透露了，主要是由于A接口与B接口的同步问题导致的：由于某个场景下，A接口被调用，触发某些活动，此时会调用到B接口，但B接口因为并发量太大，对A超时返回，但B接口设定的超时与A不同，仍然做出相应的活动，导致产生了不一致。">
+  <meta property="og:description" content="一次工单的问题排查值班时，遇到一个工单问题，出于保密协议，细节不透露了，主要是由于A接口与B接口的同步问题导致的：由于某个场景下，A接口被调用，触发某些活动，此时会调用到B接口，但B接口因为并发量太大，对A超时返回，但B接口设定的超时与A不同，仍然做出相应的活动，导致产生了不一致。 这是一种典型的同">
   
   <meta property="og:url" content="http://example.com/2021/06/18/%E6%8E%A5%E5%8F%A3%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98/" />
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="接口事务的一致性问题">
   
-  <meta name="twitter:description" content="一次工单的问题排查值班时，遇到一个工单问题，出于保密协议，细节不透露了，主要是由于A接口与B接口的同步问题导致的：由于某个场景下，A接口被调用，触发某些活动，此时会调用到B接口，但B接口因为并发量太大，对A超时返回，但B接口设定的超时与A不同，仍然做出相应的活动，导致产生了不一致。">
+  <meta name="twitter:description" content="一次工单的问题排查值班时，遇到一个工单问题，出于保密协议，细节不透露了，主要是由于A接口与B接口的同步问题导致的：由于某个场景下，A接口被调用，触发某些活动，此时会调用到B接口，但B接口因为并发量太大，对A超时返回，但B接口设定的超时与A不同，仍然做出相应的活动，导致产生了不一致。 这是一种典型的同">
   
   
   <meta name="twitter:image" content="http://example.comundefined">
@@ -192,6 +192,8 @@
             <h2>接口事务的一致性问题</h2>
 
   <h4 id="一次工单的问题排查"><a href="#一次工单的问题排查" class="headerlink" title="一次工单的问题排查"></a>一次工单的问题排查</h4><p>值班时，遇到一个工单问题，出于保密协议，细节不透露了，主要是由于A接口与B接口的同步问题导致的：由于某个场景下，A接口被调用，触发某些活动，此时会调用到B接口，但B接口因为并发量太大，对A超时返回，但B接口设定的超时与A不同，仍然做出相应的活动，导致产生了不一致。</p>
+<p>这是一种典型的<strong>同步超时问题</strong></p>
+<p><strong>如何解决？</strong></p>
 
   <p><a class="classtest-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a>, <a class="classtest-link" href="/tags/%E9%97%AE%E9%A2%98/" rel="tag">问题</a> — Jun 18, 2021</p>
   

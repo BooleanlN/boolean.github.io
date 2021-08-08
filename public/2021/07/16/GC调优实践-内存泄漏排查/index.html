@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>GC调优实践-内存泄漏排查</title>
+  
+  <link rel="canonical" href="http://example.com/2021/07/16/GC%E8%B0%83%E4%BC%98%E5%AE%9E%E8%B7%B5-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%92%E6%9F%A5/">
+  
+  <meta name="description" content="GC调优实践-内存泄漏排查看到一篇内存泄漏的文章，动手实践了下。 场景说明 使用HttpAsyncClient库，访问10000次某一个url，并 设置JVM参数： -XX:+PrintGCDetails -Xloggc:&amp;#x2F;Users&amp;#x2F;jiayi&amp;#x2F;seckill&amp;#x2">
+  
+  
+  <meta name="author" content="John Doe">
+  
+  <meta property="og:image" content="http://example.comundefined">
+  
+  <meta property="og:site_name" content="Hexo" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="GC调优实践-内存泄漏排查" />
+  
+  <meta property="og:description" content="GC调优实践-内存泄漏排查看到一篇内存泄漏的文章，动手实践了下。 场景说明 使用HttpAsyncClient库，访问10000次某一个url，并 设置JVM参数： -XX:+PrintGCDetails -Xloggc:&amp;#x2F;Users&amp;#x2F;jiayi&amp;#x2F;seckill&amp;#x2">
+  
+  <meta property="og:url" content="http://example.com/2021/07/16/GC%E8%B0%83%E4%BC%98%E5%AE%9E%E8%B7%B5-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%92%E6%9F%A5/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GC调优实践-内存泄漏排查">
+  
+  <meta name="twitter:description" content="GC调优实践-内存泄漏排查看到一篇内存泄漏的文章，动手实践了下。 场景说明 使用HttpAsyncClient库，访问10000次某一个url，并 设置JVM参数： -XX:+PrintGCDetails -Xloggc:&amp;#x2F;Users&amp;#x2F;jiayi&amp;#x2F;seckill&amp;#x2">
+  
+  
+  <meta name="twitter:image" content="http://example.comundefined">
+  
+  <meta name="twitter:url" content="http://example.com/2021/07/16/GC%E8%B0%83%E4%BC%98%E5%AE%9E%E8%B7%B5-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%92%E6%9F%A5/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      Hi Folks.
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/Works" class="ml">Works</a>
+          
+        
+          
+          <a href="/About" class="ml">About</a>
+          
+        
+        
+          
+            <a href="mailto:1363371357@qq.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>GC调优实践-内存泄漏排查</h2>
+
+  <h3 id="GC调优实践-内存泄漏排查"><a href="#GC调优实践-内存泄漏排查" class="headerlink" title="GC调优实践-内存泄漏排查"></a>GC调优实践-内存泄漏排查</h3><p>看到一篇内存泄漏的文章，动手实践了下。</p>
+<p><strong>场景说明</strong></p>
+<p>使用<code>HttpAsyncClient</code>库，访问10000次某一个url，并</p>
+<p>设置JVM参数：</p>
+<pre class="line-numbers language-none"><code class="language-none">-XX:+PrintGCDetails -Xloggc:&#x2F;Users&#x2F;jiayi&#x2F;seckill&#x2F;logs&#x2F;gc&#x2F;gcc.log -Xmx200m<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>打印出的日志：</p>
+<pre class="line-numbers language-none"><code class="language-none">229.449: [GC (Allocation Failure) [PSYoungGen: 30720K-&gt;2048K(31232K)] 164715K-&gt;137644K(167936K), 0.0014919 secs] [Times: user&#x3D;0.01 sys&#x3D;0.00, real&#x3D;0.00 secs] 
+
+246.484: [Full GC (Ergonomics) [PSYoungGen: 28160K-&gt;3189K(30720K)] [ParOldGen: 136334K-&gt;136334K(136704K)] 164494K-&gt;139524K(167424K), [Metaspace: 15467K-&gt;15467K(1062912K)], 0.0435582 secs] [Times: user&#x3D;0.35 sys&#x3D;0.00, real&#x3D;0.05 secs] <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>触发了多次Full GC后，程序最终因<code>Exception in thread &quot;I/O dispatcher 1&quot; java.lang.OutOfMemoryError: Java heap space</code>崩溃。</p>
+<p>通过VisualVM对程序进行监控：</p>
+<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsitq8c3ooj30uo0u0qao.jpg" alt="image-20210716153039219" style="zoom:50%;" />
+
+<p>可以看到，老年代的内存一直在增加。</p>
+<p>由以上内容，我们可以猜测是某些对象，因为没有及时释放，导致无法被回收。按照代码来说，我们只涉及到一个<code>HttpUriRequest</code>的对象列表，老年代应该不会一直增加。</p>
+<p>但是通过查看<code>HttpClientAsyncService</code>的内存占用情况，<code>HttpClientAsyncService$1</code>一直处于上升状态，肯定是这块代码有了问题。<code>HttpClientAsyncService$1</code>表示<code>HttpClientAsyncService</code>的内部类，从代码中，我们可以得知是<code>FutureCallback</code>匿名内部类。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">HttpUriRequest</span><span class="token punctuation">></span></span> <span class="token function">loadMockRequest</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">HttpUriRequest</span><span class="token punctuation">></span></span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    cache<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HttpGet</span><span class="token punctuation">(</span><span class="token string">"http://www.baidu.com?a="</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// cache.add("http://www.baidu.com?a=" + i);</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> cache<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">HttpUriRequest</span><span class="token punctuation">></span></span> cache<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">final</span> <span class="token class-name">CloseableHttpAsyncClient</span> client <span class="token operator">=</span> <span class="token class-name">HttpAsyncClients</span><span class="token punctuation">.</span><span class="token function">custom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        client<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">// String url = cache.get(i%cache.size());</span>
+            <span class="token comment">// final HttpGet request = new HttpGet(url);</span>
+            <span class="token class-name">HttpUriRequest</span> request <span class="token operator">=</span> cache<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token operator">%</span>cache<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            client<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">FutureCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">HttpResponse</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">completed</span><span class="token punctuation">(</span><span class="token class-name">HttpResponse</span> httpResponse<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                   <span class="token comment">// System.out.println(request.getRequestLine() + "->" + httpResponse.getStatusLine());</span>
+                <span class="token punctuation">&#125;</span>
+
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">failed</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                   <span class="token comment">// System.out.println(request.getRequestLine() + "->" + e);</span>
+                <span class="token punctuation">&#125;</span>
+
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">cancelled</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                  <span class="token comment">//  System.out.println(request.getRequestLine() + " cancelled");</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以上是出现内存泄漏的代码部分，对这块代码进行Debug，我们发现了以下结果：</p>
+<p>在Client执行请求时，会将<code>FutureCallback</code>构建<code>Future</code>对象：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">BasicFuture</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> future <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BasicFuture</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>该对象会参与<code>DefaultClientExchangeHandlerImpl</code>的构建：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">DefaultClientExchangeHandlerImpl</span> handler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultClientExchangeHandlerImpl</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>log<span class="token punctuation">,</span> requestProducer<span class="token punctuation">,</span> responseConsumer<span class="token punctuation">,</span> localcontext<span class="token punctuation">,</span> future<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>connmgr<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>connReuseStrategy<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>keepaliveStrategy<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>exec<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>之后，handler调用<code>start</code>方法，其中，会将整个handler设置在请求里面</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">HttpRequest</span> original <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>requestProducer<span class="token punctuation">.</span><span class="token function">generateRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">HttpExecutionAware</span><span class="token punctuation">)</span>original<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setCancellable</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这也导致了前面构建的匿名内部类被存在请求里面，因为我们的请求是存在集合当中的，没有办法及时释放，随着Young GC，内部类晋升至Old Gen，最终将老年代空间挤爆。</p>
+<p><strong>解决办法</strong></p>
+<p>使用基本数据类型构建缓存，随时释放请求类，也就释放了内部类。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">loadMockRequest</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    cache<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"http://www.baidu.com?a="</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> cache<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <p><a class="classtest-link" href="/tags/GC%E8%B0%83%E4%BC%98/" rel="tag">GC调优</a>, <a class="classtest-link" href="/tags/Java/" rel="tag">Java</a> — Jul 16, 2021</p>
+  
+
+
+          <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://en.wikipedia.org/wiki/Earth" target="_blank" rel="noreferrer">Earth</a>.</p>
+        
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/BooleanlN" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
