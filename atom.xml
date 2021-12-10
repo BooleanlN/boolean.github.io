@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Boolean</title>
   
-  
+  <subtitle>My Blog</subtitle>
   <link href="http://booleanln.github.io/myblog/atom.xml" rel="self"/>
   
   <link href="http://booleanln.github.io/myblog/"/>
@@ -10,7 +10,7 @@
   <id>http://booleanln.github.io/myblog/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Ning</name>
     
   </author>
   
