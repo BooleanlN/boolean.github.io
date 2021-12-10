@@ -267,6 +267,72 @@ int **p; // valid
 int &&q;// error
 ```
 
+### C++内存布局
+
+1. 进程与线程
+
+   进程是操作系统分配资源的最小单位，在操作系统中，进程的创建等管理与PCB(Process Control Block)这个结构息息相关，**PCB是进程存在的唯一标志**。PCB当中包含了管理进程的信息：
+
+   - 进程标识符
+   - 进程调度信息
+   - 进程控制信息
+
+   例如`task_struct`是linux对PCB的实现：
+
+   ```c
+   struct task_struct {
+   /* these are hardcoded - don't touch */
+       long state;    /* -1 unrunnable, 0 runnable, >0 stopped */
+       long counter;
+       long priority;
+       long signal;
+       struct sigaction sigaction[32];
+       long blocked;    /* bitmap of masked signals */
+   /* various fields */
+       int exit_code;
+       unsigned long start_code,end_code,end_data,brk,start_stack;
+       long pid,pgrp,session,leader;
+       int    groups[NGROUPS];
+       /*
+        * pointers to parent process, youngest child, younger sibling,
+        * older sibling, respectively.  (p->father can be replaced with
+        * p->p_pptr->pid)
+        *									parent
+        *						/				 |         \
+        * younger sibling  <- me -> older sibling
+        *.         				   |
+        *               youngest child
+        */
+       struct task_struct    *p_pptr, *p_cptr, *p_ysptr, *p_osptr;
+       unsigned short uid,euid,suid;
+       unsigned short gid,egid,sgid;
+       unsigned long timeout,alarm;
+       long utime,stime,cutime,cstime,start_time;
+     	/* resource limit */
+       struct rlimit rlim[RLIM_NLIMITS];
+       unsigned int flags;    /* per process flags, defined below */
+       unsigned short used_math;
+   /* file system info */
+       int tty;        /* -1 if no tty, so it must be signed */
+       unsigned short umask;
+     /* m_inode 内存inode*/
+       struct m_inode * pwd; // 当前目录节点
+       struct m_inode * root; // 根目录节点
+       struct m_inode * executable; // 
+       struct m_inode * library;
+       unsigned long close_on_exec;
+       struct file * filp[NR_OPEN];
+   /* ldt for this task 0 - zero 1 - cs 2 - ds&ss */
+       struct desc_struct ldt[3];
+   /* tss for this task */
+       struct tss_struct tss;
+   };
+   ```
+
+   线程是CPU调度的最小单位，线程之间共享进程的存储区域、CPU资源，同一时刻，只有一个线程任务会被执行。在Linux中，线程与进程一样都是`task_struct`，在windows中，存在TCB(Thread Control Block)，是线程的控制实体。
+
+2. 
+
 
 
 
