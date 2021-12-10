@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>论文阅读-Evolution of Semantic Similarity—A Survey │ Hexo</title><link rel="stylesheet" href="/css/oasis.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><div id="content"><h1 id="title">论文阅读-Evolution of Semantic Similarity—A Survey</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2021-10-11T09:19:04.000Z">2021-10-11</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><h4 id="Evolution-of-Semantic-Similarity—A-Survey"><a href="#Evolution-of-Semantic-Similarity—A-Survey" class="headerlink" title="Evolution of Semantic Similarity—A Survey"></a>Evolution of Semantic Similarity—A Survey</h4><p>语义相似模型分为：</p>
+<ul>
+<li>knowledgebased， 基于知识</li>
+<li>corpus-based, 基于语料库</li>
+<li>deep neural network–based methods， 基于深度神经网络</li>
+<li>hybrid methods， 混合方法</li>
+</ul>
+<p>Semantic Textual Similarity （STS）主要给出两段文本的相似度排名或百分比。</p>
+<p>下图为文章介绍的相关模型</p>
+<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20211011173454520.png" alt="image-20211011173454520"></p>
+<h5 id="基于知识的模型"><a href="#基于知识的模型" class="headerlink" title="基于知识的模型"></a>基于知识的模型</h5><p>基于知识的方法计算两个术语之间的语义相似度基于一个或多个知识库，如本体/词汇数据库，叙词表，词典等。</p>
+<p>常用的知识库一般是词汇数据库lexical databases：</p>
+<ul>
+<li><p>WordNet：wordNet用node代表词义，并通过edge定义词之间的关系，两个词之间的相似度，取决于它们之间的距离。</p>
+</li>
+<li><p>Wikipedia：基于Wikipedia，每个词组都有一个文章页面与之相关联，每篇文章同时具有标题、neighbors、描述和分类，这些作为特征都可以用于相似性的计算。</p>
+</li>
+<li><p>BabelNet：babelNet是一个集合了WordnNet以及Wikipedia的词汇数据库</p>
+</li>
+</ul>
+<p>基于知识模型方法主要包括以下类型：</p>
+<ul>
+<li><p>Edge-counting 边计数法</p>
+<p><em>Path</em>方法：</p>
+<p>​    将词抽象为图节点，根据词的分类将两个词连接起来，然后统计边的数量作为两个term的相似度。<br>$$<br>sim_{path} (t1,t2) = \frac{1}{1 + min_len(t1,t2)}<br>$$</p>
+<p><em>wup</em>方法：</p>
+<p>​    该方法统计每个term自身的分类深度，以及两个term（Least Common Subsumer）最近祖先分类点的深度：<br>$$<br>sim_{wup} (t_1,t_2) = \frac{2depth(t_{lcs})}{depth(t_1) + depth(t_2)}<br>$$<br>​    </p>
+<p>缺点：忽略了本体中的edges不必等长的事实</p>
+</li>
+<li><p>Feature-based 特征法</p>
+<p>基于词汇的属性，如注解、相似概念等，进行相似度的计算。</p>
+<p><em>Lesk</em>：衡量两个词的相似度，主要考虑两个词的注解以及在WordNet中表示该词含义的词的注解的overlap</p>
+</li>
+<li><p>Information Content-based 基于信息内容的方法</p>
+</li>
+<li><p>Combined Knowledge-based </p>
+</li>
+</ul>
+<h5 id="基于语料库的STS"><a href="#基于语料库的STS" class="headerlink" title="基于语料库的STS"></a>基于语料库的STS</h5><p>基于语料库的方法根据从大规模的语料库中抽取出的信息，来衡量两个term之间的相似度。词的实际意义并没有被作为依据，而是基于一种”分布假设”，即相似的词语出现在一起 “similar words occur together, frequently”。</p>
+<p>基于分布假设，出现了很多techniques，来构建文本数据的向量表示。</p>
+<p>词嵌入提供了词的向量表示，在向量中，保持了词语之间的语义关系，常见的词嵌入包括：</p>
+<ul>
+<li><em>word2vec</em></li>
+<li><em>GloVe</em></li>
+<li><em>fastText</em></li>
+<li><em>BERT</em></li>
+</ul>
+<p>在使用词嵌入作为相似度的衡量标准时，不可避免地会遇到“ Meaning Conflation Deficiency”词融合缺陷，举个例子，”finance”与”river”在语义空间中的位置很近，因为它们的一个相关词“bank”具备多重含义。</p>
+<p>关键是要认识到，词嵌入本身是基于大规模语料库的，因此它的分布假设等与采取的语料库息息相关。</p>
+<ol>
+<li>基于语料库的方法：<ul>
+<li>LSA（Latent Semantic Analysis）</li>
+<li>HAL（Hyperspace Analogue to Language）</li>
+<li>ESA（Explicit Semantic Analysis）</li>
+<li>Word-alignment Models</li>
+<li>LDA（Latent Dirichlet Allocation）</li>
+<li>Normalized Google Distance </li>
+<li>Dependency-based Models</li>
+<li>Kernel-based Models</li>
+<li>Word-attention Models</li>
+</ul>
+</li>
+</ol>
+<h5 id="深度神经网络方法"><a href="#深度神经网络方法" class="headerlink" title="深度神经网络方法"></a>深度神经网络方法</h5><ul>
+<li>DAM（Decomposable Attention Model）</li>
+<li>Transformer-based models</li>
+</ul>
+<h5 id="混合方法Hybrid"><a href="#混合方法Hybrid" class="headerlink" title="混合方法Hybrid"></a>混合方法Hybrid</h5><ul>
+<li>NASARI</li>
+<li>MSSA</li>
+<li>UESTS</li>
+</ul>
+<div class="post-tags"><a class="post-tag-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">#论文</a></div></article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div><div><a>2021@ </a><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a>Powered by&nbsp</a><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><a>&nbsp&&nbsp</a><a target="_blank" rel="noopener" href="https://github.com/qiantao94/hexo-theme-oasis">Oasis</a></div></div></div></div></div></body><script src="/js/oasis.js"></script></html>
