@@ -624,6 +624,38 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="二叉树展开为链表-1"><a href="#二叉树展开为链表-1" class="headerlink" title="二叉树展开为链表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/">二叉树展开为链表</a></h4><p>给你二叉树的根结点 root ，请你将它展开为一个单链表：</p>
+<p>展开后的单链表应该同样使用 TreeNode ，其中 right 子指针指向链表中下一个结点，而左子指针始终为 null 。<br>展开后的单链表应该与二叉树 先序遍历 顺序相同。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx8ltdiikwj30v60f6dgc.jpg" alt="image-20211210120254581"></p>
+<p>思路：</p>
+<ol>
+<li>基于先序遍历，将树按顺序收集起来，之后进行指针变换即可，O(n)的空间复杂度</li>
+<li>观察示例，分解后步骤：<ul>
+<li>将根节点的左子树的最右节点的右节点指向当前节点的右子树，示例中就是序号4要指向序号5</li>
+<li>同时，根节点也就是，序号1的右子树指向左子树，左子树指空，此时将序号1的左右子树都移到了右边</li>
+<li>接着处理右子树，也就是序号2即可，重复123步骤</li>
+</ul>
+</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">flatten</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token class-name">TreeNode</span> p <span class="token operator">=</span> root<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>left <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token class-name">TreeNode</span> tmp <span class="token operator">=</span> p<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                    tmp <span class="token operator">=</span> tmp<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                tmp<span class="token punctuation">.</span>right <span class="token operator">=</span> p<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+                p<span class="token punctuation">.</span>right <span class="token operator">=</span> p<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                p<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            p <span class="token operator">=</span> p<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
   <p><a class="classtest-link" href="/tags/leetcode/" rel="tag">leetcode</a>, <a class="classtest-link" href="/tags/%E6%A0%91/" rel="tag">树</a> — Jun 15, 2021</p>
   

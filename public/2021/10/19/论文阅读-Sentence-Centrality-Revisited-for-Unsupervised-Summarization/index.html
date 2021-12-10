@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>论文阅读-Sentence Centrality Revisited for Unsupervised Summarization</title>
+  
+  <link rel="canonical" href="http://example.com/2021/10/19/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Sentence-Centrality-Revisited-for-Unsupervised-Summarization/">
+  
+  <meta name="description" content="Sentence Centrality Revisited for Unsupervised Summarization（基于再访问句子中心性的无监督文本摘要生成）2019.6.8 Hao Zheng. Mirella Lapata. ACL 2019 @misc&amp;#123;zheng2019sen">
+  
+  
+  <meta name="author" content="John Doe">
+  
+  <meta property="og:image" content="http://example.comundefined">
+  
+  <meta property="og:site_name" content="Hexo" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="论文阅读-Sentence Centrality Revisited for Unsupervised Summarization" />
+  
+  <meta property="og:description" content="Sentence Centrality Revisited for Unsupervised Summarization（基于再访问句子中心性的无监督文本摘要生成）2019.6.8 Hao Zheng. Mirella Lapata. ACL 2019 @misc&amp;#123;zheng2019sen">
+  
+  <meta property="og:url" content="http://example.com/2021/10/19/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Sentence-Centrality-Revisited-for-Unsupervised-Summarization/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="论文阅读-Sentence Centrality Revisited for Unsupervised Summarization">
+  
+  <meta name="twitter:description" content="Sentence Centrality Revisited for Unsupervised Summarization（基于再访问句子中心性的无监督文本摘要生成）2019.6.8 Hao Zheng. Mirella Lapata. ACL 2019 @misc&amp;#123;zheng2019sen">
+  
+  
+  <meta name="twitter:image" content="http://example.comundefined">
+  
+  <meta name="twitter:url" content="http://example.com/2021/10/19/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Sentence-Centrality-Revisited-for-Unsupervised-Summarization/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      Hi Folks.
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/Works" class="ml">Works</a>
+          
+        
+          
+          <a href="/About" class="ml">About</a>
+          
+        
+        
+          
+            <a href="mailto:1363371357@qq.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>论文阅读-Sentence Centrality Revisited for Unsupervised Summarization</h2>
+
+  <h2 id="Sentence-Centrality-Revisited-for-Unsupervised-Summarization（基于再访问句子中心性的无监督文本摘要生成）"><a href="#Sentence-Centrality-Revisited-for-Unsupervised-Summarization（基于再访问句子中心性的无监督文本摘要生成）" class="headerlink" title="Sentence Centrality Revisited for Unsupervised Summarization（基于再访问句子中心性的无监督文本摘要生成）"></a>Sentence Centrality Revisited for Unsupervised Summarization（基于再访问句子中心性的无监督文本摘要生成）</h2><p><em>2019.6.8 Hao Zheng. Mirella Lapata. ACL 2019</em></p>
+<pre class="line-numbers language-none"><code class="language-none">@misc&#123;zheng2019sentence,
+      title&#x3D;&#123;Sentence Centrality Revisited for Unsupervised Summarization&#125;, 
+      author&#x3D;&#123;Hao Zheng and Mirella Lapata&#125;,
+      year&#x3D;&#123;2019&#125;,
+      eprint&#x3D;&#123;1906.03508&#125;,
+      archivePrefix&#x3D;&#123;arXiv&#125;,
+      primaryClass&#x3D;&#123;cs.CL&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>[code地址](<a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a> mswellhao/PacSum)</p>
+<h3 id="0-Summary"><a href="#0-Summary" class="headerlink" title="0. Summary"></a>0. Summary</h3><p>作者在本文提出了一种无监督文本抽取摘要模型，相比于TextRank方法，PacSum主要做了两方面改进：</p>
+<p>一是作者重新定义了句子中心性的计算方式，将句子之间的相对位置纳入了计算，改进了度中心性的计算方法。</p>
+<p>二是通过BERT模型进行句子语义的捕获，这与文章提出时TextRank常采用的tf-idf在语义表示上有了提升（TextRank+BERT作者进行实验发现，效果比tf-idf要差，作者推测是因为TextRank模型错误的句子中心性导致的）</p>
+<p>除此之外，作者基于句子分布假设，提出了与skip-thought vector不同的fine-tune方法，并取得了更好的效果。</p>
+<p>作者在英文数据集、中文数据集进行了有无监督模型、有监督模型的实验，其中，取得了比文章提出时无监督模型更好的效果，并在英文数据集中，取得了与有监督模型十分相近的分数。</p>
+<h3 id="1-Research-Objective-s"><a href="#1-Research-Objective-s" class="headerlink" title="1. Research Objective(s)"></a>1. <strong>Research Objective(s)</strong></h3><p>为了解决文本摘要领域，难以为不同类型的摘要、领域、语言去获得或创建大规模的高质量训练数据的问题，作者提出一个普遍适用的图排序算法，并且从两个方面改进了句子节点中心性计算：1)   基于BERT模型，捕捉句子语义 2) 使用有向边构建句子节点图，使用有向边，去表明任意两个句子的中心性分别被他们相对位置所造成的影响。</p>
+<p>it is unrealistic to expect large-scale and high-quality training data to be available or created for different types of summaries, domains, or languages. Author revisit a popular graph-based ranking algorithm and modify how node (aka sentence) centrality is com- puted in two ways: (a) we employ BERT, a state-of-the-art neural representation learning model to better capture sentential meaning and (b) we build graphs with directed edges arguing that the contribution of any two nodes to their respective centrality is influenced by their relative position in a document.</p>
+<h3 id="2-Background-Problem-Statement"><a href="#2-Background-Problem-Statement" class="headerlink" title="2. Background / Problem Statement"></a><strong>2. Background / Problem Statement</strong></h3><p><strong>背景：</strong></p>
+<ul>
+<li>基于神经网络的方法在成百上千的大规模数据集上取得了可观的效果</li>
+</ul>
+<p>Modern neural network-based approaches have achieved promising results thanks to the availability of large scale datasets containing hundreds of thousands of document-summary pairs</p>
+<ul>
+<li>大规模的、高质量的数据集难以创建或获得</li>
+</ul>
+<p>it is unrealistic to expect that large-scale and high-quality training data will be available or created for different summarization styles</p>
+<ul>
+<li>无监督方法是之前研究的重点，其中比较流行的是基于TextRank方法。</li>
+</ul>
+<p>A very popular algorithm for extractive single-document summarization is TextRank (Mihalcea and Tarau, 2004)</p>
+<p><strong>问题阐述：</strong></p>
+<ul>
+<li>文本摘要领域，难以为不同类型的摘要、领域、语言去获得或创建大规模的高质量训练数据。</li>
+</ul>
+<p>it is unrealistic to expect that large-scale and high-quality training data will be available or created for different summarization styles</p>
+<ul>
+<li>无监督方法中，基于句子中心性的方式如TextRank可以从两方面改进，一是使用BERT模型获取文本语义，二是构建有向图来表示两个句子节点对相互之间的贡献是不同的</li>
+</ul>
+<p>We employ BERT (Devlin et al., 2018), a neural representation learn- ing model which has obtained state-of-the-art re- sults on various natural language processing tasks including textual inference, question answering, and sentiment analysis</p>
+<p>we advocate that edges should be <em>directed</em>, since the contribu- tion induced by two nodes’ connection to their re- spective centrality can be in many cases unequal.</p>
+<h3 id="3-Method-s"><a href="#3-Method-s" class="headerlink" title="3. Method(s)"></a>3. <strong>Method(s)</strong></h3><p><strong>3.1 句子中心性计算</strong></p>
+<p><strong>3.1.1 无向图计算方法</strong></p>
+<p>A node’s centrality can be measured by simply computing its degree or running a ranking algorithm such as PageRank</p>
+<p>结点中心性计算可以简单的通过度计算，也可以通过排序算法，如PageRank。</p>
+<p><strong>度中心性</strong>计算方法：<br>$$<br>centrality(si) = \sum_{j ∈{1,..,i−1,i+1,..,n}}{e_{ij}}<br>$$<br><strong>TextRank</strong>计算方法：</p>
+<p>度中心性计算方法只考虑局部连通性，而PageRank算法通过递归为所有节点分配了相对的分数，与高得分节点相连接的节点对分数贡献更大。</p>
+<p>Whereas degree centrality only takes local connectivity into account, PageRank assigns rela- tive scores to all nodes in the graph based on the recursive principle that connections to nodes hav- ing a high score contribute more to the score of the node in question.</p>
+<p><strong>3.1.2 有向图计算方法</strong></p>
+<p>理论支持：RST（Rhetorical Structure Theory），修辞结构理论，表示， 语篇单元重要性和显著性是不同的。根据其文本重要性，分为核心句与附属句。</p>
+<p>The idea that textual units vary in terms of their importance or salience, has found support in various theories of discourse structure including Rhetorical Structure Theory.</p>
+<p>in terms of their text importance: <em>nuclei</em> denote central segments, whereas <em>satellites</em> denote peripheral ones.</p>
+<p>计算文本核心性的方法：通过文本的相对位置进行近似计算，其中，文档中出现较早的句子应该更核心。</p>
+<p>We instead approximate nuclearity by relative position in the hope that sentences occurring earlier in a document should be more central.</p>
+<p><strong>方法实现</strong></p>
+<p>给定任意来自同篇文档的句子$s_i$，$s_j$：<br>$$<br>centrality(s_i) = \lambda_1\sum_{j&lt;i}{e_{ij}}  + \lambda_2\sum_{j&gt;i}{e_{ij}}<br>$$<br>其中，$\lambda_1$与$\lambda_2$表示前向句与后向句的有向边权重系数。</p>
+<p> λ1, λ2 are different weights for forward- and backward-looking directed edges.</p>
+<p>在实验中，我们设置$\lambda_1 + \lambda_2 = 1$控制超参数的数量</p>
+<p>During tuning experiments, we set λ1 + λ2 = 1 to control the number of free hyper-parameters.</p>
+<p>经过实验，我们发现前向系数$\lambda_1$趋向于负值，这表示与前面内容的相似性，实际上会损害其本身的中心性。</p>
+<p>we find that the optimal λ1 tends to be negative, implying that similarity with previous content actually hurts centrality</p>
+<p>未来可以通过PageRank等将负值边纳入计算。</p>
+<p>Although it is possible to use some extensions of PageR- ank (Kerchove and Dooren, 2008) to take negative edges into account, we leave this to future work and only consider the definition of centrality from Equation (6) in this paper.</p>
+<p><strong>3.2 语句相似度计算</strong></p>
+<p>许多TextRank方法基于符号句表示（symbolic sentence representations）如tf-idf进行文本的表示。</p>
+<p>There are many variations of the similarity function of TextRank (Barrios et al., 2016) based on symbolic sentence representations such as tf-idf.</p>
+<p>本文采用一种神经网络分布式表示——BERT模型作为encoder，并通过一种句子级别分布假设对其进行fine-tune。</p>
+<p>We use BERT (Devlin et al., 2018) as our sentence encoder and fine-tune it based on a type of sentence-level distributional hypothesis</p>
+<p><strong>3.2.1 句子级分布式假设</strong></p>
+<p>为了对BERT模型进行fine-tune，作者采用了一种句子级分布式假设来定义一个训练目标。</p>
+<p>To fine-tune the BERT encoder, we exploit a type of sentence-level distributional hypothesis (Harris, 1954; Polajnar et al., 2015) as a means to define a training objective. </p>
+<p>与通过重构编码句子的邻近句的Skip-thought vectors不同的是，作者借用了单词分布式假设的负采样方法。</p>
+<p><strong>损失函数：</strong><br>$$<br>log\sigma({v^{‘}<em>{s</em>{i-1}}}^Tv_{s_{i}}) + log\sigma({v^{‘}<em>{s</em>{i+1}}}^Tv_{s_{i}}) + E_{s ̃p{(s)}}[log\sigma({-v^{‘}}^T{v_s})]<br>$$<br>其中 vs 和 vs′ 句子s在两个不同参数的BERT 编码器的不同表示， σ是sigmoud函数，P(s)是在句子空间定义的均匀分布。</p>
+<p>where vs and vs′ are two different representa- tions of sentence s via two differently parameter- ized BERT encoders;， σ is the sigmoid function，and P (s) is a uniform distribution defined over the sentence space.</p>
+<p>为了实现以上假设，作者为每个正样本，采取五个负样本。</p>
+<p><strong>相似矩阵：</strong></p>
+<p>一旦获得文档D的句子表示，作者采用成对求点积的方式来得到一个未标准化的相似矩阵：<br>$$<br>E^ ̄_{ij} =v_i^⊤v_j<br>$$<br>标准化：<br>$$<br>E^ ̃_{ij} = E^ ̄_{ij}−[minE^ ̄ +β(maxE^ ̄ − minE^ ̄)]<br>$$</p>
+<p>$$<br>E_{ij}= E^ ̃_{ij}, \ if \ E^ ̃&gt;0 \ , \ else \ 0<br>$$</p>
+<p>Equation (5) aims to remove the effect of absolute values by emphasizing the relative contribution of different similarity scores. This is particularly im- portant for the adopted sentence representations which in some cases might assign very high values to all possible sentence pairs. Hyper-parameter β (β ∈ [0, 1]) controls the threshold below which the similarity score is set to 0.</p>
+<h3 id="4-Evaluation"><a href="#4-Evaluation" class="headerlink" title="4. Evaluation"></a>4. <strong>Evaluation</strong></h3><p>数据集：NYT 与 CNN/Daily Mai，中文数据集TTNews</p>
+<p>超参数：</p>
+<ul>
+<li>优化器：Adam</li>
+<li>初始学习率：4e-6</li>
+</ul>
+<p>评价指标：</p>
+<p>ROUGE-1、ROUGE-2、ROUGE-L</p>
+<p>结果：</p>
+<p>英文数据集，分别与SOTA有监督方法、无监督方法进行比较</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw5i8qwpg0j31dg0oejx2.jpg" alt="image-20211106162215196"></p>
+<p>超参数调优</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw5ia3nrtmj30n60kwq4o.jpg" alt="image-20211106162335953"></p>
+<p>中文数据集，与有监督、无监督方法进行对比的结果</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw5ibp0dt1j30o60iiac8.jpg" alt="image-20211106162507741"></p>
+<p>人工评测，通过构造QA，对生成的摘要内容进行人工评测的结果：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw5iq6w6noj30mq08k3zb.jpg" alt="image-20211106163903788"></p>
+<h3 id="5-Conclusion"><a href="#5-Conclusion" class="headerlink" title="5. Conclusion"></a>5. <strong>Conclusion</strong></h3><p>作者提出的方法在三个数据集上都取得了比当前无监督文本抽取摘要基线模型更好的效果，并在英文数据集上取得了与有监督模型，如Pointer-generator相近的分数。</p>
+<p>Experimental results on three news summarization datasets demonstrated the superiority of our approach against strong baselines.</p>
+<p>未来，作者希望将本文提出的想法运用于有监督模型或者多文档摘要当中。</p>
+<p>In the future, we would like to investigate whether some of the ideas introduced in this paper can improve the perfor- mance of supervised systems as well as sentence selection in multi-document summarization. </p>
+<h3 id="6-Notes"><a href="#6-Notes" class="headerlink" title="6. Notes"></a>6. <strong>Notes</strong></h3><h3 id="7-References"><a href="#7-References" class="headerlink" title="7. References"></a>7. <strong>References</strong></h3>
+  <p><a class="classtest-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a> — Oct 19, 2021</p>
+  
+
+
+          <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://en.wikipedia.org/wiki/Earth" target="_blank" rel="noreferrer">Earth</a>.</p>
+        
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/BooleanlN" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>

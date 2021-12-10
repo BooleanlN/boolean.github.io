@@ -11,34 +11,34 @@
   <meta charset="utf-8">
 
   
-  <title>Posts Related to java</title>
+  <title>Redis-内存分配器</title>
   
-  <link rel="canonical" href="http://example.com/tags/java/">
+  <link rel="canonical" href="http://example.com/2021/11/28/Redis-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%99%A8/">
   
-  <meta name="description" content="">
+  <meta name="description" content="内存分配器分析下zmalloc.h、zmalloc.c两个文件源码。 SummaryDetail 内存分配器 #if defined(USE_TCMALLOC) # do something with tcmalloc # endif  #elif defined(USE_JEMALLOC) # d">
   
   
   <meta name="author" content="John Doe">
   
-  <meta property="og:image" content="http://example.com/images/thumbnail.jpg">
+  <meta property="og:image" content="http://example.comundefined">
   
   <meta property="og:site_name" content="Hexo" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Posts Related to java" />
+  <meta property="og:title" content="Redis-内存分配器" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="内存分配器分析下zmalloc.h、zmalloc.c两个文件源码。 SummaryDetail 内存分配器 #if defined(USE_TCMALLOC) # do something with tcmalloc # endif  #elif defined(USE_JEMALLOC) # d">
   
-  <meta property="og:url" content="http://example.com/tags/java/" />
+  <meta property="og:url" content="http://example.com/2021/11/28/Redis-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%99%A8/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Posts Related to java">
+  <meta name="twitter:title" content="Redis-内存分配器">
   
-  <meta name="twitter:description" content="">
+  <meta name="twitter:description" content="内存分配器分析下zmalloc.h、zmalloc.c两个文件源码。 SummaryDetail 内存分配器 #if defined(USE_TCMALLOC) # do something with tcmalloc # endif  #elif defined(USE_JEMALLOC) # d">
   
   
-  <meta name="twitter:image" content="http://example.com/images/thumbnail.jpg">
+  <meta name="twitter:image" content="http://example.comundefined">
   
-  <meta name="twitter:url" content="http://example.com/tags/java/" />
+  <meta name="twitter:url" content="http://example.com/2021/11/28/Redis-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%99%A8/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -189,36 +189,58 @@
 </div>
 
         <div class="trans">
-          
+            <h2>Redis-内存分配器</h2>
+
+  <h2 id="内存分配器"><a href="#内存分配器" class="headerlink" title="内存分配器"></a>内存分配器</h2><p>分析下zmalloc.h、zmalloc.c两个文件源码。</p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><h3 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h3><ol>
+<li><p>内存分配器</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token function">defined</span><span class="token punctuation">(</span>USE_TCMALLOC<span class="token punctuation">)</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span> <span class="token directive keyword">do</span> <span class="token expression">something with tcmalloc</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span> <span class="token directive keyword">endif</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">elif</span> <span class="token expression"><span class="token function">defined</span><span class="token punctuation">(</span>USE_JEMALLOC<span class="token punctuation">)</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span> <span class="token directive keyword">do</span> <span class="token expression">something with jemalloc</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">elif</span> <span class="token expression"><span class="token function">defined</span><span class="token punctuation">(</span>__APPLE__<span class="token punctuation">)</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span> <span class="token directive keyword">do</span> <span class="token expression">something on Apple platform</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Redis提供了三种内存分配器选择，包括tcmalloc、jemalloc、Apple。</p>
+</li>
+</ol>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void *zmalloc(size_t size);
+void *zcalloc(size_t size);
+void *zrealloc(void *ptr, size_t size);
+void *ztrymalloc(size_t size);
+void *ztrycalloc(size_t size);
+void *ztryrealloc(void *ptr, size_t size);
+void zfree(void *ptr);
+void *zmalloc_usable(size_t size, size_t *usable);
+void *zcalloc_usable(size_t size, size_t *usable);
+void *zrealloc_usable(void *ptr, size_t size, size_t *usable);
+void *ztrymalloc_usable(size_t size, size_t *usable);
+void *ztrycalloc_usable(size_t size, size_t *usable);
+void *ztryrealloc_usable(void *ptr, size_t size, size_t *usable);
+void zfree_usable(void *ptr, size_t *usable);
+char *zstrdup(const char *s);
+size_t zmalloc_used_memory(void);
+void zmalloc_set_oom_handler(void (*oom_handler)(size_t));
+size_t zmalloc_get_rss(void);
+int zmalloc_get_allocator_info(size_t *allocated, size_t *active, size_t *resident);
+void set_jemalloc_bg_thread(int enable);
+int jemalloc_purge();
+size_t zmalloc_get_private_dirty(long pid);
+size_t zmalloc_get_smap_bytes_by_field(char *field, long pid);
+size_t zmalloc_get_memory_size(void);
+void zlibc_free(void *ptr);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-   <h3>Posts Related to — java</h3>
 
 
-
-  <article>
-    <div class="row">
-
-      <div class="three columns left lit">
-        <p class="bottom">Oct 23, 2021</p>
-      </div>
-      <div class="nine columns left mb-3">
-        <a href="/2021/10/23/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6/">
-          
-            线程池源码探究
-          
-        </a>
-      </div>
-    </div>
-  </article>
-
-
-<div class="pagination-bar">
-  <ul class="pagination">
-    
-    
-  </ul>
-</div>
+  <p><a class="classtest-link" href="/tags/NoSQL/" rel="tag">NoSQL</a>, <a class="classtest-link" href="/tags/Redis/" rel="tag">Redis</a> — Nov 28, 2021</p>
+  
 
 
           <div class="row mt-2">
