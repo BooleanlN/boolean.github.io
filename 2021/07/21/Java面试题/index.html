@@ -11,10 +11,10 @@
 </li>
 <li><p>介绍HashMap</p>
 <p>HashMap，一种Hash数据结构，底层通过数组，链表以及红黑树实现：</p>
-<p>整体构建<code> Node&lt;K,V&gt;[] table</code>，存储Node，当发生Hash冲突时，采取链地址法进行解决，当链较长，达到设定的转树阈值，链表会转为红黑树。</p>
+<p>整体构建<code>Node&lt;K,V&gt;[] table</code>，存储Node，当发生Hash冲突时，采取链地址法进行解决，当链较长，达到设定的转树阈值，链表会转为红黑树。</p>
 <ul>
-<li>Node&lt;K,V&gt;链表</li>
-<li>TreeNode&lt;K,V&gt;，红黑树结构</li>
+<li>Node<K,V>链表</li>
+<li>TreeNode<K,V>，红黑树结构</li>
 </ul>
 <p>HashMap扩容机制：</p>
 <p>HashMap默认容量为16，</p>
@@ -48,6 +48,8 @@
 </li>
 <li><p>String常量池介绍</p>
 </li>
+</ol>
+<ol>
 <li><p>会发生OOM的区域</p>
 <p>堆、虚拟机栈、本地方法栈、元空间</p>
 </li>
@@ -88,7 +90,7 @@
 </ol>
 <h5 id="基础考察"><a href="#基础考察" class="headerlink" title="基础考察"></a>基础考察</h5><ol>
 <li><p>==与equals的关系</p>
-<p>基本类型==比较的是值，非基本类型==比较的是两个在内存中存放的地址</p>
+<p>基本类型\==比较的是值，非基本类型==比较的是两个在内存中存放的地址</p>
 <p>equals如果没有被重写，则比较的是地址，如果被重写了，则比较的是地址中的内容</p>
 </li>
 <li><p>equals与hashcode为什么要同时重写</p>

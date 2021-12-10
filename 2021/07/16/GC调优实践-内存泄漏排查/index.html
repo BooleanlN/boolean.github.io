@@ -4,16 +4,13 @@
 <p>使用<code>HttpAsyncClient</code>库，访问10000次某一个url，并</p>
 <p>设置JVM参数：</p>
 <pre class="line-numbers language-none"><code class="language-none">-XX:+PrintGCDetails -Xloggc:&#x2F;Users&#x2F;jiayi&#x2F;seckill&#x2F;logs&#x2F;gc&#x2F;gcc.log -Xmx200m<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>打印出的日志：</p>
 <pre class="line-numbers language-none"><code class="language-none">229.449: [GC (Allocation Failure) [PSYoungGen: 30720K-&gt;2048K(31232K)] 164715K-&gt;137644K(167936K), 0.0014919 secs] [Times: user&#x3D;0.01 sys&#x3D;0.00, real&#x3D;0.00 secs] 
 
 246.484: [Full GC (Ergonomics) [PSYoungGen: 28160K-&gt;3189K(30720K)] [ParOldGen: 136334K-&gt;136334K(136704K)] 164494K-&gt;139524K(167424K), [Metaspace: 15467K-&gt;15467K(1062912K)], 0.0435582 secs] [Times: user&#x3D;0.35 sys&#x3D;0.00, real&#x3D;0.05 secs] <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>触发了多次Full GC后，程序最终因<code>Exception in thread &quot;I/O dispatcher 1&quot; java.lang.OutOfMemoryError: Java heap space</code>崩溃。</p>
 <p>通过VisualVM对程序进行监控：</p>
-<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsitq8c3ooj30uo0u0qao.jpg" alt="image-20210716153039219" style="zoom:50%;" />
-
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsitq8c3ooj30uo0u0qao.jpg" alt="image-20210716153039219" style="zoom:50%;" /></p>
 <p>可以看到，老年代的内存一直在增加。</p>
 <p>由以上内容，我们可以猜测是某些对象，因为没有及时释放，导致无法被回收。按照代码来说，我们只涉及到一个<code>HttpUriRequest</code>的对象列表，老年代应该不会一直增加。</p>
 <p>但是通过查看<code>HttpClientAsyncService</code>的内存占用情况，<code>HttpClientAsyncService$1</code>一直处于上升状态，肯定是这块代码有了问题。<code>HttpClientAsyncService$1</code>表示<code>HttpClientAsyncService</code>的内部类，从代码中，我们可以得知是<code>FutureCallback</code>匿名内部类。</p>
@@ -54,18 +51,14 @@
 
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>以上是出现内存泄漏的代码部分，对这块代码进行Debug，我们发现了以下结果：</p>
 <p>在Client执行请求时，会将<code>FutureCallback</code>构建<code>Future</code>对象：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">BasicFuture</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> future <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BasicFuture</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>该对象会参与<code>DefaultClientExchangeHandlerImpl</code>的构建：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">DefaultClientExchangeHandlerImpl</span> handler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultClientExchangeHandlerImpl</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>log<span class="token punctuation">,</span> requestProducer<span class="token punctuation">,</span> responseConsumer<span class="token punctuation">,</span> localcontext<span class="token punctuation">,</span> future<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>connmgr<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>connReuseStrategy<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>keepaliveStrategy<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>exec<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>之后，handler调用<code>start</code>方法，其中，会将整个handler设置在请求里面</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">HttpRequest</span> original <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>requestProducer<span class="token punctuation">.</span><span class="token function">generateRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">HttpExecutionAware</span><span class="token punctuation">)</span>original<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setCancellable</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>这也导致了前面构建的匿名内部类被存在请求里面，因为我们的请求是存在集合当中的，没有办法及时释放，随着Young GC，内部类晋升至Old Gen，最终将老年代空间挤爆。</p>
 <p><strong>解决办法</strong></p>
 <p>使用基本数据类型构建缓存，随时释放请求类，也就释放了内部类。</p>

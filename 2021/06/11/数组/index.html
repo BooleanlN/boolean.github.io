@@ -9,7 +9,6 @@
         <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="旋转图像"><a href="#旋转图像" class="headerlink" title="旋转图像"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rotate-image/">旋转图像</a></h4><p>给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。</p>
 <p>你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。</p>
 <p><em>该题目不要陷到旋转90度里面，要多考虑怎么能够以更简单的方式旋转，也能够达到90度。</em></p>
@@ -46,7 +45,6 @@
         <span class="token comment">// &#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="最接近的三数之和"><a href="#最接近的三数之和" class="headerlink" title="最接近的三数之和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/3sum-closest/">最接近的三数之和</a></h4><p>给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。</p>
 <p><em>该题思路与“三数之和”、“四数之和”等一样，固定一个数，将其转化为两数之和即可。</em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -80,7 +78,6 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="子集"><a href="#子集" class="headerlink" title="子集"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subsets/">子集</a></h4><p>给你一个整数数组 <code>nums</code> ，数组中的元素 <strong>互不相同</strong> 。返回该数组所有可能的子集（幂集）。</p>
 <p>解集 <strong>不能</strong> 包含重复的子集。你可以按 <strong>任意顺序</strong> 返回解集。</p>
 <p>思路：</p>
@@ -105,7 +102,6 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="子集-II"><a href="#子集-II" class="headerlink" title="子集 II"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subsets-ii/">子集 II</a></h4><p>给你一个整数数组 nums ，其中可能<strong>包含重复元素</strong>，请你返回该数组所有可能的子集（幂集）。</p>
 <p>解集 不能 包含重复的子集。返回的解集中，子集可以按 任意顺序 排列。</p>
 <p>思路1：</p>
@@ -142,7 +138,6 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>优化：看评论区后，其实[1,2,2]中，当2再次出现时，只会和len = 1，也就是上一步的长度相关，因此通过len，可以减少遍历次数</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token function">subsetsWithDup</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -166,7 +161,6 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="找到所有数组中消失的数字"><a href="#找到所有数组中消失的数字" class="headerlink" title="找到所有数组中消失的数字"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/">找到所有数组中消失的数字</a></h4><p>给你一个含 n 个整数的数组 nums ，其中 nums[i] 在区间 [1, n] 内。请你找出所有在 [1, n] 范围内但没有出现在 nums 中的数字，并以数组的形式返回结果。要求不使用额外空间且时间复杂度为 <code>O(n)</code></p>
 <p><em>思路：使用原数组直接做标注，将当前元素对应下标位置到数扩大n，后面只要数哪些小于n即可。</em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -185,7 +179,6 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="组合总和"><a href="#组合总和" class="headerlink" title="组合总和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum/">组合总和</a></h4><p>给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。</p>
 <p>candidates 中的数字可以无限制重复被选取。</p>
 <p>思路：该题目是组合问题，使用回溯进行解答，为了降低复杂度可以考虑排序等方法做剪枝。</p>
@@ -210,7 +203,6 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="组合总和-II"><a href="#组合总和-II" class="headerlink" title="组合总和 II"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum-ii/">组合总和 II</a></h4><p>给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。</p>
 <p>candidates 中的每个数字在每个组合中只能使用一次。</p>
 <p>思路：同样是数组，同样是回溯，这次要考虑如何去重</p>
@@ -241,8 +233,7 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="组合总和-III"><a href="#组合总和-III" class="headerlink" title="组合总和 III"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum-iii/">组合总和 III</a></h4><p>找出所有相加之和为 <em><strong>n</strong></em> 的 <em><strong>k*</strong> 个数的组合</em>**。***组合中只允许含有 1 - 9 的正整数，并且每种组合中不存在重复的数字。</p>
+<h4 id="组合总和-III"><a href="#组合总和-III" class="headerlink" title="组合总和 III"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum-iii/">组合总和 III</a></h4><p>找出所有相加之和为 <strong><em>n</em></strong> 的 <strong><em>k\</em></strong> 个数的组合<strong><em>。\</em></strong>组合中只允许含有 1 - 9 的正整数，并且每种组合中不存在重复的数字。</p>
 <p>思路：简单的回溯即可</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -266,7 +257,6 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="前-K-个高频元素"><a href="#前-K-个高频元素" class="headerlink" title="前 K 个高频元素"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/top-k-frequent-elements/">前 K 个高频元素</a></h4><p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，请你返回其中出现频率前 <code>k</code> 高的元素。你可以按 <strong>任意顺序</strong> 返回答案。</p>
 <p><em>思路：首先排序后统计次数，然后采用优先队列（也就是堆）对数字进行排序，输出前k高。</em></p>
 <p>该题也可以使用块排思想，第一步统计完次数后，按照出现次数，采用快排把前k个输出。</p>
@@ -293,7 +283,6 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="找到字符串中所有字母异位词"><a href="#找到字符串中所有字母异位词" class="headerlink" title="找到字符串中所有字母异位词"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/">找到字符串中所有字母异位词</a></h4><p>给定一个字符串 s 和一个非空字符串 p，找到 s 中所有是 p 的字母异位词的子串，返回这些子串的起始索引。</p>
 <p>字符串只包含小写英文字母，并且字符串 s 和 p 的长度都不超过 20100。</p>
 <ul>
@@ -349,7 +338,6 @@
         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="多数元素"><a href="#多数元素" class="headerlink" title="多数元素"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/majority-element/">多数元素</a></h4><p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数 大于 ⌊ n/2 ⌋ 的元素。</p>
 <p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
 <ul>
@@ -374,7 +362,6 @@
         <span class="token keyword">return</span> candidates<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="求众数-II"><a href="#求众数-II" class="headerlink" title="求众数 II"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/majority-element-ii/">求众数 II</a></h4><p>给定一个大小为 n 的整数数组，找出其中所有出现超过 ⌊ n/3 ⌋ 次的元素。</p>
 <p>进阶：尝试设计时间复杂度为 O(n)、空间复杂度为 O(1)的算法解决此问题。</p>
 <p>思路：摩尔投票法，进阶版。</p>
@@ -411,7 +398,6 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="最短无序连续子数组"><a href="#最短无序连续子数组" class="headerlink" title="最短无序连续子数组"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-unsorted-continuous-subarray/">最短无序连续子数组</a></h4><p>给你一个整数数组 nums ，你需要找出一个 连续子数组 ，如果对这个子数组进行升序排序，那么整个数组都会变为升序排序。</p>
 <p>请你找出符合题意的 最短 子数组，并输出它的长度。</p>
 <p><em>思路：记录max、min值，找到min值应该在的位置start，记住最后一个乱序的值的位置end，end-start + 1即可</em></p>
@@ -438,10 +424,10 @@
         <span class="token keyword">return</span> end <span class="token operator">-</span> start <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="排序数组"><a href="#排序数组" class="headerlink" title="排序数组"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-an-array/">排序数组</a></h4><p>给你一个整数数组 <code>nums</code>，请你将该数组升序排列。</p>
 <p>思路：</p>
 <p>基于排序算法，实现对数组的排序。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -451,7 +437,8 @@
 <th>稳定性</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>插入排序</td>
 <td>$O(n^2)$</td>
 <td>O(1)</td>
@@ -485,9 +472,10 @@
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ol>
 <li>快速排序解法</li>
 </ol>
@@ -529,8 +517,7 @@
         <span class="token keyword">return</span> start<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="2">
+<ol>
 <li>堆排序</li>
 </ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -579,8 +566,7 @@
         nums<span class="token punctuation">[</span>bdx<span class="token punctuation">]</span> <span class="token operator">=</span> num<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="3">
+<ol>
 <li>冒泡排序</li>
 </ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -604,7 +590,6 @@
         nums<span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="搜索旋转排序数组"><a href="#搜索旋转排序数组" class="headerlink" title="搜索旋转排序数组"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-in-rotated-sorted-array/">搜索旋转排序数组</a></h4><p>整数数组 nums 按升序排列，数组中的值 互不相同 。</p>
 <p>在传递给函数之前，nums 在预先未知的某个下标 k（0 &lt;= k &lt; nums.length）上进行了 旋转，使数组变为 [nums[k], nums[k+1], …, nums[n-1], nums[0], nums[1], …, nums[k-1]]（下标 从 0 开始 计数）。例如， [0,1,2,4,5,6,7] 在下标 3 处经旋转后可能变为 [4,5,6,7,0,1,2] 。</p>
 <p>给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回 -1 。</p>
@@ -635,7 +620,6 @@
         <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="最长连续序列"><a href="#最长连续序列" class="headerlink" title="最长连续序列"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-consecutive-sequence/">最长连续序列</a></h4><p>给定一个未排序的整数数组 <code>nums</code> ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。</p>
 <p>思路：记录出现过的数字，从该数字开始，跳过map判断接下来的数字有没有出现过，统计最长的序列。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -659,7 +643,6 @@
         <span class="token keyword">return</span> max<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="在排序数组中查找元素的第一个和最后一个位置"><a href="#在排序数组中查找元素的第一个和最后一个位置" class="headerlink" title="在排序数组中查找元素的第一个和最后一个位置"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">在排序数组中查找元素的第一个和最后一个位置</a></h4><p>给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。</p>
 <p>如果数组中不存在目标值 target，返回 [-1, -1]。</p>
 <p>思路：这种有序的，肯定是二分，在该题中，找到target后，需要左右遍历，找到target的范围。</p>
