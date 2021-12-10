@@ -16,18 +16,22 @@
 </li>
 <li><p>Wikipedia：基于Wikipedia，每个词组都有一个文章页面与之相关联，每篇文章同时具有标题、neighbors、描述和分类，这些作为特征都可以用于相似性的计算。</p>
 </li>
-<li><p>BabelNet：babelNet是一个集合了WordnNet以及Wikipedia的词汇数据库</p>
-</li>
+<li>BabelNet：babelNet是一个集合了WordnNet以及Wikipedia的词汇数据库</li>
 </ul>
 <p>基于知识模型方法主要包括以下类型：</p>
 <ul>
 <li><p>Edge-counting 边计数法</p>
 <p><em>Path</em>方法：</p>
-<p>​    将词抽象为图节点，根据词的分类将两个词连接起来，然后统计边的数量作为两个term的相似度。<br>$$<br>sim_{path} (t1,t2) = \frac{1}{1 + min_len(t1,t2)}<br>$$</p>
-<p><em>wup</em>方法：</p>
-<p>​    该方法统计每个term自身的分类深度，以及两个term（Least Common Subsumer）最近祖先分类点的深度：<br>$$<br>sim_{wup} (t_1,t_2) = \frac{2depth(t_{lcs})}{depth(t_1) + depth(t_2)}<br>$$<br>​    </p>
-<p>缺点：忽略了本体中的edges不必等长的事实</p>
-</li>
+<p>​    将词抽象为图节点，根据词的分类将两个词连接起来，然后统计边的数量作为两个term的相似度。</p>
+<script type="math/tex; mode=display">
+sim_{path} (t1,t2) = \frac{1}{1 + min_len(t1,t2)}</script></li>
+</ul>
+<p>  <em>wup</em>方法：</p>
+<p>  ​    该方法统计每个term自身的分类深度，以及两个term（Least Common Subsumer）最近祖先分类点的深度：</p>
+<script type="math/tex; mode=display">
+  sim_{wup} (t_1,t_2) = \frac{2depth(t_{lcs})}{depth(t_1) + depth(t_2)}</script><p>  ​    </p>
+<p>  缺点：忽略了本体中的edges不必等长的事实</p>
+<ul>
 <li><p>Feature-based 特征法</p>
 <p>基于词汇的属性，如注解、相似概念等，进行相似度的计算。</p>
 <p><em>Lesk</em>：衡量两个词的相似度，主要考虑两个词的注解以及在WordNet中表示该词含义的词的注解的overlap</p>

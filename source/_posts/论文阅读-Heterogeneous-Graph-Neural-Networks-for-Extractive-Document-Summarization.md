@@ -2,6 +2,7 @@
 title: 论文阅读-Heterogeneous Graph Neural Networks for Extractive Document Summarization
 date: 2021-11-15 21:00:57
 tags: [论文]
+mathjax: true
 ---
 
 ## Heterogeneous Graph Neural Networks for Extractive Document Summarization

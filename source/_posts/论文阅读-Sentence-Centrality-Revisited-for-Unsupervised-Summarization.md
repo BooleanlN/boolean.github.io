@@ -2,6 +2,7 @@
 title: 论文阅读-Sentence Centrality Revisited for Unsupervised Summarization
 date: 2021-10-19 16:11:15
 tags: [论文]
+mathjax: true
 ---
 
 ##  Sentence Centrality Revisited for Unsupervised Summarization（基于再访问句子中心性的无监督文本摘要生成）
