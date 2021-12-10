@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>C++初尝 │ Hexo</title><link rel="stylesheet" href="/css/oasis.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><div id="content"><h1 id="title">C++初尝</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2021-11-10T07:26:09.000Z">2021-11-10</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><h2 id="C-初尝"><a href="#C-初尝" class="headerlink" title="C++初尝"></a>C++初尝</h2><blockquote>
+<p>阅读笔记《C++ Primer edition 5th》</p>
+</blockquote>
+<h3 id="chapter-1"><a href="#chapter-1" class="headerlink" title="chapter 1"></a>chapter 1</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; include，表示要使用某个库或头文件
+#include &lt;iostream&gt;
+#include &quot;Sales_item.h&quot;
+
+&#x2F;&#x2F; 标准库命名空间
+using namespace std;
+
+int main()&#123;
+  &#x2F;&#x2F; 自定义的类以及与其关联的一组操作
+  Sales_item total;
+  &#x2F;&#x2F; cin，标准输入，istream对象，输入流，流的意思是随着时间的推移，字符是顺序生成和消耗的。
+  if (cin &gt;&gt; total) &#123;
+    Sales_item trans;
+    while(cin &gt;&gt; trans) &#123;
+      if(total.isbn() &#x3D;&#x3D; trans.isbn())&#123;
+        total +&#x3D; trans;
+      &#125; else &#123;
+        &#x2F;&#x2F; cout，标准输出，ostream对象，输出流
+        &#x2F;&#x2F; endl，操纵符的特殊值，效果是结束当前行，将与设备关联的缓冲区内容刷到设备当中
+        cout &lt;&lt; total &lt;&lt; endl;
+        total &#x3D; trans;
+      &#125;
+    &#125;
+    cout &lt;&lt; total &lt;&lt; endl;
+  &#125; else &#123;
+    &#x2F;&#x2F; 输出错误
+    cerr &lt;&lt; &quot;There is no data!&quot; &lt;&lt; endl;
+    return -1;
+  &#125;
+  return 0;
+&#125;
+&#x2F;&#x2F; 执行 .&#x2F;main &lt;data&#x2F;book_sales &gt;res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwa64eem78j313w06omyz.jpg" alt="image-20211110171045345"></p>
+<p>这个要如何理解？</p>
+<p>首先要了解下<strong>缓冲区</strong>的定义，缓冲区是一块圈定的内存区域，<strong>它用在输入输出设备和CPU之间，用来缓存数据。它使得低速的输入输出设备和高速的CPU能够协调工作，避免低速的输入输出设备占用CPU，解放出CPU，使其能够高效率工作</strong></p>
+<p><strong>cout</strong>是输出流对象，它会自动关联一块缓冲区，输出的数据一开始是放在缓冲区的，刷新缓冲区操作可以将缓冲区的数据真正地输出到输出设备。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int main()&#123;
+  cout &lt;&lt; &quot;abcd&quot;; &#x2F;&#x2F; 在缓冲区
+  cout &lt;&lt; endl; &#x2F;&#x2F; 输出到输出设备
+  cout &lt;&lt; &quot;def&quot;; &#x2F;&#x2F; 在缓冲区
+&#125;
+&#x2F;&#x2F; 程序结束，刷新缓冲区<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="chapter2"><a href="#chapter2" class="headerlink" title="chapter2"></a>chapter2</h3><h4 id="如何选择正确的数据类型？"><a href="#如何选择正确的数据类型？" class="headerlink" title="如何选择正确的数据类型？"></a>如何选择正确的数据类型？</h4><ol>
+<li>当明确数值不可能为负时，选择无符号类型</li>
+<li>使用int执行整数运算，如果超出了int的表示范围，选用long long</li>
+<li>算术表达式中不要使用char或bool。char类型在某些机器上是有符号的，在另一些机器上又是无符号的</li>
+<li>执行浮点运算用double。double精度更高，且与float计算代价相差无几</li>
+</ol>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p>当一个算术表达式中既有无符号数又有int值时，int值会转换为无符号数。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()&#123;
+  unsigned u &#x3D; 10, u2 &#x3D; 42;
+  cout &lt;&lt; u2 - u &lt;&lt; endl;
+  cout &lt;&lt; u - u2 &lt;&lt; endl; &#x2F;&#x2F; 4294967264, 有符号数相减结果为-32，因为是无符号表示，所以实际值为2^32 - 32（补码表示法）
+
+  int i &#x3D; 10, i2 &#x3D; 42;
+  cout &lt;&lt; i2 - i &lt;&lt; endl;
+  cout &lt;&lt; i - i2 &lt;&lt; endl;
+
+
+  cout &lt;&lt; i - u &lt;&lt; endl;
+  cout &lt;&lt; u - i &lt;&lt; endl;
+
+  int i3 &#x3D; -10;
+  cout &lt;&lt; i3 - u &lt;&lt; endl; &#x2F;&#x2F; 4294967276
+  cout &lt;&lt; u + i3 &lt;&lt; endl;
+
+  int i4 &#x3D; -20;
+  cout &lt;&lt; u + i4 &lt;&lt; endl; &#x2F;&#x2F; 4294967286
+  cout &lt;&lt; i4 + u &lt;&lt; endl; &#x2F;&#x2F; 4294967286
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="花括号初始化（列表初始化）"><a href="#花括号初始化（列表初始化）" class="headerlink" title="花括号初始化（列表初始化）"></a>花括号初始化（列表初始化）</h4><p>列表初始化在C++11后，可以支持包括基本类型在内的所有类型的初始化。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+
+using namespace std;
+class Example &#123;
+  public:
+    int a;
+    int b;
+    Example() &#x3D; default;
+    Example(int aIn, int bIn) &#123;
+      a &#x3D; aIn;
+      b &#x3D; bIn;
+    &#125;;
+&#125;;
+int main() &#123;
+  string str(&quot;hello&quot;);
+  string str2 &#x3D; &quot;world&quot;;
+  string str3 &#x3D; &#123;&quot;!&quot;&#125;;
+
+  cout &lt;&lt; str + str2 + str3 &lt;&lt; endl;
+
+  int a &#x3D; 0.1; &#x2F;&#x2F; warning 级别，潜在的类型转换，不会报编译错误
+  &#x2F;&#x2F; int b &#x3D; &#123;0.1&#125;; &#x2F;&#x2F; error级别，报编译错误
+  
+  &#x2F;&#x2F; class type也可以用列表初始化
+  Example example &#x3D; &#123;1,1&#125;;
+  cout &lt;&lt; example.a &lt;&lt; example.b &lt;&lt; endl;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h4><p>C++支持<strong>分离式编译</strong>。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">extern int i; &#x2F;&#x2F; 声明变量i，但未进行定义，主要用于文件间代码共享
+int j; &#x2F;&#x2F; 声明并定义
+extern int k &#x3D; 3; &#x2F;&#x2F; 定义<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>C++允许在内层作用域中重新定义外层作用域中已有的名字，将其覆盖掉。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i &#x3D; 100;
+for (int i &#x3D; 0; i &lt; 10; i++)
+&#123;
+  cout&lt;&lt;i;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h4><p><em>复合类型指基于其它类型定义的类型</em></p>
+<h5 id="指针和引用的区别"><a href="#指针和引用的区别" class="headerlink" title="指针和引用的区别"></a>指针和引用的区别</h5><p>指针的定义：</p>
+<p>Pointers store address of variables or a memory location. </p>
+<p>指针存储变量的地址或指向一块内存地址。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int var &#x3D; 10;
+int *p &#x3D; &amp;var;
+cout &lt;&lt; *p &lt;&lt; endl; &#x2F;&#x2F; 10
+cout &lt;&lt; p &lt;&lt; endl; &#x2F;&#x2F; 0x7ffa0...
+
+*p &#x3D; 20;
+cout &lt;&lt; var &lt;&lt; endl; &#x2F;&#x2F; 20<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwmvlekx59j30xo0gwmya.jpg" alt="image-20211121165847840"></p>
+<p>指针对象支持自增（++）与自减（–）操作，增加的长度为指针类型的长度，如int指针增加4</p>
+<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20211121170353544.png" alt="image-20211121170353544"></p>
+<p><strong>引用</strong>的定义：</p>
+<p>When a variable is declared as a reference, it becomes an alternative name for an existing variable.</p>
+<p>引用其实就是给已存在的对象起了一个别名，类似于“阿里的花名”😁，给风清扬一拳，也表示给了马云一拳。</p>
+<p><strong>常用场景</strong>：</p>
+<ol>
+<li><p><strong>Modify the passed parameters in a function</strong>，修改函数传参</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a &#x3D; 1, b &#x3D; 2;
+swap(a,b);
+cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; endl;
+void swap(int &amp;a, int &amp;b)&#123;
+  int tmp &#x3D; a;
+  a &#x3D; b;
+  b &#x3D; a;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><strong>Avoiding a</strong> <strong>copy of large structures</strong>，避免大对象的copy浪费空间</p>
+<p>在函数传递时，通过引用类型，避免大对象的copy</p>
+</li>
+<li><p><strong>In For Each Loops to modify all objects</strong></p>
+<p>在foreach中，修改对象</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt; vect&#123; 10, 20, 30, 40 &#125;; 
+for(int &amp;x:vect) &#123;
+  x &#x3D; x + 5;
+&#125;
+for(int x:vect)&#123;
+  cout &lt;&lt; x; &#x2F;&#x2F; &#123;15, 25, 35, 45&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><strong>For Each Loop to avoid the</strong> <strong>copy of objects</strong></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;string&gt; strs&#123;&quot;aaabbb&quot;, &quot;bbbccc&quot;, &quot;cccddd&quot;&#125;;
+for(string &amp;str: strs)&#123;
+  cout &lt;&lt; str; &#x2F;&#x2F; 避免进行值copy
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int k, &amp;rk &#x3D; k; &#x2F;&#x2F; &amp; 表示rk是一个reference，引用型变量，rk可以理解为k的别名
+ k &#x3D; 5; rk &#x3D; 10; &#x2F;&#x2F;  对rk进行操作，会影响到k
+ cout &lt;&lt; k &lt;&lt; &quot; &quot; &lt;&lt; rk &lt;&lt; endl;
+
+ int i &#x3D; 10;
+ int *p &#x3D; nullptr; &#x2F;&#x2F; 空指针，*表示p为指针变量
+ p &#x3D; &amp;i; &#x2F;&#x2F; 给指针变量赋值，&amp;为取地址符号
+ cout &lt;&lt; *p &lt;&lt; endl; &#x2F;&#x2F; *为解引用符，对指针解引用可以得到所指的对象，因此可以获得i<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="Pointer-vs-Reference"><a href="#Pointer-vs-Reference" class="headerlink" title="Pointer vs Reference"></a>Pointer vs Reference</h5><ol>
+<li>引用初始化<strong>必须进行赋值</strong>，且<strong>不可变</strong>，指针则本身是一个对象，允许对它进行赋值和拷贝，<strong>可以先后指向不同的对象</strong>，定义时也<strong>不须赋初值</strong></li>
+<li>在调用栈上，<strong>指针有自己的地址和内存空间</strong>，而引用与原变量共享同一个地址。</li>
+</ol>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int test  &#x3D; 10, *pt &#x3D; &amp;test, &amp;rt &#x3D; test;
+cout &lt;&lt; &amp;test &lt;&lt; &quot; &quot; &lt;&lt; &amp;pt &lt;&lt; &quot; &quot; &lt;&lt; &amp;rt &lt;&lt; &quot; &quot; &lt;&lt; pt &lt;&lt; endl;
+&#x2F;&#x2F; 0x7ffeeca40454 0x7ffeeca40448 0x7ffeeca40454 0x7ffeeca40454<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li>指针可以有多级，而引用只提供一级</li>
+</ol>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int **p; &#x2F;&#x2F; valid
+int &amp;&amp;q;&#x2F;&#x2F; error<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="C-内存布局"><a href="#C-内存布局" class="headerlink" title="C++内存布局"></a>C++内存布局</h3><ol>
+<li><p>进程与线程</p>
+<p>进程是操作系统分配资源的最小单位，在操作系统中，进程的创建等管理与PCB(Process Control Block)这个结构息息相关，<strong>PCB是进程存在的唯一标志</strong>。PCB当中包含了管理进程的信息：</p>
+<ul>
+<li>进程标识符</li>
+<li>进程调度信息</li>
+<li>进程控制信息</li>
+</ul>
+<p>例如<code>task_struct</code>是linux对PCB的实现：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">task_struct</span> <span class="token punctuation">&#123;</span>
+<span class="token comment">/* these are hardcoded - don't touch */</span>
+    <span class="token keyword">long</span> state<span class="token punctuation">;</span>    <span class="token comment">/* -1 unrunnable, 0 runnable, >0 stopped */</span>
+    <span class="token keyword">long</span> counter<span class="token punctuation">;</span>
+    <span class="token keyword">long</span> priority<span class="token punctuation">;</span>
+    <span class="token keyword">long</span> signal<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">sigaction</span> sigaction<span class="token punctuation">[</span><span class="token number">32</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">long</span> blocked<span class="token punctuation">;</span>    <span class="token comment">/* bitmap of masked signals */</span>
+<span class="token comment">/* various fields */</span>
+    <span class="token keyword">int</span> exit_code<span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">long</span> start_code<span class="token punctuation">,</span>end_code<span class="token punctuation">,</span>end_data<span class="token punctuation">,</span>brk<span class="token punctuation">,</span>start_stack<span class="token punctuation">;</span>
+    <span class="token keyword">long</span> pid<span class="token punctuation">,</span>pgrp<span class="token punctuation">,</span>session<span class="token punctuation">,</span>leader<span class="token punctuation">;</span>
+    <span class="token keyword">int</span>    groups<span class="token punctuation">[</span>NGROUPS<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">/*
+     * pointers to parent process, youngest child, younger sibling,
+     * older sibling, respectively.  (p->father can be replaced with
+     * p->p_pptr->pid)
+     *									parent
+     *						/				 |         \
+     * younger sibling  &lt;- me -> older sibling
+     *.         				   |
+     *               youngest child
+     */</span>
+    <span class="token keyword">struct</span> <span class="token class-name">task_struct</span>    <span class="token operator">*</span>p_pptr<span class="token punctuation">,</span> <span class="token operator">*</span>p_cptr<span class="token punctuation">,</span> <span class="token operator">*</span>p_ysptr<span class="token punctuation">,</span> <span class="token operator">*</span>p_osptr<span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">short</span> uid<span class="token punctuation">,</span>euid<span class="token punctuation">,</span>suid<span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">short</span> gid<span class="token punctuation">,</span>egid<span class="token punctuation">,</span>sgid<span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">long</span> timeout<span class="token punctuation">,</span>alarm<span class="token punctuation">;</span>
+    <span class="token keyword">long</span> utime<span class="token punctuation">,</span>stime<span class="token punctuation">,</span>cutime<span class="token punctuation">,</span>cstime<span class="token punctuation">,</span>start_time<span class="token punctuation">;</span>
+  	<span class="token comment">/* resource limit */</span>
+    <span class="token keyword">struct</span> <span class="token class-name">rlimit</span> rlim<span class="token punctuation">[</span>RLIM_NLIMITS<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> flags<span class="token punctuation">;</span>    <span class="token comment">/* per process flags, defined below */</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">short</span> used_math<span class="token punctuation">;</span>
+<span class="token comment">/* file system info */</span>
+    <span class="token keyword">int</span> tty<span class="token punctuation">;</span>        <span class="token comment">/* -1 if no tty, so it must be signed */</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">short</span> umask<span class="token punctuation">;</span>
+  <span class="token comment">/* m_inode 内存inode*/</span>
+    <span class="token keyword">struct</span> <span class="token class-name">m_inode</span> <span class="token operator">*</span> pwd<span class="token punctuation">;</span> <span class="token comment">// 当前目录节点</span>
+    <span class="token keyword">struct</span> <span class="token class-name">m_inode</span> <span class="token operator">*</span> root<span class="token punctuation">;</span> <span class="token comment">// 根目录节点</span>
+    <span class="token keyword">struct</span> <span class="token class-name">m_inode</span> <span class="token operator">*</span> executable<span class="token punctuation">;</span> <span class="token comment">// </span>
+    <span class="token keyword">struct</span> <span class="token class-name">m_inode</span> <span class="token operator">*</span> library<span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">long</span> close_on_exec<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">file</span> <span class="token operator">*</span> filp<span class="token punctuation">[</span>NR_OPEN<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">/* ldt for this task 0 - zero 1 - cs 2 - ds&amp;ss */</span>
+    <span class="token keyword">struct</span> <span class="token class-name">desc_struct</span> ldt<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">/* tss for this task */</span>
+    <span class="token keyword">struct</span> <span class="token class-name">tss_struct</span> tss<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>线程是CPU调度的最小单位，线程之间共享进程的存储区域、CPU资源，同一时刻，只有一个线程任务会被执行。在Linux中，线程与进程一样都是<code>task_struct</code>，在windows中，存在TCB(Thread Control Block)，是线程的控制实体。</p>
+</li>
+<li></li>
+</ol>
+<div class="post-tags"><a class="post-tag-link" href="/tags/C/" rel="tag">#C++</a></div></article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div><div><a>2021@ </a><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a>Powered by&nbsp</a><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><a>&nbsp&&nbsp</a><a target="_blank" rel="noopener" href="https://github.com/qiantao94/hexo-theme-oasis">Oasis</a></div></div></div></div></div></body><script src="/js/oasis.js"></script></html>

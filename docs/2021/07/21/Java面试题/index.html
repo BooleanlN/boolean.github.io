@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Java面试题 │ Hexo</title><link rel="stylesheet" href="/css/oasis.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><div id="content"><h1 id="title">Java面试题</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2021-07-21T05:22:58.000Z">2021-07-21</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><h4 id="Java面试题集锦"><a href="#Java面试题集锦" class="headerlink" title="Java面试题集锦"></a>Java面试题集锦</h4><h5 id="容器相关"><a href="#容器相关" class="headerlink" title="容器相关"></a>容器相关</h5><ol>
+<li><p>介绍ArrayList底层实现</p>
+<p>ArrayList底层通过Object数组实现，可以指定<code>capacity</code>参数，设置容量大小，默认容量是10。</p>
+<p>当添加元素时，会进行空间大小的判定，当容量不够时，执行自动扩容算法。</p>
+<p>在扩容算法中，默认扩大到当前长度的1.5倍，如果扩大后大小仍无法满足要求，则将其设置为所需大小，超出最大值，则设置为<code>Integer.MAX_VALUE</code>。</p>
+<p>支持元素随机访问，末尾插入数据O（1），特定位置插入元素O（n-i）</p>
+</li>
+<li><p>介绍LinkedList底层实现</p>
+<p>LinkedList底层通过一个Node双向链表实现。首尾插入删除元素复杂度为O(1)，特定位置插入删除元素复杂度为O(n)</p>
+</li>
+<li><p>介绍HashMap</p>
+<p>HashMap，一种Hash数据结构，底层通过数组，链表以及红黑树实现：</p>
+<p>整体构建<code> Node&lt;K,V&gt;[] table</code>，存储Node，当发生Hash冲突时，采取链地址法进行解决，当链较长，达到设定的转树阈值，链表会转为红黑树。</p>
+<ul>
+<li>Node&lt;K,V&gt;链表</li>
+<li>TreeNode&lt;K,V&gt;，红黑树结构</li>
+</ul>
+<p>HashMap扩容机制：</p>
+<p>HashMap默认容量为16，</p>
+<ol>
+<li>未初始化Map，会先对Map进行扩容</li>
+<li>已初始化Map，将元素加入Map当中，当添加的元素达到转树的阈值后，会将链表转为红黑树</li>
+</ol>
+<p>之后，判断加入的元素总和超过设定好的阈值<code>capacity * load factor</code>，触发<code>resize</code>，开始扩容，扩容为原来的2倍大小。扩容时，会新建一个hash结构，新的位置要么在原位置，要么在原长度+原坐标。</p>
+</li>
+<li><p>HashMap1.7与1.8之间的差异</p>
+<p>jdk1.7中，采用数组+链表方式，1.8中添加了红黑树，优化了查询效率</p>
+<p>jdk1.7中，链表是采用头插法，1.8中采取尾插法</p>
+<p>jdk1.8优化了hash算法，只需要一次扰动</p>
+<p>jdk1.8中rehash，通过e.hash &amp; oldCap==0来判断新插入的位置是否为原位置，jdk1.7则需要重新计算hash位置，并采用头插法，会有并发问题。</p>
+<p>jdk1.8中，table是懒加载，在第一次putVal时触发扩容进行创建</p>
+</li>
+<li><p>介绍ConcurrentHashMap</p>
+<p>线程安全的HashMap，1.7中，底层通过<strong>分段的数组+链表</strong>实现，将数据分为若干段，每段加一把锁。1.8中，使用<code>sychronized关键字</code>以及<code>CAS</code>乐观锁实现。</p>
+<p><code>synchronized</code> 只锁定当前链表或红黑二叉树的首节点，这样只要 hash 不冲突，就不会产生并发，效率又提升 N 倍。扩容操作可以并发。</p>
+</li>
+<li><p>HashSet与HashMap异同</p>
+</li>
+<li><p>HashMap与TreeMap实现原理</p>
+<p>TreeMap提供了对键值的排序功能，默认是按键值的升序排序，也可以指定排序的比较器，当用Iterator遍历TreeMap时，得到的记录是排过序的。如果使用排序的映射，建议使用TreeMap。TreeMap基于红黑树实现。</p>
+</li>
+</ol>
+<h5 id="多线程相关"><a href="#多线程相关" class="headerlink" title="多线程相关"></a>多线程相关</h5><h5 id="JVM相关"><a href="#JVM相关" class="headerlink" title="JVM相关"></a>JVM相关</h5><ol>
+<li><p>JVM内存区域</p>
+<p>JVM内存区域包括堆区（存储对象信息，GC）、虚拟机栈区（存放局部变量表、操作数、动态链接、返回地址表等构成栈帧）、程序计数器（代码执行位置指示器）、本地方法栈（Native方法的栈）、元空间（存放类信息，方法信息）、直接内存。</p>
+<p>其中堆、元空间（方法区）、直接内存是线程共享的，其他为线程私有的。</p>
+</li>
+<li><p>String常量池介绍</p>
+</li>
+<li><p>会发生OOM的区域</p>
+<p>堆、虚拟机栈、本地方法栈、元空间</p>
+</li>
+<li><p>类加载过程</p>
+<p>加载、验证、准备、解析、初始化。</p>
+<p>首先，获取类文件的二进制字节流，在堆中生成一个代表类的Class对象，作为方法区的这些数据的访问入口。</p>
+<p>验证阶段主要是对文件格式、字节码等进行验证，该阶段会穿插在各阶段中，准备阶段主要为类变量分配空间。</p>
+</li>
+<li><p>双亲委派机制</p>
+<p>jvm提供了三类ClassLoader，分别是Bootstrap ClassLoader、ExtClassLoader、ApplicationClassLoader，分别加载核心类库（java、javax、sun开头）、扩展类库、应用ClassPath下的类。</p>
+<p>当需要对一个类进行加载时，首先查看当前类在本加载器上是否已加载，否则层层向上进行委派，直到Bootstrap ClassLoader，如果父类加载器无法完成加载，再向下层层委派，进行加载。</p>
+<p>优点：避免重复加载，保证核心类不被篡改替换。</p>
+</li>
+<li><p>对象创建过程</p>
+<p>类加载检查-&gt;分配内存-&gt; 初始化零值-&gt;设置对象头-&gt;执行init方法</p>
+</li>
+<li><p>对象内存布局</p>
+<p>对象头、实例数据以及对齐填充。</p>
+<p>对象头包括分代年龄、锁标志、hashcode、元数据指针等</p>
+</li>
+<li><p>对象访问定位</p>
+<p>句柄池、直接访问。</p>
+</li>
+<li><p>String s1 = new String(“abc”);这句话创建了几个字符串对象？</p>
+<ul>
+<li><p>1个，一个s1的字符串对象，指向常量池中的“abc”</p>
+</li>
+<li><p>两个，先在常量池创建一个“abc”字面量，一个s1的字符串对象，指向常量池中的“abc”</p>
+</li>
+</ul>
+</li>
+<li><p>垃圾回收算法</p>
+</li>
+<li><p>讲讲CMS</p>
+</li>
+<li><p>讲讲G1</p>
+</li>
+</ol>
+<h5 id="基础考察"><a href="#基础考察" class="headerlink" title="基础考察"></a>基础考察</h5><ol>
+<li><p>==与equals的关系</p>
+<p>基本类型==比较的是值，非基本类型==比较的是两个在内存中存放的地址</p>
+<p>equals如果没有被重写，则比较的是地址，如果被重写了，则比较的是地址中的内容</p>
+</li>
+<li><p>equals与hashcode为什么要同时重写</p>
+<p>主要是考虑当一个对象需要在散列表中存储时，如果两个对象通过equals比较是相同的，那么表示其是相同的对象，那么在Hash结构中，必须保证它们得到的hashcode是一样的。</p>
+</li>
+<li><p>拆箱与装箱</p>
+</li>
+</ol>
+<p>12345@Yw</p>
+<div class="post-tags"><a class="post-tag-link" href="/tags/Java/" rel="tag">#Java</a>, <a class="post-tag-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">#面试</a></div></article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div><div><a>2021@ </a><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a>Powered by&nbsp</a><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><a>&nbsp&&nbsp</a><a target="_blank" rel="noopener" href="https://github.com/qiantao94/hexo-theme-oasis">Oasis</a></div></div></div></div></div></body><script src="/js/oasis.js"></script></html>
