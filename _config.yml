@@ -103,7 +103,7 @@ theme: oasis
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/BooleanlN/myblog
+  repo: git@github.com:BooleanlN/myblog.git
   branch: default
 highlight:
   enable: false #set it to false
