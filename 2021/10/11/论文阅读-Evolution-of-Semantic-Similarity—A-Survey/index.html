@@ -1,7 +1,20 @@
 <!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><title>论文阅读-Evolution of Semantic Similarity—A Survey │ Boolean</title><link rel="stylesheet" href="/myblog/css/oasis.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/myblog/atom.xml" title="Boolean" type="application/atom+xml">
-</head><body><div id="content"><h1 id="title">论文阅读-Evolution of Semantic Similarity—A Survey</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2021-10-11T09:19:04.000Z">2021-10-11</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><h4 id="Evolution-of-Semantic-Similarity—A-Survey"><a href="#Evolution-of-Semantic-Similarity—A-Survey" class="headerlink" title="Evolution of Semantic Similarity—A Survey"></a>Evolution of Semantic Similarity—A Survey</h4><p>语义相似模型分为：</p>
+</head><body><div id="content"><h1 id="title">论文阅读-Evolution of Semantic Similarity—A Survey</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2021-10-11T09:19:04.000Z">2021-10-11</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><h4 id="Evolution-of-Semantic-Similarity—A-Survey"><a href="#Evolution-of-Semantic-Similarity—A-Survey" class="headerlink" title="Evolution of Semantic Similarity—A Survey"></a>Evolution of Semantic Similarity—A Survey</h4><pre class="line-numbers language-none"><code class="language-none">@article&#123;2021,
+title&#x3D;&#123;Evolution of Semantic Similarity—A Survey&#125;,
+volume&#x3D;&#123;54&#125;,
+ISSN&#x3D;&#123;1557-7341&#125;,
+url&#x3D;&#123;http:&#x2F;&#x2F;dx.doi.org&#x2F;10.1145&#x2F;3440755&#125;,
+DOI&#x3D;&#123;10.1145&#x2F;3440755&#125;,
+number&#x3D;&#123;2&#125;,
+journal&#x3D;&#123;ACM Computing Surveys&#125;,
+publisher&#x3D;&#123;Association for Computing Machinery (ACM)&#125;,
+author&#x3D;&#123;Chandrasekaran, Dhivya and Mago, Vijay&#125;,
+year&#x3D;&#123;2021&#125;,
+month&#x3D;&#123;Apr&#125;,
+pages&#x3D;&#123;1–37&#125; &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>语义相似模型分为：</p>
 <ul>
-<li>knowledgebased， 基于知识</li>
+<li>knowledge-based， 基于知识</li>
 <li>corpus-based, 基于语料库</li>
 <li>deep neural network–based methods， 基于深度神经网络</li>
 <li>hybrid methods， 混合方法</li>
@@ -75,4 +88,63 @@ sim_{path} (t1,t2) = \frac{1}{1 + min_len(t1,t2)}</script></li>
 <li>MSSA</li>
 <li>UESTS</li>
 </ul>
-<div class="post-tags"><a class="post-tag-link" href="/myblog/tags/%E8%AE%BA%E6%96%87/" rel="tag">#论文</a></div></article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div><div><a>2021@ </a><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a>Powered by&nbsp</a><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><a>&nbsp&&nbsp</a><a target="_blank" rel="noopener" href="https://github.com/qiantao94/hexo-theme-oasis">Oasis</a></div></div></div></div></div></body><script src="/myblog/js/oasis.js"></script></html>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><ol>
+<li><p>语义匹配在很多NLP任务中扮演着重要的角色，像信息检索、文本摘要、文本分类、文章评价、机器翻译、机器问答等。</p>
+<p>Measuring the semantic similarity between various text components like words, sentences, or documents plays a significant role in a wide range of NLP tasks like information retrieval [48], text summarization [80], text classification [49], essay evaluation [42], machine translation [134], question answering [19, 66], among others.</p>
+</li>
+<li><p>语义匹配方法：</p>
+<ul>
+<li>早期：方法认为判断两个语句相似的原则是具备相近的词语/字母。类似BoW、TF-IDF<ul>
+<li>缺陷：无法处理多义词，同义词；忽略了语义与句法特征</li>
+<li>优点：利用了词汇特征，易于实现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>基于知识的语义匹配方法</p>
+<p>基于知识的语义匹配方法基于一个或多个知识库，这些知识库提供了通过语义关系连接的单词或概念的结构化表示。常用的知识语义库有WordNet[1]，Wiktionary^1^，With the advent of Wikipedia^2^，Chinese Open wordnet[2]，BabelNet[3]。</p>
+<ul>
+<li><p>边缘计数方法</p>
+<p>最直接的方法是视待匹配文本中语句单元之间为相互连接的图，对单元之间的连接边进行计数，相似度与距离成反比^[4]^,边缘计数法没有考虑到不同单词对语句语义贡献的不同，一些具有更具体意义的词通常更能代表语句，Wu等人^[5]^提出的wup方法，将单词的深度作为一个重要因素考虑进去，除了考虑边缘计数外，还要计算两个词语距离它们共享的公共祖先的最短距离。</p>
+<ul>
+<li>缺陷：忽略了本体中的边缘不必等长这一事实</li>
+</ul>
+</li>
+<li><p>基于特征</p>
+</li>
+<li><p>基于信息内容</p>
+</li>
+</ul>
+</li>
+<li><p>基于语料的语义相似度方法</p>
+<p>基于语料的语义相似度方法衡量两个文本之间相似度基于从大规模语料中抽取的信息。基于一种分布式假设：相似的单词经常出现在相似的上下文语境当中^[6]^。</p>
+<ul>
+<li><p>Word Embeddings</p>
+<p>常用的方法有神经网络^[7]^、共现矩阵^[8]^、基于单词出现的上下文进行表示</p>
+<ol>
+<li>word2vec^[7]^</li>
+<li>Glove^[8]^</li>
+<li>fastText</li>
+<li>BERT</li>
+</ol>
+<p>缺陷：<strong>Meaning Conflation Deficiency</strong> 意义融合缺陷，由于做词嵌入时，不会考虑单词的具体含义，因此多义词的不同含义会对应一个vec，这样就使得本来不相关的单词之间由于多义词的存在两者距离变短，造成了语义空间的污染。finance 与 river 都与bank</p>
+</li>
+<li><p>Latent Semantic Analysis LSA</p>
+</li>
+<li></li>
+</ul>
+</li>
+<li><p>基于深度神经网络的方法</p>
+</li>
+</ol>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1] George A Miller. 1995. WordNet: a lexical database for English. Commun. ACM 38, 11 (1995), 39–41.</p>
+<p>1 <a target="_blank" rel="noopener" href="https://en.wiktionary.org">https://en.wiktionary.org</a></p>
+<p>2 <a target="_blank" rel="noopener" href="http://www.wikipedia.org">http://www.wikipedia.org</a></p>
+<p>[2] Shan Wang and Francis Bond (2013) <a target="_blank" rel="noopener" href="http://compling.hss.ntu.edu.sg/pdf/2013-alr-cow.pdf">Building the Chinese Wordnet (COW): Starting from Core Synsets</a>. In <em>Proceedings of the 11th Workshop on Asian Language Resources: ALR-2013 a Workshop of The 6th International Joint Conference on Natural Language Processing (IJCNLP-6)</em>. Nagoya. pp.10-18.</p>
+<p>[3] Roberto Navigli and Simone Paolo Ponzetto. 2012. BabelNet: The automatic construction, evaluation and application of a wide-coverage multilingual semantic network. Artificial Intelligence 193 (2012). </p>
+<p>[4] Roy Rada, Hafedh Mili, Ellen Bicknell, and Maria Blettner. 1989. Development and application of a metric on semantic nets. IEEE transactions on systems, man, and cybernetics 19, 1 (1989), 17–30.</p>
+<p>[5] Zhibiao Wu and Martha Palmer. 1994. Verbs semantics and lexical selection. In Proceedings of the 32nd annual meeting on Association for Computational Linguistics. Association for Computational Linguistics, 133–138.</p>
+<p>[6] James Gorman and James R Curran. 2006. Scaling distributional similarity to large corpora. In Proceedings of the 21st International Conference on Computational Linguistics and 44th Annual Meeting of the Association for Computational Linguistics. 361–368.</p>
+<p>[7] Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013. Efficient estimation of word representations in vector space. arXiv preprint arXiv:1301.3781 (2013).</p>
+<p>[8] Jeffrey Pennington, Richard Socher, and Christopher D Manning. 2014. Glove: Global vectors for word representation. In Proceedings of the 2014 conference on empirical methods in natural language processing (EMNLP). 1532–1543.</p>
+<div class="post-tags"><a class="post-tag-link" href="/myblog/tags/%E8%AE%BA%E6%96%87/" rel="tag">#论文</a></div></article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div><div><a>2022@ </a><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a>Powered by&nbsp</a><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><a>&nbsp&&nbsp</a><a target="_blank" rel="noopener" href="https://github.com/qiantao94/hexo-theme-oasis">Oasis</a></div></div></div></div></div></body><script src="/myblog/js/oasis.js"></script></html>

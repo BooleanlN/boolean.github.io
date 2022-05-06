@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><title>My Blog │ Boolean</title><link rel="stylesheet" href="/myblog/css/oasis.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/myblog/atom.xml" title="Boolean" type="application/atom+xml">
+</head><body><div id="content"><h1 id="title">My Blog</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2022-03-03T12:54:18.058Z">2022-03-03</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><h3 id="研究背景和意义"><a href="#研究背景和意义" class="headerlink" title="研究背景和意义"></a>研究背景和意义</h3><ol>
+<li><p>数据的稀疏和歧义：短文本通常不超过 10 个词，提供的信息非常有限。经典的 Bi-LSTM+Attention 往往无法有效的捕获短文本中的语义信息。</p>
+</li>
+<li><p>标签数量较少：传统的监督学习无法有效工作，尤其是传统深度学习算法需要大量的监督数据。</p>
+</li>
+</ol>
+<h3 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h3><ol>
+<li><p>采用异构图神经网络对短文本进行建模，有效地解决了词语歧义、多义、分词歧义等问题</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1802.07459">https://arxiv.org/abs/1802.07459</a></p>
+</li>
+<li><p>采用图匹配的方式进行文本匹配</p>
+</li>
+<li><p>数据增强</p>
+<p>思路：基于命名实体识别与语气词识别，加上seq2seq模型：</p>
+<p>那个，帮我找下最近的烧烤店吧 -&gt; [inter] [stop] 帮我找下最近的[LOC] [inter]</p>
+<p>====&gt; seq2seq 模型 ====&gt;</p>
+<p>嗨！帮我找下最近的足浴店叭</p>
+</li>
+</ol>
+<ol>
+<li><p>引入多种fine-tune目标，进行模型的集成</p>
+</li>
+<li><p>基于R-Drop的正则化</p>
+</li>
+</ol>
+<h3 id="模型架构"><a href="#模型架构" class="headerlink" title="模型架构"></a>模型架构</h3><ol>
+<li>冗余词汇清洗：<a target="_blank" rel="noopener" href="http://www.nlpr.ia.ac.cn/cip/ZongPublications/2011/2011.07%20JCIP%20Zhai%20Feifei.pdf">http://www.nlpr.ia.ac.cn/cip/ZongPublications/2011/2011.07%20JCIP%20Zhai%20Feifei.pdf</a></li>
+<li>数据增强</li>
+<li>图匹配模型</li>
+</ol>
+<h3 id="评测数据集与指标"><a href="#评测数据集与指标" class="headerlink" title="评测数据集与指标"></a>评测数据集与指标</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>评测维度</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lexical Semantic</td>
+<td>词汇语义理解</td>
+</tr>
+<tr>
+<td>Misspelling</td>
+<td>含错别字文本</td>
+</tr>
+<tr>
+<td>Syntactic Structure</td>
+<td>句法结构</td>
+</tr>
+<tr>
+<td>Speech Filler</td>
+<td>口语化</td>
+</tr>
+<tr>
+<td>Conversational Semantics</td>
+<td>对话理解</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="math/tex; mode=display">
+ACC = (∑_𝑖^𝑁▒〖𝑎𝑐𝑐_𝑖 〗)/𝑁， 其中acci  = (𝑇𝑃𝑖+𝑇𝑁𝑖)/(𝑇𝑃𝑖+𝑇𝑁𝑖+𝐹𝑃𝑖+𝐹𝑁𝑖)</script><p>数据集：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>LCQMC（A Large-scale Chinese Question  Matching Corpus）</th>
+<th>百度知道领域的中文问题匹配数据集，目的是为了解决在中文领域大规模问题匹配数据集的缺失。该数据集从百度知道不同领域的用户问题中抽取构建数据。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OPPO小布对话短文本训练集</td>
+<td>采样自OPPO语音助手小布的真实对话场景数据。通过对闲聊、智能客服、影音娱乐等多个领域的真实用户交互语料进行用户信息脱敏和相似度筛选得到初步数据，对于其中文本内容高度相似而语义不同的难例，再进行人工筛选和语义匹配标注，得到最终的训练集。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div><div><a>2022@ Ning</a><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a>Powered by&nbsp</a><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><a>&nbsp&&nbsp</a><a target="_blank" rel="noopener" href="https://github.com/qiantao94/hexo-theme-oasis">Oasis</a></div></div></div></div></div></body><script src="/myblog/js/oasis.js"></script></html>

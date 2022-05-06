@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><title>深度文本匹配综述 │ Boolean</title><link rel="stylesheet" href="/myblog/css/oasis.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/myblog/atom.xml" title="Boolean" type="application/atom+xml">
+</head><body><div id="content"><h1 id="title">深度文本匹配综述</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2022-03-02T13:09:38.000Z">2022-03-02</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><h2 id="深度文本匹配综述"><a href="#深度文本匹配综述" class="headerlink" title="深度文本匹配综述"></a>深度文本匹配综述</h2><p><strong>{2017}, {庞亮，兰艳艳，徐君}, {计算机学报}</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">@article&#123;庞亮2017深度文本匹配综述,
+  title&#x3D;&#123;深度文本匹配综述&#125;,
+  author&#x3D;&#123;庞亮 and 兰艳艳 and 徐君 and 郭嘉丰 and 万圣贤 and 程学旗&#125;,
+  journal&#x3D;&#123;计算机学报&#125;,
+  volume&#x3D;&#123;40&#125;,
+  number&#x3D;&#123;4&#125;,
+  pages&#x3D;&#123;985--1003&#125;,
+  year&#x3D;&#123;2017&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a><strong>Summary</strong></h3><p>写完笔记之后最后填，概述文章的内容，以后查阅笔记的时候先看这一段。注：写文章summary切记需要通过自己的思考，用自己的语言描述。忌讳直接Ctrl + c原文。</p>
+<h3 id="Research-Objective-s"><a href="#Research-Objective-s" class="headerlink" title="Research Objective(s)"></a><strong>Research Objective(s)</strong></h3><p>作者的研究目标是什么？</p>
+<h3 id="Background-Problem-Statement"><a href="#Background-Problem-Statement" class="headerlink" title="Background / Problem Statement"></a><strong>Background / Problem Statement</strong></h3><p>研究的背景以及问题陈述：作者需要解决的问题是什么？</p>
+<h3 id="Method-s"><a href="#Method-s" class="headerlink" title="Method(s)"></a><strong>Method(s)</strong></h3><p>作者解决问题的方法/算法是什么？是否基于前人的方法？基于了哪些？</p>
+<h3 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a><strong>Evaluation</strong></h3><p>作者如何评估自己的方法？实验的setup是什么样的？感兴趣实验数据和结果有哪些？有没有问题或者可以借鉴的地方？</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a><strong>Conclusion</strong></h3><p>作者给出了哪些结论？哪些是strong conclusions, 哪些又是weak的conclusions（即作者并没有通过实验提供evidence，只在discussion中提到；或实验的数据并没有给出充分的evidence）?</p>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a><strong>Notes</strong></h3><ol>
+<li><p>相比于传统方法，深度文本匹配模型能够从大量的样本中自动提取出词语之 间的关系，并能结合短语匹配中的结构信息和文本匹配的层次化特性，更精细地描述文本匹配问题．根据特征提取 的不同结构，深度文本匹配模型可以分为３类：<strong>基于单语义文档表达的深度学习模型、基于多语义文档表达的深度学习模型和直接建模匹配模式的深度学习模型．</strong></p>
+</li>
+<li><p>三种深度文本匹配模型：</p>
+<ul>
+<li>基于单语义文档表达的深度学习模型：将单个文本先表达为一个稠密向量，然后计算两个向量之间的相似度</li>
+<li>基于多语义文档表达的深度学习模型 ：认为单一粒度的向量表示文本不够精细，分别提取词、短语、句子等不同级别的表达向量，计算不同粒度的相似度作为最终的相似度</li>
+<li>直接建模匹配模式的深度学习模型 ：更早地让两段文本进行交互，挖掘文本交互后的模式特征，综合得到文本的匹配度</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzvvkb2apwj20oq0buwg5.jpg" alt="image-20220302214850408"></p>
+</li>
+<li><p>基于单语义文档表达的深度学习模型</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwq2ai36fj20l00e2dgx.jpg" alt="image-20220303152408366" style="zoom:50%;" /></p>
+<p>整体框架流程如图所示，Siamese框架（利用同质的网络得到两个对象的表达，然后通过表 达的相似度来衡量两个对象的匹配度）^[1]^</p>
+<ul>
+<li><p>全连接网络DSSM^[2]^：</p>
+<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303152826777.png" alt="image-20220303152826777" style="zoom:50%;" /></p>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>基于卷积神经网络CDSSM^[3]^：</p>
+<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303152943806.png" alt="image-20220303152943806" style="zoom:50%;" /></p>
+<p>CNTN模型^[4]^</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwqaozqbzj21280f0q52.jpg" alt="image-20220303153210542"></p>
+</li>
+<li><p>基于循环神经网络LSTM-RNN^[5]^：</p>
+</li>
+</ul>
+<ol>
+<li><p>基于多语义文档表达的深度学习模型：</p>
+<ul>
+<li><p>uRAE可伸展递归自动编码器(unfoldingRecursiveAutoEncoder，uRAE)[6]：</p>
+<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303154542263.png" alt="image-20220303154542263" style="zoom:50%;" /></p>
+</li>
+<li><p>MultiGranCNN^[7]^：</p>
+<p>将1个句子拆解为4个层次，分别是单词、短语、长短语和句子，之后将两个句子不同级别的特征进行两两的相似度计算得到一个相似度矩阵，对该矩阵进行动态最大值池化，得到相似度得分。</p>
+<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303155217766.png" alt="image-20220303155217766" style="zoom:50%;" /></p>
+</li>
+<li><p>MV-LSTM^[8]^：</p>
+<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303155931495.png" alt="image-20220303155931495" style="zoom:50%;" /></p>
+</li>
+</ul>
+</li>
+<li><p>直接建模匹配模式的深度学习模型</p>
+<p>旨在直接捕获匹配的特征，匹配的结构和匹配的程度</p>
+<ul>
+<li>主题深度匹配模型DepMatch^[9]^：</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwud3hzfxj213c0hon0p.jpg" alt="image-20220303175255332" style="zoom:50%;" /></p>
+<ul>
+<li><p>树深度匹配模型DeepMatch~tree~^[10]^：</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwuk2d7ujj210c0ruadg.jpg" alt="image-20220303175936074" style="zoom:50%;" /></p>
+</li>
+<li><p>MatchPyramid^[11]^</p>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>Match-SRNN^[12]^:</p>
+<p>利用二维循环神经网络建模特征空间，二维循环神经网络能够模拟最长公共子序列的计算过程。</p>
+<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303182035044.png" alt="image-20220303182035044" style="zoom:50%;" /></p>
+</li>
+</ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a><strong>References</strong></h3><p>[1] ChopraS，HadselR，LecunY.Learning a similarity metric discriminatively，withaplicationtofaceverification/ Procedingsofthe205IEComputerSocietyConference onComputerVisionandPaternRecognition.SanDiego， USA，205，1:539546</p>
+<p>[2] HuangPS，HeX，GaoJ，etal.Learningdepstructured semanticmodelsforwebsearchusingclickthroughdata/ Procedingsofthe2ndACMInternationalConferenceon ConferenceonInformationandKnowledgeManagement.Amazon，India，2013:23238</p>
+<p>[3] HuB，LuZ，LiH，etal.Convolutionalneuralnetwork architecturesformatchingnaturallanguagesentences/ ProcedingsoftheAdvancesinNeuralInformationProcesing Systems.Montreal，Canada，2014:20422050</p>
+<p>[4] QiuX，HuangX.Convolutionalneuraltensornetwork architectureforcomunitybasedquestionanswering/ Procedingsofthe24thInternationalJointConferenceonArtificialInteligence(IJCAI).BuenosAires，Argentina， 2015:1305131</p>
+<p>[5] PalangiH，DengL，ShenY，etal.Depsentenc embeding using longshorttermmemorynetworks:Analysisand aplicationtoinformationretrieval.IE/ACMTransactions onAudio，Spech，andLanguageProcesing，2016，24(4): 694707</p>
+<p>[6] SocherR，HuangEH，PeninJ，etal.Dynamicpolingand unfoldingrecursiveautoencodersforparaphrasedetection/ ProcedingsoftheAdvancesinNeuralInformationProcesing Systems.Granada，Spain，201:801809</p>
+<p>[7] YinW，SchützeT，Hinrich.MultiGranCN:Anarchitecture forgeneralmatchingoftextchunksonmultiplelevelsof granularity/Procedingsofthe53rdAnualMetingofthe AsociationforComputationalLinguistics.Beijing，China，2015:6373</p>
+<p>[8] WanS，LanY，GuoJ，etal.Adeparchitectureforsemantic matchingwithmultiplepositionalsentencerepresentations/ Procedingsofthe30thAIConferenceonArtificialInteligence.Phoenix，USA，2016:28352841</p>
+<p>[9] LuZ，LiH.Adeparchitectureformatchingshortexts/ProcedingsoftheAdvancesinNeuralInformationProcesing</p>
+<p>Systems.LakeTahoe，USA，2013:13671375</p>
+<p>[10] WangM，LuZ，LiH，etal.Syntaxbasedepmatchingof shortexts/ProcedingsoftheInternationalJointConference onArtificialInteligence.BuenosAires，Argentina，2015: 13541361</p>
+<p>[11] PangL，LanY，GuoJ，etal.Textmatchingasimage recognition/Procedingsofthe30thAIConferenceon</p>
+<p>ArtificialInteligence.Phoenix，USA，2016:2793279</p>
+<p>[12] WanS，LanY，GuoJ，etal.MatchSRN:Modelingthe recursivematchingstructurewithspatialRN/Procedings ofthe25thInternationalJointConferenceonArtificialInteligence.NewYork，USA，2016:1021029</p>
+<div class="post-tags"><a class="post-tag-link" href="/myblog/tags/%E8%AE%BA%E6%96%87/" rel="tag">#论文</a></div></article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div><div><a>2022@ </a><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a>Powered by&nbsp</a><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><a>&nbsp&&nbsp</a><a target="_blank" rel="noopener" href="https://github.com/qiantao94/hexo-theme-oasis">Oasis</a></div></div></div></div></div></body><script src="/myblog/js/oasis.js"></script></html>
