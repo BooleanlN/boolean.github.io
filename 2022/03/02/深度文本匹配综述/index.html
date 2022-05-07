@@ -1,5 +1,241 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><title>深度文本匹配综述 │ Boolean</title><link rel="stylesheet" href="/myblog/css/oasis.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/myblog/atom.xml" title="Boolean" type="application/atom+xml">
-</head><body><div id="content"><h1 id="title">深度文本匹配综述</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2022-03-02T13:09:38.000Z">2022-03-02</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><h2 id="深度文本匹配综述"><a href="#深度文本匹配综述" class="headerlink" title="深度文本匹配综述"></a>深度文本匹配综述</h2><p><strong>{2017}, {庞亮，兰艳艳，徐君}, {计算机学报}</strong></p>
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myblog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myblog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myblog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/myblog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/myblog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
+
+    <meta name="description" content="深度文本匹配综述 {2017}, {庞亮，兰艳艳，徐君}, {计算机学报} @article&amp;#123;庞亮2017深度文本匹配综述,   title&#x3D;&amp;#123;深度文本匹配综述&amp;#125;,   author&#x3D;&amp;#123;庞亮 and 兰艳艳 and 徐君 and 郭嘉丰 and 万圣贤 and 程学旗&amp;#125;,   journal&#x3D;&amp;#123;计算机学报&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度文本匹配综述">
+<meta property="og:url" content="http://booleanln.github.io/myblog/2022/03/02/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%9C%AC%E5%8C%B9%E9%85%8D%E7%BB%BC%E8%BF%B0/index.html">
+<meta property="og:site_name" content="Boolean">
+<meta property="og:description" content="深度文本匹配综述 {2017}, {庞亮，兰艳艳，徐君}, {计算机学报} @article&amp;#123;庞亮2017深度文本匹配综述,   title&#x3D;&amp;#123;深度文本匹配综述&amp;#125;,   author&#x3D;&amp;#123;庞亮 and 兰艳艳 and 徐君 and 郭嘉丰 and 万圣贤 and 程学旗&amp;#125;,   journal&#x3D;&amp;#123;计算机学报&amp;#">
+<meta property="og:locale">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1gzvvkb2apwj20oq0buwg5.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwq2ai36fj20l00e2dgx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx7jzi2mj20oi0j4406.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx789hnej20om0kogn2.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwqaozqbzj21280f0q52.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx6xl38ij217q0dkmzb.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zxjral4kj20og0dqq4h.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zxk0j0odj20o60fmabr.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwud3hzfxj213c0hon0p.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwuk2d7ujj210c0ruadg.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx6jggxaj20nk0d2jsf.jpg">
+<meta property="article:published_time" content="2022-03-02T13:09:38.000Z">
+<meta property="article:modified_time" content="2022-05-07T08:43:48.549Z">
+<meta property="article:author" content="Ning">
+<meta property="article:tag" content="论文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1gzvvkb2apwj20oq0buwg5.jpg">
+
+
+<link rel="canonical" href="http://booleanln.github.io/myblog/2022/03/02/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%9C%AC%E5%8C%B9%E9%85%8D%E7%BB%BC%E8%BF%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://booleanln.github.io/myblog/2022/03/02/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%9C%AC%E5%8C%B9%E9%85%8D%E7%BB%BC%E8%BF%B0/","path":"2022/03/02/深度文本匹配综述/","title":"深度文本匹配综述"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>深度文本匹配综述 | Boolean</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/myblog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/myblog/atom.xml" title="Boolean" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/myblog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Boolean</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E6%96%87%E6%9C%AC%E5%8C%B9%E9%85%8D%E7%BB%BC%E8%BF%B0"><span class="nav-text">深度文本匹配综述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Research-Objective-s"><span class="nav-text">Research Objective(s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes"><span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ning</p>
+  <div class="site-description" itemprop="description">🌲😊😄😁😭😡😮‍💨🐯</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/myblog/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/booleanln" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;booleanln" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://booleanln.github.io/myblog/2022/03/02/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%9C%AC%E5%8C%B9%E9%85%8D%E7%BB%BC%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myblog/images/avatar.gif">
+      <meta itemprop="name" content="Ning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boolean">
+      <meta itemprop="description" content="🌲😊😄😁😭😡😮‍💨🐯">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="深度文本匹配综述 | Boolean">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          深度文本匹配综述
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-02 21:09:38" itemprop="dateCreated datePublished" datetime="2022-03-02T21:09:38+08:00">2022-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-05-07 16:43:48" itemprop="dateModified" datetime="2022-05-07T16:43:48+08:00">2022-05-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="深度文本匹配综述">深度文本匹配综述</h2>
+<p><strong>{2017}, {庞亮，兰艳艳，徐君}, {计算机学报}</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">@article&#123;庞亮2017深度文本匹配综述,
   title&#x3D;&#123;深度文本匹配综述&#125;,
   author&#x3D;&#123;庞亮 and 兰艳艳 and 徐君 and 郭嘉丰 and 万圣贤 and 程学旗&#125;,
@@ -9,16 +245,16 @@
   pages&#x3D;&#123;985--1003&#125;,
   year&#x3D;&#123;2017&#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a><strong>Summary</strong></h3><p>写完笔记之后最后填，概述文章的内容，以后查阅笔记的时候先看这一段。注：写文章summary切记需要通过自己的思考，用自己的语言描述。忌讳直接Ctrl + c原文。</p>
-<h3 id="Research-Objective-s"><a href="#Research-Objective-s" class="headerlink" title="Research Objective(s)"></a><strong>Research Objective(s)</strong></h3><p>作者的研究目标是什么？</p>
-<h3 id="Background-Problem-Statement"><a href="#Background-Problem-Statement" class="headerlink" title="Background / Problem Statement"></a><strong>Background / Problem Statement</strong></h3><p>研究的背景以及问题陈述：作者需要解决的问题是什么？</p>
-<h3 id="Method-s"><a href="#Method-s" class="headerlink" title="Method(s)"></a><strong>Method(s)</strong></h3><p>作者解决问题的方法/算法是什么？是否基于前人的方法？基于了哪些？</p>
-<h3 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a><strong>Evaluation</strong></h3><p>作者如何评估自己的方法？实验的setup是什么样的？感兴趣实验数据和结果有哪些？有没有问题或者可以借鉴的地方？</p>
-<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a><strong>Conclusion</strong></h3><p>作者给出了哪些结论？哪些是strong conclusions, 哪些又是weak的conclusions（即作者并没有通过实验提供evidence，只在discussion中提到；或实验的数据并没有给出充分的evidence）?</p>
-<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a><strong>Notes</strong></h3><ol>
-<li><p>相比于传统方法，深度文本匹配模型能够从大量的样本中自动提取出词语之 间的关系，并能结合短语匹配中的结构信息和文本匹配的层次化特性，更精细地描述文本匹配问题．根据特征提取 的不同结构，深度文本匹配模型可以分为３类：<strong>基于单语义文档表达的深度学习模型、基于多语义文档表达的深度学习模型和直接建模匹配模式的深度学习模型．</strong></p>
+<h3 id="Research-Objective-s"><strong>Research Objective(s)</strong></h3>
+<p>深度文本匹配综述</p>
+<span id="more"></span>
+<h3 id="Notes"><strong>Notes</strong></h3>
+<ol>
+<li>
+<p>相比于传统方法，深度文本匹配模型能够从大量的样本中自动提取出词语之 间的关系，并能结合短语匹配中的结构信息和文本匹配的层次化特性，更精细地描述文本匹配问题．根据特征提取 的不同结构，深度文本匹配模型可以分为３类：<strong>基于单语义文档表达的深度学习模型、基于多语义文档表达的深度学习模型和直接建模匹配模式的深度学习模型．</strong></p>
 </li>
-<li><p>三种深度文本匹配模型：</p>
+<li>
+<p>三种深度文本匹配模型：</p>
 <ul>
 <li>基于单语义文档表达的深度学习模型：将单个文本先表达为一个稠密向量，然后计算两个向量之间的相似度</li>
 <li>基于多语义文档表达的深度学习模型 ：认为单一粒度的向量表示文本不够精细，分别提取词、短语、句子等不同级别的表达向量，计算不同粒度的相似度作为最终的相似度</li>
@@ -26,66 +262,73 @@
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzvvkb2apwj20oq0buwg5.jpg" alt="image-20220302214850408"></p>
 </li>
-<li><p>基于单语义文档表达的深度学习模型</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwq2ai36fj20l00e2dgx.jpg" alt="image-20220303152408366" style="zoom:50%;" /></p>
+<li>
+<p>基于单语义文档表达的深度学习模型</p>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwq2ai36fj20l00e2dgx.jpg" alt="image-20220303152408366" style="zoom:50%;" />
 <p>整体框架流程如图所示，Siamese框架（利用同质的网络得到两个对象的表达，然后通过表 达的相似度来衡量两个对象的匹配度）^[1]^</p>
 <ul>
-<li><p>全连接网络DSSM^[2]^：</p>
-<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303152826777.png" alt="image-20220303152826777" style="zoom:50%;" /></p>
+<li>
+<p>全连接网络DSSM^[2]^：</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx7jzi2mj20oi0j4406.jpg" alt=""></p>
 </li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><p>基于卷积神经网络CDSSM^[3]^：</p>
-<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303152943806.png" alt="image-20220303152943806" style="zoom:50%;" /></p>
+<li>
+<p>基于卷积神经网络CDSSM^[3]^：</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx789hnej20om0kogn2.jpg" alt=""></p>
 <p>CNTN模型^[4]^</p>
 <p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwqaozqbzj21280f0q52.jpg" alt="image-20220303153210542"></p>
 </li>
-<li><p>基于循环神经网络LSTM-RNN^[5]^：</p>
+<li>
+<p>基于循环神经网络LSTM-RNN^[5]^：</p>
 </li>
 </ul>
-<ol>
-<li><p>基于多语义文档表达的深度学习模型：</p>
+</li>
+<li>
+<p>基于多语义文档表达的深度学习模型：</p>
 <ul>
-<li><p>uRAE可伸展递归自动编码器(unfoldingRecursiveAutoEncoder，uRAE)[6]：</p>
-<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303154542263.png" alt="image-20220303154542263" style="zoom:50%;" /></p>
+<li>
+<p>uRAE可伸展递归自动编码器(unfoldingRecursiveAutoEncoder，uRAE)[6]：</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx6xl38ij217q0dkmzb.jpg" alt=""></p>
 </li>
-<li><p>MultiGranCNN^[7]^：</p>
+<li>
+<p>MultiGranCNN^[7]^：</p>
 <p>将1个句子拆解为4个层次，分别是单词、短语、长短语和句子，之后将两个句子不同级别的特征进行两两的相似度计算得到一个相似度矩阵，对该矩阵进行动态最大值池化，得到相似度得分。</p>
-<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303155217766.png" alt="image-20220303155217766" style="zoom:50%;" /></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zxjral4kj20og0dqq4h.jpg" alt=""></p>
 </li>
-<li><p>MV-LSTM^[8]^：</p>
-<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303155931495.png" alt="image-20220303155931495" style="zoom:50%;" /></p>
+<li>
+<p>MV-LSTM^[8]^：</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zxk0j0odj20o60fmabr.jpg" alt=""></p>
 </li>
 </ul>
 </li>
-<li><p>直接建模匹配模式的深度学习模型</p>
+<li>
+<p>直接建模匹配模式的深度学习模型</p>
 <p>旨在直接捕获匹配的特征，匹配的结构和匹配的程度</p>
 <ul>
 <li>主题深度匹配模型DepMatch^[9]^：</li>
 </ul>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwud3hzfxj213c0hon0p.jpg" alt="image-20220303175255332" style="zoom:50%;" /></p>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwud3hzfxj213c0hon0p.jpg" alt="image-20220303175255332" style="zoom:50%;" />
 <ul>
-<li><p>树深度匹配模型DeepMatch~tree~^[10]^：</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwuk2d7ujj210c0ruadg.jpg" alt="image-20220303175936074" style="zoom:50%;" /></p>
+<li>
+<p>树深度匹配模型DeepMatch~tree~^[10]^：</p>
+<img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwuk2d7ujj210c0ruadg.jpg" alt="image-20220303175936074" style="zoom:50%;" />
 </li>
-<li><p>MatchPyramid^[11]^</p>
+<li>
+<p>MatchPyramid^[11]^</p>
+</li>
+<li>
+<p>Match-SRNN^[12]^:</p>
+<p>利用二维循环神经网络建模特征空间，二维循环神经网络能够模拟最长公共子序列的计算过程。</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx6jggxaj20nk0d2jsf.jpg" alt=""></p>
 </li>
 </ul>
 </li>
 </ol>
-<ul>
-<li><p>Match-SRNN^[12]^:</p>
-<p>利用二维循环神经网络建模特征空间，二维循环神经网络能够模拟最长公共子序列的计算过程。</p>
-<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20220303182035044.png" alt="image-20220303182035044" style="zoom:50%;" /></p>
-</li>
-</ul>
-<h3 id="References"><a href="#References" class="headerlink" title="References"></a><strong>References</strong></h3><p>[1] ChopraS，HadselR，LecunY.Learning a similarity metric discriminatively，withaplicationtofaceverification/ Procedingsofthe205IEComputerSocietyConference onComputerVisionandPaternRecognition.SanDiego， USA，205，1:539546</p>
+<h3 id="References"><strong>References</strong></h3>
+<p>[1] ChopraS，HadselR，LecunY.Learning a similarity metric discriminatively，withaplicationtofaceverification/ Procedingsofthe205IEComputerSocietyConference onComputerVisionandPaternRecognition.SanDiego， USA，205，1:539546</p>
 <p>[2] HuangPS，HeX，GaoJ，etal.Learningdepstructured semanticmodelsforwebsearchusingclickthroughdata/ Procedingsofthe2ndACMInternationalConferenceon ConferenceonInformationandKnowledgeManagement.Amazon，India，2013:23238</p>
 <p>[3] HuB，LuZ，LiH，etal.Convolutionalneuralnetwork architecturesformatchingnaturallanguagesentences/ ProcedingsoftheAdvancesinNeuralInformationProcesing Systems.Montreal，Canada，2014:20422050</p>
 <p>[4] QiuX，HuangX.Convolutionalneuraltensornetwork architectureforcomunitybasedquestionanswering/ Procedingsofthe24thInternationalJointConferenceonArtificialInteligence(IJCAI).BuenosAires，Argentina， 2015:1305131</p>
-<p>[5] PalangiH，DengL，ShenY，etal.Depsentenc embeding using longshorttermmemorynetworks:Analysisand aplicationtoinformationretrieval.IE/ACMTransactions onAudio，Spech，andLanguageProcesing，2016，24(4): 694707</p>
+<p>[5] PalangiH，DengL，ShenY，etal.Depsentenc embeding using longshorttermmemorynetworks:Analysisand <a target="_blank" rel="noopener" href="http://aplicationtoinformationretrieval.IE/ACMTransactions">aplicationtoinformationretrieval.IE/ACMTransactions</a> onAudio，Spech，andLanguageProcesing，2016，24(4): 694707</p>
 <p>[6] SocherR，HuangEH，PeninJ，etal.Dynamicpolingand unfoldingrecursiveautoencodersforparaphrasedetection/ ProcedingsoftheAdvancesinNeuralInformationProcesing Systems.Granada，Spain，201:801809</p>
 <p>[7] YinW，SchützeT，Hinrich.MultiGranCN:Anarchitecture forgeneralmatchingoftextchunksonmultiplelevelsof granularity/Procedingsofthe53rdAnualMetingofthe AsociationforComputationalLinguistics.Beijing，China，2015:6373</p>
 <p>[8] WanS，LanY，GuoJ，etal.Adeparchitectureforsemantic matchingwithmultiplepositionalsentencerepresentations/ Procedingsofthe30thAIConferenceonArtificialInteligence.Phoenix，USA，2016:28352841</p>
@@ -95,4 +338,74 @@
 <p>[11] PangL，LanY，GuoJ，etal.Textmatchingasimage recognition/Procedingsofthe30thAIConferenceon</p>
 <p>ArtificialInteligence.Phoenix，USA，2016:2793279</p>
 <p>[12] WanS，LanY，GuoJ，etal.MatchSRN:Modelingthe recursivematchingstructurewithspatialRN/Procedings ofthe25thInternationalJointConferenceonArtificialInteligence.NewYork，USA，2016:1021029</p>
-<div class="post-tags"><a class="post-tag-link" href="/myblog/tags/%E8%AE%BA%E6%96%87/" rel="tag">#论文</a></div></article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div><div><a>2022@ </a><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a>Powered by&nbsp</a><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><a>&nbsp&&nbsp</a><a target="_blank" rel="noopener" href="https://github.com/qiantao94/hexo-theme-oasis">Oasis</a></div></div></div></div></div></body><script src="/myblog/js/oasis.js"></script></html>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/myblog/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/myblog/2021/11/28/Redis-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%99%A8/" rel="prev" title="Redis-内存分配器">
+                  <i class="fa fa-chevron-left"></i> Redis-内存分配器
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ning</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/myblog/js/comments.js"></script><script src="/myblog/js/utils.js"></script><script src="/myblog/js/motion.js"></script><script src="/myblog/js/schemes/muse.js"></script><script src="/myblog/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

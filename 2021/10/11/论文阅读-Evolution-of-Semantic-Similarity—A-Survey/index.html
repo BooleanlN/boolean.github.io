@@ -1,5 +1,231 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><title>论文阅读-Evolution of Semantic Similarity—A Survey │ Boolean</title><link rel="stylesheet" href="/myblog/css/oasis.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/myblog/atom.xml" title="Boolean" type="application/atom+xml">
-</head><body><div id="content"><h1 id="title">论文阅读-Evolution of Semantic Similarity—A Survey</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2021-10-11T09:19:04.000Z">2021-10-11</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><h4 id="Evolution-of-Semantic-Similarity—A-Survey"><a href="#Evolution-of-Semantic-Similarity—A-Survey" class="headerlink" title="Evolution of Semantic Similarity—A Survey"></a>Evolution of Semantic Similarity—A Survey</h4><pre class="line-numbers language-none"><code class="language-none">@article&#123;2021,
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myblog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myblog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myblog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/myblog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/myblog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
+
+    <meta name="description" content="Evolution of Semantic Similarity—A Survey @article&amp;#123;2021, title&#x3D;&amp;#123;Evolution of Semantic Similarity—A Survey&amp;#125;, volume&#x3D;&amp;#123;54&amp;#125;, ISSN&#x3D;&amp;#123;1557-7341&amp;#125;, url&#x3D;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读-Evolution of Semantic Similarity—A Survey">
+<meta property="og:url" content="http://booleanln.github.io/myblog/2021/10/11/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Evolution-of-Semantic-Similarity%E2%80%94A-Survey/index.html">
+<meta property="og:site_name" content="Boolean">
+<meta property="og:description" content="Evolution of Semantic Similarity—A Survey @article&amp;#123;2021, title&#x3D;&amp;#123;Evolution of Semantic Similarity—A Survey&amp;#125;, volume&#x3D;&amp;#123;54&amp;#125;, ISSN&#x3D;&amp;#123;1557-7341&amp;#125;, url&#x3D;&amp;#">
+<meta property="og:locale">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx62nqv8j20vz0u0n0d.jpg">
+<meta property="article:published_time" content="2021-10-11T09:19:04.000Z">
+<meta property="article:modified_time" content="2022-05-07T08:44:16.374Z">
+<meta property="article:author" content="Ning">
+<meta property="article:tag" content="论文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx62nqv8j20vz0u0n0d.jpg">
+
+
+<link rel="canonical" href="http://booleanln.github.io/myblog/2021/10/11/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Evolution-of-Semantic-Similarity%E2%80%94A-Survey/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://booleanln.github.io/myblog/2021/10/11/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Evolution-of-Semantic-Similarity%E2%80%94A-Survey/","path":"2021/10/11/论文阅读-Evolution-of-Semantic-Similarity—A-Survey/","title":"论文阅读-Evolution of Semantic Similarity—A Survey"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>论文阅读-Evolution of Semantic Similarity—A Survey | Boolean</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/myblog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/myblog/atom.xml" title="Boolean" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/myblog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Boolean</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Evolution-of-Semantic-Similarity%E2%80%94A-Survey"><span class="nav-text">Evolution of Semantic Similarity—A Survey</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E7%9F%A5%E8%AF%86%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="nav-text">基于知识的模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%AF%AD%E6%96%99%E5%BA%93%E7%9A%84STS"><span class="nav-text">基于语料库的STS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%96%B9%E6%B3%95"><span class="nav-text">深度神经网络方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E6%96%B9%E6%B3%95Hybrid"><span class="nav-text">混合方法Hybrid</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes-3"><span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ning</p>
+  <div class="site-description" itemprop="description">🌲😊😄😁😭😡😮‍💨🐯</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/myblog/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/booleanln" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;booleanln" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://booleanln.github.io/myblog/2021/10/11/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Evolution-of-Semantic-Similarity%E2%80%94A-Survey/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myblog/images/avatar.gif">
+      <meta itemprop="name" content="Ning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boolean">
+      <meta itemprop="description" content="🌲😊😄😁😭😡😮‍💨🐯">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="论文阅读-Evolution of Semantic Similarity—A Survey | Boolean">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文阅读-Evolution of Semantic Similarity—A Survey
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-11 17:19:04" itemprop="dateCreated datePublished" datetime="2021-10-11T17:19:04+08:00">2021-10-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-05-07 16:44:16" itemprop="dateModified" datetime="2022-05-07T16:44:16+08:00">2022-05-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h4 id="Evolution-of-Semantic-Similarity—A-Survey">Evolution of Semantic Similarity—A Survey</h4>
+<pre class="line-numbers language-none"><code class="language-none">@article&#123;2021,
 title&#x3D;&#123;Evolution of Semantic Similarity—A Survey&#125;,
 volume&#x3D;&#123;54&#125;,
 ISSN&#x3D;&#123;1557-7341&#125;,
@@ -21,40 +247,53 @@ pages&#x3D;&#123;1–37&#125; &#125;<span aria-hidden="true" class="line-numbers
 </ul>
 <p>Semantic Textual Similarity （STS）主要给出两段文本的相似度排名或百分比。</p>
 <p>下图为文章介绍的相关模型</p>
-<p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20211011173454520.png" alt="image-20211011173454520"></p>
-<h5 id="基于知识的模型"><a href="#基于知识的模型" class="headerlink" title="基于知识的模型"></a>基于知识的模型</h5><p>基于知识的方法计算两个术语之间的语义相似度基于一个或多个知识库，如本体/词汇数据库，叙词表，词典等。</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx62nqv8j20vz0u0n0d.jpg" alt=""></p>
+<span id="more"></span>
+<h5 id="基于知识的模型">基于知识的模型</h5>
+<p>基于知识的方法计算两个术语之间的语义相似度基于一个或多个知识库，如本体/词汇数据库，叙词表，词典等。</p>
 <p>常用的知识库一般是词汇数据库lexical databases：</p>
 <ul>
-<li><p>WordNet：wordNet用node代表词义，并通过edge定义词之间的关系，两个词之间的相似度，取决于它们之间的距离。</p>
+<li>
+<p>WordNet：wordNet用node代表词义，并通过edge定义词之间的关系，两个词之间的相似度，取决于它们之间的距离。</p>
 </li>
-<li><p>Wikipedia：基于Wikipedia，每个词组都有一个文章页面与之相关联，每篇文章同时具有标题、neighbors、描述和分类，这些作为特征都可以用于相似性的计算。</p>
+<li>
+<p>Wikipedia：基于Wikipedia，每个词组都有一个文章页面与之相关联，每篇文章同时具有标题、neighbors、描述和分类，这些作为特征都可以用于相似性的计算。</p>
 </li>
-<li>BabelNet：babelNet是一个集合了WordnNet以及Wikipedia的词汇数据库</li>
+<li>
+<p>BabelNet：babelNet是一个集合了WordnNet以及Wikipedia的词汇数据库</p>
+</li>
 </ul>
 <p>基于知识模型方法主要包括以下类型：</p>
 <ul>
-<li><p>Edge-counting 边计数法</p>
+<li>
+<p>Edge-counting 边计数法</p>
 <p><em>Path</em>方法：</p>
-<p>​    将词抽象为图节点，根据词的分类将两个词连接起来，然后统计边的数量作为两个term的相似度。</p>
-<script type="math/tex; mode=display">
-sim_{path} (t1,t2) = \frac{1}{1 + min_len(t1,t2)}</script></li>
-</ul>
-<p>  <em>wup</em>方法：</p>
-<p>  ​    该方法统计每个term自身的分类深度，以及两个term（Least Common Subsumer）最近祖先分类点的深度：</p>
-<script type="math/tex; mode=display">
-  sim_{wup} (t_1,t_2) = \frac{2depth(t_{lcs})}{depth(t_1) + depth(t_2)}</script><p>  ​    </p>
-<p>  缺点：忽略了本体中的edges不必等长的事实</p>
-<ul>
-<li><p>Feature-based 特征法</p>
+<p>​	将词抽象为图节点，根据词的分类将两个词连接起来，然后统计边的数量作为两个term的相似度。<br>
+$$<br>
+sim_{path} (t1,t2) = \frac{1}{1 + min_len(t1,t2)}<br>
+$$</p>
+<p><em>wup</em>方法：</p>
+<p>​	该方法统计每个term自身的分类深度，以及两个term（Least Common Subsumer）最近祖先分类点的深度：<br>
+$$<br>
+sim_{wup} (t_1,t_2) = \frac{2depth(t_{lcs})}{depth(t_1) + depth(t_2)}<br>
+$$<br>
+​</p>
+<p>缺点：忽略了本体中的edges不必等长的事实</p>
+</li>
+<li>
+<p>Feature-based 特征法</p>
 <p>基于词汇的属性，如注解、相似概念等，进行相似度的计算。</p>
 <p><em>Lesk</em>：衡量两个词的相似度，主要考虑两个词的注解以及在WordNet中表示该词含义的词的注解的overlap</p>
 </li>
-<li><p>Information Content-based 基于信息内容的方法</p>
+<li>
+<p>Information Content-based 基于信息内容的方法</p>
 </li>
-<li><p>Combined Knowledge-based </p>
+<li>
+<p>Combined Knowledge-based</p>
 </li>
 </ul>
-<h5 id="基于语料库的STS"><a href="#基于语料库的STS" class="headerlink" title="基于语料库的STS"></a>基于语料库的STS</h5><p>基于语料库的方法根据从大规模的语料库中抽取出的信息，来衡量两个term之间的相似度。词的实际意义并没有被作为依据，而是基于一种”分布假设”，即相似的词语出现在一起 “similar words occur together, frequently”。</p>
+<h5 id="基于语料库的STS">基于语料库的STS</h5>
+<p>基于语料库的方法根据从大规模的语料库中抽取出的信息，来衡量两个term之间的相似度。词的实际意义并没有被作为依据，而是基于一种&quot;分布假设&quot;，即相似的词语出现在一起 “similar words occur together, frequently”。</p>
 <p>基于分布假设，出现了很多techniques，来构建文本数据的向量表示。</p>
 <p>词嵌入提供了词的向量表示，在向量中，保持了词语之间的语义关系，常见的词嵌入包括：</p>
 <ul>
@@ -63,63 +302,76 @@ sim_{path} (t1,t2) = \frac{1}{1 + min_len(t1,t2)}</script></li>
 <li><em>fastText</em></li>
 <li><em>BERT</em></li>
 </ul>
-<p>在使用词嵌入作为相似度的衡量标准时，不可避免地会遇到“ Meaning Conflation Deficiency”词融合缺陷，举个例子，”finance”与”river”在语义空间中的位置很近，因为它们的一个相关词“bank”具备多重含义。</p>
+<p>在使用词嵌入作为相似度的衡量标准时，不可避免地会遇到“ Meaning Conflation Deficiency”词融合缺陷，举个例子，&quot;finance&quot;与&quot;river&quot;在语义空间中的位置很近，因为它们的一个相关词“bank”具备多重含义。</p>
 <p>关键是要认识到，词嵌入本身是基于大规模语料库的，因此它的分布假设等与采取的语料库息息相关。</p>
 <ol>
-<li>基于语料库的方法：<ul>
+<li>基于语料库的方法：
+<ul>
 <li>LSA（Latent Semantic Analysis）</li>
 <li>HAL（Hyperspace Analogue to Language）</li>
 <li>ESA（Explicit Semantic Analysis）</li>
 <li>Word-alignment Models</li>
 <li>LDA（Latent Dirichlet Allocation）</li>
-<li>Normalized Google Distance </li>
+<li>Normalized Google Distance</li>
 <li>Dependency-based Models</li>
 <li>Kernel-based Models</li>
 <li>Word-attention Models</li>
 </ul>
 </li>
 </ol>
-<h5 id="深度神经网络方法"><a href="#深度神经网络方法" class="headerlink" title="深度神经网络方法"></a>深度神经网络方法</h5><ul>
+<h5 id="深度神经网络方法">深度神经网络方法</h5>
+<ul>
 <li>DAM（Decomposable Attention Model）</li>
 <li>Transformer-based models</li>
 </ul>
-<h5 id="混合方法Hybrid"><a href="#混合方法Hybrid" class="headerlink" title="混合方法Hybrid"></a>混合方法Hybrid</h5><ul>
+<h5 id="混合方法Hybrid">混合方法Hybrid</h5>
+<ul>
 <li>NASARI</li>
 <li>MSSA</li>
 <li>UESTS</li>
 </ul>
-<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><ol>
-<li><p>语义匹配在很多NLP任务中扮演着重要的角色，像信息检索、文本摘要、文本分类、文章评价、机器翻译、机器问答等。</p>
+<h3 id="Notes-3">Notes</h3>
+<ol>
+<li>
+<p>语义匹配在很多NLP任务中扮演着重要的角色，像信息检索、文本摘要、文本分类、文章评价、机器翻译、机器问答等。</p>
 <p>Measuring the semantic similarity between various text components like words, sentences, or documents plays a significant role in a wide range of NLP tasks like information retrieval [48], text summarization [80], text classification [49], essay evaluation [42], machine translation [134], question answering [19, 66], among others.</p>
 </li>
-<li><p>语义匹配方法：</p>
+<li>
+<p>语义匹配方法：</p>
 <ul>
-<li>早期：方法认为判断两个语句相似的原则是具备相近的词语/字母。类似BoW、TF-IDF<ul>
+<li>早期：方法认为判断两个语句相似的原则是具备相近的词语/字母。类似BoW、TF-IDF
+<ul>
 <li>缺陷：无法处理多义词，同义词；忽略了语义与句法特征</li>
 <li>优点：利用了词汇特征，易于实现</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>基于知识的语义匹配方法</p>
+<li>
+<p>基于知识的语义匹配方法</p>
 <p>基于知识的语义匹配方法基于一个或多个知识库，这些知识库提供了通过语义关系连接的单词或概念的结构化表示。常用的知识语义库有WordNet[1]，Wiktionary^1^，With the advent of Wikipedia^2^，Chinese Open wordnet[2]，BabelNet[3]。</p>
 <ul>
-<li><p>边缘计数方法</p>
+<li>
+<p>边缘计数方法</p>
 <p>最直接的方法是视待匹配文本中语句单元之间为相互连接的图，对单元之间的连接边进行计数，相似度与距离成反比^[4]^,边缘计数法没有考虑到不同单词对语句语义贡献的不同，一些具有更具体意义的词通常更能代表语句，Wu等人^[5]^提出的wup方法，将单词的深度作为一个重要因素考虑进去，除了考虑边缘计数外，还要计算两个词语距离它们共享的公共祖先的最短距离。</p>
 <ul>
 <li>缺陷：忽略了本体中的边缘不必等长这一事实</li>
 </ul>
 </li>
-<li><p>基于特征</p>
+<li>
+<p>基于特征</p>
 </li>
-<li><p>基于信息内容</p>
+<li>
+<p>基于信息内容</p>
 </li>
 </ul>
 </li>
-<li><p>基于语料的语义相似度方法</p>
+<li>
+<p>基于语料的语义相似度方法</p>
 <p>基于语料的语义相似度方法衡量两个文本之间相似度基于从大规模语料中抽取的信息。基于一种分布式假设：相似的单词经常出现在相似的上下文语境当中^[6]^。</p>
 <ul>
-<li><p>Word Embeddings</p>
+<li>
+<p>Word Embeddings</p>
 <p>常用的方法有神经网络^[7]^、共现矩阵^[8]^、基于单词出现的上下文进行表示</p>
 <ol>
 <li>word2vec^[7]^</li>
@@ -129,22 +381,98 @@ sim_{path} (t1,t2) = \frac{1}{1 + min_len(t1,t2)}</script></li>
 </ol>
 <p>缺陷：<strong>Meaning Conflation Deficiency</strong> 意义融合缺陷，由于做词嵌入时，不会考虑单词的具体含义，因此多义词的不同含义会对应一个vec，这样就使得本来不相关的单词之间由于多义词的存在两者距离变短，造成了语义空间的污染。finance 与 river 都与bank</p>
 </li>
-<li><p>Latent Semantic Analysis LSA</p>
+<li>
+<p>Latent Semantic Analysis LSA</p>
 </li>
 <li></li>
 </ul>
 </li>
-<li><p>基于深度神经网络的方法</p>
+<li>
+<p>基于深度神经网络的方法</p>
 </li>
 </ol>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1] George A Miller. 1995. WordNet: a lexical database for English. Commun. ACM 38, 11 (1995), 39–41.</p>
+<h3 id="Reference">Reference</h3>
+<p>[1] George A Miller. 1995. WordNet: a lexical database for English. Commun. ACM 38, 11 (1995), 39–41.</p>
 <p>1 <a target="_blank" rel="noopener" href="https://en.wiktionary.org">https://en.wiktionary.org</a></p>
 <p>2 <a target="_blank" rel="noopener" href="http://www.wikipedia.org">http://www.wikipedia.org</a></p>
 <p>[2] Shan Wang and Francis Bond (2013) <a target="_blank" rel="noopener" href="http://compling.hss.ntu.edu.sg/pdf/2013-alr-cow.pdf">Building the Chinese Wordnet (COW): Starting from Core Synsets</a>. In <em>Proceedings of the 11th Workshop on Asian Language Resources: ALR-2013 a Workshop of The 6th International Joint Conference on Natural Language Processing (IJCNLP-6)</em>. Nagoya. pp.10-18.</p>
-<p>[3] Roberto Navigli and Simone Paolo Ponzetto. 2012. BabelNet: The automatic construction, evaluation and application of a wide-coverage multilingual semantic network. Artificial Intelligence 193 (2012). </p>
+<p>[3] Roberto Navigli and Simone Paolo Ponzetto. 2012. BabelNet: The automatic construction, evaluation and application of a wide-coverage multilingual semantic network. Artificial Intelligence 193 (2012).</p>
 <p>[4] Roy Rada, Hafedh Mili, Ellen Bicknell, and Maria Blettner. 1989. Development and application of a metric on semantic nets. IEEE transactions on systems, man, and cybernetics 19, 1 (1989), 17–30.</p>
 <p>[5] Zhibiao Wu and Martha Palmer. 1994. Verbs semantics and lexical selection. In Proceedings of the 32nd annual meeting on Association for Computational Linguistics. Association for Computational Linguistics, 133–138.</p>
 <p>[6] James Gorman and James R Curran. 2006. Scaling distributional similarity to large corpora. In Proceedings of the 21st International Conference on Computational Linguistics and 44th Annual Meeting of the Association for Computational Linguistics. 361–368.</p>
 <p>[7] Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013. Efficient estimation of word representations in vector space. arXiv preprint arXiv:1301.3781 (2013).</p>
 <p>[8] Jeffrey Pennington, Richard Socher, and Christopher D Manning. 2014. Glove: Global vectors for word representation. In Proceedings of the 2014 conference on empirical methods in natural language processing (EMNLP). 1532–1543.</p>
-<div class="post-tags"><a class="post-tag-link" href="/myblog/tags/%E8%AE%BA%E6%96%87/" rel="tag">#论文</a></div></article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div><div><a>2022@ </a><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a>Powered by&nbsp</a><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><a>&nbsp&&nbsp</a><a target="_blank" rel="noopener" href="https://github.com/qiantao94/hexo-theme-oasis">Oasis</a></div></div></div></div></div></body><script src="/myblog/js/oasis.js"></script></html>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/myblog/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/myblog/2021/07/21/Java%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="prev" title="Java面试题">
+                  <i class="fa fa-chevron-left"></i> Java面试题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/myblog/2021/10/15/%E4%BA%91%E5%8E%9F%E7%94%9F/" rel="next" title="云原生">
+                  云原生 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ning</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/myblog/js/comments.js"></script><script src="/myblog/js/utils.js"></script><script src="/myblog/js/motion.js"></script><script src="/myblog/js/schemes/muse.js"></script><script src="/myblog/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,8 +1,238 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><title>C++初尝 │ Boolean</title><link rel="stylesheet" href="/myblog/css/oasis.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/myblog/atom.xml" title="Boolean" type="application/atom+xml">
-</head><body><div id="content"><h1 id="title">C++初尝</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2021-11-10T07:26:09.000Z">2021-11-10</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><h2 id="C-初尝"><a href="#C-初尝" class="headerlink" title="C++初尝"></a>C++初尝</h2><blockquote>
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myblog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myblog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myblog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/myblog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/myblog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
+
+    <meta name="description" content="C++初尝  阅读笔记《C++ Primer edition 5th》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++初尝">
+<meta property="og:url" content="http://booleanln.github.io/myblog/2021/11/10/C-%E5%88%9D%E5%B0%9D/index.html">
+<meta property="og:site_name" content="Boolean">
+<meta property="og:description" content="C++初尝  阅读笔记《C++ Primer edition 5th》">
+<meta property="og:locale">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gwa64eem78j313w06omyz.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gwmvlekx59j30xo0gwmya.jpg">
+<meta property="og:image" content="http://booleanln.github.io/Users/jiayi/Library/Application%20Support/typora-user-images/image-20211121170353544.png">
+<meta property="article:published_time" content="2021-11-10T07:26:09.000Z">
+<meta property="article:modified_time" content="2022-05-07T08:46:02.115Z">
+<meta property="article:author" content="Ning">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gwa64eem78j313w06omyz.jpg">
+
+
+<link rel="canonical" href="http://booleanln.github.io/myblog/2021/11/10/C-%E5%88%9D%E5%B0%9D/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://booleanln.github.io/myblog/2021/11/10/C-%E5%88%9D%E5%B0%9D/","path":"2021/11/10/C-初尝/","title":"C++初尝"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C++初尝 | Boolean</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/myblog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/myblog/atom.xml" title="Boolean" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/myblog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Boolean</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E5%88%9D%E5%B0%9D"><span class="nav-text">C++初尝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#chapter-1"><span class="nav-text">chapter 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chapter2"><span class="nav-text">chapter2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9F"><span class="nav-text">如何选择正确的数据类型？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8A%B1%E6%8B%AC%E5%8F%B7%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%88%E5%88%97%E8%A1%A8%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%89"><span class="nav-text">花括号初始化（列表初始化）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D"><span class="nav-text">变量命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="nav-text">复合类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">指针和引用的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Pointer-vs-Reference"><span class="nav-text">Pointer vs Reference</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-text">C++内存布局</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ning</p>
+  <div class="site-description" itemprop="description">🌲😊😄😁😭😡😮‍💨🐯</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/myblog/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/booleanln" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;booleanln" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://booleanln.github.io/myblog/2021/11/10/C-%E5%88%9D%E5%B0%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myblog/images/avatar.gif">
+      <meta itemprop="name" content="Ning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boolean">
+      <meta itemprop="description" content="🌲😊😄😁😭😡😮‍💨🐯">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C++初尝 | Boolean">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++初尝
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-11-10 15:26:09" itemprop="dateCreated datePublished" datetime="2021-11-10T15:26:09+08:00">2021-11-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-05-07 16:46:02" itemprop="dateModified" datetime="2022-05-07T16:46:02+08:00">2022-05-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="C-初尝">C++初尝</h2>
+<blockquote>
 <p>阅读笔记《C++ Primer edition 5th》</p>
 </blockquote>
-<h3 id="chapter-1"><a href="#chapter-1" class="headerlink" title="chapter 1"></a>chapter 1</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; include，表示要使用某个库或头文件
+<span id="more"></span>
+<h3 id="chapter-1">chapter 1</h3>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; include，表示要使用某个库或头文件
 #include &lt;iostream&gt;
 #include &quot;Sales_item.h&quot;
 
@@ -47,13 +277,16 @@ int main()&#123;
   cout &lt;&lt; &quot;def&quot;; &#x2F;&#x2F; 在缓冲区
 &#125;
 &#x2F;&#x2F; 程序结束，刷新缓冲区<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="chapter2"><a href="#chapter2" class="headerlink" title="chapter2"></a>chapter2</h3><h4 id="如何选择正确的数据类型？"><a href="#如何选择正确的数据类型？" class="headerlink" title="如何选择正确的数据类型？"></a>如何选择正确的数据类型？</h4><ol>
+<h3 id="chapter2">chapter2</h3>
+<h4 id="如何选择正确的数据类型？">如何选择正确的数据类型？</h4>
+<ol>
 <li>当明确数值不可能为负时，选择无符号类型</li>
 <li>使用int执行整数运算，如果超出了int的表示范围，选用long long</li>
 <li>算术表达式中不要使用char或bool。char类型在某些机器上是有符号的，在另一些机器上又是无符号的</li>
 <li>执行浮点运算用double。double精度更高，且与float计算代价相差无几</li>
 </ol>
-<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p>当一个算术表达式中既有无符号数又有int值时，int值会转换为无符号数。</p>
+<h4 id="类型转换">类型转换</h4>
+<p>当一个算术表达式中既有无符号数又有int值时，int值会转换为无符号数。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
 
 using namespace std;
@@ -79,7 +312,8 @@ int main()&#123;
   cout &lt;&lt; u + i4 &lt;&lt; endl; &#x2F;&#x2F; 4294967286
   cout &lt;&lt; i4 + u &lt;&lt; endl; &#x2F;&#x2F; 4294967286
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="花括号初始化（列表初始化）"><a href="#花括号初始化（列表初始化）" class="headerlink" title="花括号初始化（列表初始化）"></a>花括号初始化（列表初始化）</h4><p>列表初始化在C++11后，可以支持包括基本类型在内的所有类型的初始化。</p>
+<h4 id="花括号初始化（列表初始化）">花括号初始化（列表初始化）</h4>
+<p>列表初始化在C++11后，可以支持包括基本类型在内的所有类型的初始化。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
 
 using namespace std;
@@ -107,19 +341,23 @@ int main() &#123;
   Example example &#x3D; &#123;1,1&#125;;
   cout &lt;&lt; example.a &lt;&lt; example.b &lt;&lt; endl;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h4><p>C++支持<strong>分离式编译</strong>。</p>
+<h4 id="变量命名">变量命名</h4>
+<p>C++支持<strong>分离式编译</strong>。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">extern int i; &#x2F;&#x2F; 声明变量i，但未进行定义，主要用于文件间代码共享
 int j; &#x2F;&#x2F; 声明并定义
 extern int k &#x3D; 3; &#x2F;&#x2F; 定义<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>C++允许在内层作用域中重新定义外层作用域中已有的名字，将其覆盖掉。</p>
+<h4 id="作用域">作用域</h4>
+<p>C++允许在内层作用域中重新定义外层作用域中已有的名字，将其覆盖掉。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i &#x3D; 100;
 for (int i &#x3D; 0; i &lt; 10; i++)
 &#123;
   cout&lt;&lt;i;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h4><p><em>复合类型指基于其它类型定义的类型</em></p>
-<h5 id="指针和引用的区别"><a href="#指针和引用的区别" class="headerlink" title="指针和引用的区别"></a>指针和引用的区别</h5><p>指针的定义：</p>
-<p>Pointers store address of variables or a memory location. </p>
+<h4 id="复合类型">复合类型</h4>
+<p><em>复合类型指基于其它类型定义的类型</em></p>
+<h5 id="指针和引用的区别">指针和引用的区别</h5>
+<p>指针的定义：</p>
+<p>Pointers store address of variables or a memory location.</p>
 <p>指针存储变量的地址或指向一块内存地址。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int var &#x3D; 10;
 int *p &#x3D; &amp;var;
@@ -129,14 +367,15 @@ cout &lt;&lt; p &lt;&lt; endl; &#x2F;&#x2F; 0x7ffa0...
 *p &#x3D; 20;
 cout &lt;&lt; var &lt;&lt; endl; &#x2F;&#x2F; 20<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwmvlekx59j30xo0gwmya.jpg" alt="image-20211121165847840"></p>
-<p>指针对象支持自增（++）与自减（—）操作，增加的长度为指针类型的长度，如int指针增加4</p>
+<p>指针对象支持自增（++）与自减（–）操作，增加的长度为指针类型的长度，如int指针增加4</p>
 <p><img src="/Users/jiayi/Library/Application%20Support/typora-user-images/image-20211121170353544.png" alt="image-20211121170353544"></p>
 <p><strong>引用</strong>的定义：</p>
 <p>When a variable is declared as a reference, it becomes an alternative name for an existing variable.</p>
 <p>引用其实就是给已存在的对象起了一个别名，类似于“阿里的花名”😁，给风清扬一拳，也表示给了马云一拳。</p>
 <p><strong>常用场景</strong>：</p>
 <ol>
-<li><p><strong>Modify the passed parameters in a function</strong>，修改函数传参</p>
+<li>
+<p><strong>Modify the passed parameters in a function</strong>，修改函数传参</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a &#x3D; 1, b &#x3D; 2;
 swap(a,b);
 cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; endl;
@@ -146,10 +385,12 @@ void swap(int &amp;a, int &amp;b)&#123;
   b &#x3D; a;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p><strong>Avoiding a</strong> <strong>copy of large structures</strong>，避免大对象的copy浪费空间</p>
+<li>
+<p><strong>Avoiding a</strong> <strong>copy of large structures</strong>，避免大对象的copy浪费空间</p>
 <p>在函数传递时，通过引用类型，避免大对象的copy</p>
 </li>
-<li><p><strong>In For Each Loops to modify all objects</strong></p>
+<li>
+<p><strong>In For Each Loops to modify all objects</strong></p>
 <p>在foreach中，修改对象</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt; vect&#123; 10, 20, 30, 40 &#125;; 
 for(int &amp;x:vect) &#123;
@@ -159,7 +400,8 @@ for(int x:vect)&#123;
   cout &lt;&lt; x; &#x2F;&#x2F; &#123;15, 25, 35, 45&#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p><strong>For Each Loop to avoid the</strong> <strong>copy of objects</strong></p>
+<li>
+<p><strong>For Each Loop to avoid the</strong> <strong>copy of objects</strong></p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;string&gt; strs&#123;&quot;aaabbb&quot;, &quot;bbbccc&quot;, &quot;cccddd&quot;&#125;;
 for(string &amp;str: strs)&#123;
   cout &lt;&lt; str; &#x2F;&#x2F; 避免进行值copy
@@ -174,7 +416,8 @@ for(string &amp;str: strs)&#123;
  int *p &#x3D; nullptr; &#x2F;&#x2F; 空指针，*表示p为指针变量
  p &#x3D; &amp;i; &#x2F;&#x2F; 给指针变量赋值，&amp;为取地址符号
  cout &lt;&lt; *p &lt;&lt; endl; &#x2F;&#x2F; *为解引用符，对指针解引用可以得到所指的对象，因此可以获得i<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="Pointer-vs-Reference"><a href="#Pointer-vs-Reference" class="headerlink" title="Pointer vs Reference"></a>Pointer vs Reference</h5><ol>
+<h5 id="Pointer-vs-Reference">Pointer vs Reference</h5>
+<ol>
 <li>引用初始化<strong>必须进行赋值</strong>，且<strong>不可变</strong>，指针则本身是一个对象，允许对它进行赋值和拷贝，<strong>可以先后指向不同的对象</strong>，定义时也<strong>不须赋初值</strong></li>
 <li>在调用栈上，<strong>指针有自己的地址和内存空间</strong>，而引用与原变量共享同一个地址。</li>
 </ol>
@@ -186,8 +429,10 @@ cout &lt;&lt; &amp;test &lt;&lt; &quot; &quot; &lt;&lt; &amp;pt &lt;&lt; &quot; 
 </ol>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int **p; &#x2F;&#x2F; valid
 int &amp;&amp;q;&#x2F;&#x2F; error<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="C-内存布局"><a href="#C-内存布局" class="headerlink" title="C++内存布局"></a>C++内存布局</h3><ol>
-<li><p>进程与线程</p>
+<h3 id="C-内存布局">C++内存布局</h3>
+<ol>
+<li>
+<p>进程与线程</p>
 <p>进程是操作系统分配资源的最小单位，在操作系统中，进程的创建等管理与PCB(Process Control Block)这个结构息息相关，<strong>PCB是进程存在的唯一标志</strong>。PCB当中包含了管理进程的信息：</p>
 <ul>
 <li>进程标识符</li>
@@ -246,4 +491,77 @@ int &amp;&amp;q;&#x2F;&#x2F; error<span aria-hidden="true" class="line-numbers-r
 </li>
 <li></li>
 </ol>
-<div class="post-tags"><a class="post-tag-link" href="/myblog/tags/C/" rel="tag">#C++</a></div></article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div><div><a>2022@ </a><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a>Powered by&nbsp</a><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><a>&nbsp&&nbsp</a><a target="_blank" rel="noopener" href="https://github.com/qiantao94/hexo-theme-oasis">Oasis</a></div></div></div></div></div></body><script src="/myblog/js/oasis.js"></script></html>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/myblog/tags/C/" rel="tag"># C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/myblog/2021/11/08/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Multi-document-Summarization-via-Deep-Learning-Techniques-A-Survey/" rel="prev" title="论文阅读-Multi-document Summarization via Deep Learning Techniques: A Survey">
+                  <i class="fa fa-chevron-left"></i> 论文阅读-Multi-document Summarization via Deep Learning Techniques: A Survey
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/myblog/2021/11/15/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Heterogeneous-Graph-Neural-Networks-for-Extractive-Document-Summarization/" rel="next" title="论文阅读-Heterogeneous Graph Neural Networks for Extractive Document Summarization">
+                  论文阅读-Heterogeneous Graph Neural Networks for Extractive Document Summarization <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ning</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/myblog/js/comments.js"></script><script src="/myblog/js/utils.js"></script><script src="/myblog/js/motion.js"></script><script src="/myblog/js/schemes/muse.js"></script><script src="/myblog/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
