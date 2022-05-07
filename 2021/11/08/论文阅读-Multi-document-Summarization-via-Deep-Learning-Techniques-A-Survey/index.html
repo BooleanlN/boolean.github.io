@@ -18,14 +18,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
 
-    <meta name="description" content="Multi-document Summarization via Deep Learning Techniques: A Survey 基于深度学习的多文档摘要模型综述 @misc&amp;#123;ma2020multidocument,       title&#x3D;&amp;#123;Multi-document Summarization via Deep Learning Techniques: A">
+    <meta name="description" content="Multi-document Summarization via Deep Learning Techniques: A Survey基于深度学习的多文档摘要模型综述 @misc&amp;#123;ma2020multidocument,       title&#x3D;&amp;#123;Multi-document Summarization via Deep Learning Techniques: A">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文阅读-Multi-document Summarization via Deep Learning Techniques: A Survey">
 <meta property="og:url" content="http://booleanln.github.io/myblog/2021/11/08/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Multi-document-Summarization-via-Deep-Learning-Techniques-A-Survey/index.html">
 <meta property="og:site_name" content="Boolean">
-<meta property="og:description" content="Multi-document Summarization via Deep Learning Techniques: A Survey 基于深度学习的多文档摘要模型综述 @misc&amp;#123;ma2020multidocument,       title&#x3D;&amp;#123;Multi-document Summarization via Deep Learning Techniques: A">
+<meta property="og:description" content="Multi-document Summarization via Deep Learning Techniques: A Survey基于深度学习的多文档摘要模型综述 @misc&amp;#123;ma2020multidocument,       title&#x3D;&amp;#123;Multi-document Summarization via Deep Learning Techniques: A">
 <meta property="og:locale">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gw7z2428ezj312u0aojsn.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gw7wtp5l44j310w0u00x5.jpg">
@@ -71,6 +71,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -92,6 +95,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/myblog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/myblog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/myblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -120,7 +127,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-document-Summarization-via-Deep-Learning-Techniques-A-Survey"><span class="nav-text">Multi-document Summarization via Deep Learning Techniques: A Survey</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Research-Objective-s-4"><span class="nav-text">Research Objective(s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Background-Problem-Statement-3"><span class="nav-text">Background &#x2F; Problem Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-s-3"><span class="nav-text">Method(s)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#input-document-types-%E8%BE%93%E5%85%A5%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B"><span class="nav-text">input document types 输入文档类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Concatenation-Methods-%E8%BF%9E%E6%8E%A5%E6%96%B9%E6%B3%95"><span class="nav-text">Concatenation Methods 连接方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summarization-Construction-Types-%E6%91%98%E8%A6%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">Summarization Construction Types 摘要构造方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RNN-based-Models"><span class="nav-text">RNN based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CNN-based-Models"><span class="nav-text">CNN based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GNN-based-Models"><span class="nav-text">GNN based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PGNet-based-Models"><span class="nav-text">PGNet based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Encoder-decoder-based-Models"><span class="nav-text">Encoder-decoder based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Variational-Auto-Encoder-based-Models"><span class="nav-text">Variational Auto-Encoder based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transformer-based-Models"><span class="nav-text">Transformer based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deep-Hybrid-Models"><span class="nav-text">Deep Hybrid Models</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References-4"><span class="nav-text">References</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-document-Summarization-via-Deep-Learning-Techniques-A-Survey"><span class="nav-text">Multi-document Summarization via Deep Learning Techniques: A Survey</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Research-Objective-s"><span class="nav-text">Research Objective(s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Background-Problem-Statement"><span class="nav-text">Background &#x2F; Problem Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-s"><span class="nav-text">Method(s)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#input-document-types-%E8%BE%93%E5%85%A5%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B"><span class="nav-text">input document types 输入文档类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Concatenation-Methods-%E8%BF%9E%E6%8E%A5%E6%96%B9%E6%B3%95"><span class="nav-text">Concatenation Methods 连接方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summarization-Construction-Types-%E6%91%98%E8%A6%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">Summarization Construction Types 摘要构造方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RNN-based-Models"><span class="nav-text">RNN based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CNN-based-Models"><span class="nav-text">CNN based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GNN-based-Models"><span class="nav-text">GNN based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PGNet-based-Models"><span class="nav-text">PGNet based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Encoder-decoder-based-Models"><span class="nav-text">Encoder-decoder based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Variational-Auto-Encoder-based-Models"><span class="nav-text">Variational Auto-Encoder based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transformer-based-Models"><span class="nav-text">Transformer based Models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deep-Hybrid-Models"><span class="nav-text">Deep Hybrid Models</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -231,8 +238,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Multi-document-Summarization-via-Deep-Learning-Techniques-A-Survey">Multi-document Summarization via Deep Learning Techniques: A Survey</h2>
-<p><em>基于深度学习的多文档摘要模型综述</em></p>
+        <h2 id="Multi-document-Summarization-via-Deep-Learning-Techniques-A-Survey"><a href="#Multi-document-Summarization-via-Deep-Learning-Techniques-A-Survey" class="headerlink" title="Multi-document Summarization via Deep Learning Techniques: A Survey"></a>Multi-document Summarization via Deep Learning Techniques: A Survey</h2><p><em>基于深度学习的多文档摘要模型综述</em></p>
 <pre class="line-numbers language-none"><code class="language-none">@misc&#123;ma2020multidocument,
       title&#x3D;&#123;Multi-document Summarization via Deep Learning Techniques: A Survey&#125;, 
       author&#x3D;&#123;Congbo Ma and Wei Emma Zhang and Mingyu Guo and Hu Wang and Quan Z. Sheng&#125;,
@@ -241,151 +247,121 @@
       archivePrefix&#x3D;&#123;arXiv&#125;,
       primaryClass&#x3D;&#123;cs.CL&#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Research-Objective-s-4"><strong>Research Objective(s)</strong></h3>
-<p>多文档摘要综述</p>
+<h3 id="Research-Objective-s"><a href="#Research-Objective-s" class="headerlink" title="Research Objective(s)"></a><strong>Research Objective(s)</strong></h3><p>多文档摘要综述</p>
 <span id="more"></span>
-<h3 id="Background-Problem-Statement-3"><strong>Background / Problem Statement</strong></h3>
-<p>研究的背景以及问题陈述：作者需要解决的问题是什么？<br>
-$$<br>
-\frac{\sum_{i=1}^d{x_iy_i } } { {\sqrt{\sum_{i=1}^d{x_i^2} } {\sqrt{\sum_{i=1}^d{y_i^2} } } } }<br>
-$$</p>
-<h3 id="Method-s-3"><strong>Method(s)</strong></h3>
-<p>多文档摘要的目标是从一批文档集合D中生成一个简洁且信息丰富的摘要Sum。文档集合D是主题相关的一系列文本。</p>
-<p>The aim of multi- document summarization is to generate a concise and informative summary 𝑆𝑢𝑚 from a collection ofdocuments𝐷.𝐷denotesaclusteroftopic-relateddocuments{𝑑𝑖 |𝑖∈[1,𝑁]},where𝑁isthe number of documents. Each document 𝑑𝑖 consists of 𝑀 sentences 􏰈𝑠𝑖,𝑗 | 𝑗 ∈ [1, 𝑀]􏰉. 𝑠𝑖,𝑗 refers to the 𝑗-th sentence in the 𝑖-th document.</p>
+<h3 id="Background-Problem-Statement"><a href="#Background-Problem-Statement" class="headerlink" title="Background / Problem Statement"></a><strong>Background / Problem Statement</strong></h3><p>研究的背景以及问题陈述：作者需要解决的问题是什么？</p>
+<script type="math/tex; mode=display">
+\frac{\sum_{i=1}^d{x_iy_i } } { {\sqrt{\sum_{i=1}^d{x_i^2} } {\sqrt{\sum_{i=1}^d{y_i^2} } } } }</script><h3 id="Method-s"><a href="#Method-s" class="headerlink" title="Method(s)"></a><strong>Method(s)</strong></h3><p>多文档摘要的目标是从一批文档集合D中生成一个简洁且信息丰富的摘要Sum。文档集合D是主题相关的一系列文本。</p>
+<p>The aim of multi- document summarization is to generate a concise and informative summary 𝑆𝑢𝑚 from a collection ofdocuments𝐷.𝐷denotesaclusteroftopic-relateddocuments{𝑑𝑖 |𝑖∈[1,𝑁]},where𝑁isthe number of documents. Each document 𝑑𝑖 consists of 𝑀 sentences 􏰈𝑠𝑖,𝑗 | 𝑗 ∈ [1, 𝑀]􏰉. 𝑠𝑖,𝑗 refers to the 𝑗-th sentence in the 𝑖-th document. </p>
 <p>作者对多文档摘要的流程进行了总结与梳理，通常包括1⃣️选择一个合适的文档连接方法2⃣️对文档进行预处理3⃣️通过深度学习模型获取语义丰富的表达4⃣️融合各种类型的表达，5⃣️句子选择或摘要生成</p>
 <p>The first step is to select an appropriate concatenation approach for input documents. The second step is pre-processing these documents, such as segmenting sentences, tokenizing non-alphabetic characters and removing punctuations [118]. Then, an appropriate deep learning based model is chosen to generate semantic rich representation for downstream tasks. The next step is to fuse these various types of representation for later sentence selection or summary generation. Finally, through these five steps, multiple documents are transformed into concise and informative summaries.</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw7z2428ezj312u0aojsn.jpg" alt="image-20211108193513722"></p>
-<h4 id="input-document-types-输入文档类型">input document types 输入文档类型</h4>
-<ul>
-<li>
-<p>多篇短文档 Many short documents.</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008i3skNgy1gw7z2428ezj312u0aojsn.jpg" alt="image-20211108193513722"></p>
+<h4 id="input-document-types-输入文档类型"><a href="#input-document-types-输入文档类型" class="headerlink" title="input document types 输入文档类型"></a>input document types 输入文档类型</h4><ul>
+<li><p>多篇短文档 Many short documents.</p>
 <p>每篇文档长度相对较短，但数量很大，如产品评论生成。</p>
 </li>
-<li>
-<p>少量长文档 Few long documents.</p>
+<li><p>少量长文档 Few long documents.</p>
 <p>每篇文档长度相对较长，但数量较少，如新闻摘要生成。</p>
 </li>
-<li>
-<p>混合文档类型 Hybrid documents.</p>
+<li><p>混合文档类型 Hybrid documents. </p>
 <p>一篇或多篇长文档同时伴随着若干篇短文档，如新闻稿+新闻短评，论文+简短的引用。</p>
 </li>
 </ul>
-<h4 id="Concatenation-Methods-连接方法">Concatenation Methods 连接方法</h4>
-<ol>
-<li>
-<p>Flat Concatenation 平滑连接</p>
+<h4 id="Concatenation-Methods-连接方法"><a href="#Concatenation-Methods-连接方法" class="headerlink" title="Concatenation Methods 连接方法"></a>Concatenation Methods 连接方法</h4><ol>
+<li><p>Flat Concatenation 平滑连接</p>
 <p>将所有输入文档囊括在一个输入当中，并当作一个整体的sequence进行处理，简单但powerful。</p>
-<p>All input documents are spanned and are processed as a flat sequence.</p>
+<p> All input documents are spanned and are processed as a flat sequence.</p>
 </li>
-<li>
-<p>Hierarchical Concatenation 分层连接</p>
+<li><p>Hierarchical Concatenation 分层连接</p>
 <p>借助分层连接，有助于模型获得语义丰富的表示，从而提高模型的有效性。当前的分层连接方法，包含两种方案：</p>
 <ul>
-<li>
-<p>文档级别：分别得到文档的摘要表示，这些表示在后续过程中进行融合。</p>
+<li><p>文档级别：分别得到文档的摘要表示，这些表示在后续过程中进行融合。</p>
 <p>For the document-level concatenation methods, a condense model [3] is proposed to learn document-level representation separately in a cluster and these representation are fused in the subsequent processes.</p>
 </li>
-<li>
-<p>单词/句子级别：包含聚类与关系图方法</p>
-<p>**聚类方法：**首先对输入对文档进行句子级聚类，然后从不同的聚类中选择句子，保证最多从一个聚类中选择出一个句子，从而减少冗余信息，并提高信息的覆盖率。</p>
+<li><p>单词/句子级别：包含聚类与关系图方法</p>
+<p><strong>聚类方法：</strong>首先对输入对文档进行句子级聚类，然后从不同的聚类中选择句子，保证最多从一个聚类中选择出一个句子，从而减少冗余信息，并提高信息的覆盖率。</p>
 <p>First allowing the model group related sentences. Then, the model selects sentences from diverse clusters, and at most one sentence will be selected from a cluster. By doing so, it will decrease redundancy and increase the information coverage for the generated summaries.</p>
-<p>**关系图方法：**构造句子关系图来表示文档之间的层次关系，常用的构造方法有余弦相似图、近似语篇图以及个性化语篇图。还有一种异构图模型利用单词构造句子与句子、句子与文档之间的关系图。</p>
+<p><strong>关系图方法：</strong>构造句子关系图来表示文档之间的层次关系，常用的构造方法有余弦相似图、近似语篇图以及个性化语篇图。还有一种异构图模型利用单词构造句子与句子、句子与文档之间的关系图。</p>
 <p>Cosine similarity graph, approximate discourse graph, and personalized discourse graph are the most commonly used methods recently for building sentence graph structures. The heterogeneous graph model leverages words as intermediate nodes to construct a document-document, sentence-sentence and sentence-document hierarchical structure.</p>
 </li>
 </ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw7wtp5l44j310w0u00x5.jpg" alt="image-20211108181754273"></p>
 </li>
 </ol>
-<h4 id="Summarization-Construction-Types-摘要构造方法">Summarization Construction Types 摘要构造方法</h4>
-<ol>
+<p>   <img data-src="https://tva1.sinaimg.cn/large/008i3skNgy1gw7wtp5l44j310w0u00x5.jpg" alt="image-20211108181754273"></p>
+<h4 id="Summarization-Construction-Types-摘要构造方法"><a href="#Summarization-Construction-Types-摘要构造方法" class="headerlink" title="Summarization Construction Types 摘要构造方法"></a>Summarization Construction Types 摘要构造方法</h4><ol>
 <li>abstractive summarization 生成式摘要</li>
 <li>extractive summarization 抽取式摘要</li>
 <li>hybrid summarization 混合方法摘要</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw7yphbejuj313w0fe0wb.jpg" alt="image-20211108192305082"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008i3skNgy1gw7yphbejuj313w0fe0wb.jpg" alt="image-20211108192305082"></p>
 <p>作者提出了一种概括模型结构的新方法，将模型结构分为了以下类型：</p>
 <p>其中，绿色虚线box可以由其它网络模型灵活代替，蓝色实线box则表明通过神经网络或启发式设计方法进行的嵌入操作，可以是句子/文档等类型的表达。</p>
-<p>In this figure, deep neural models are boxed in green dotted line, which can be flexibly substituted by other backbone networks. The blue solid line boxes indicate the neural embeddings processed by neural networks or heuristic-designed approaches. It can be sentence/document representation or other types of representation.</p>
+<p> In this figure, deep neural models are boxed in green dotted line, which can be flexibly substituted by other backbone networks. The blue solid line boxes indicate the neural embeddings processed by neural networks or heuristic-designed approaches. It can be sentence/document representation or other types of representation. </p>
 <ul>
-<li>
-<p>Naive Networks</p>
+<li><p>Naive Networks</p>
 <p>朴素网络，DNN model作用是一个特征提取器，得到的representation交由下游做句子选择或摘要生成。</p>
 </li>
-<li>
-<p>Ensemble Networks.</p>
+<li><p>Ensemble Networks.</p>
 <p>集成网络，输入docuemnts至多个模型，之后各模型得到的表达会进行融合来提高模型整体的表达能力。主流融合方法有投票或均值。</p>
 <p>Ensemble networks feed input documents to multiple paths with different network structures or operations. Later on, these representations are fused to enhance model expression capability. The majority vote or average can be used to determine the final solution.</p>
 </li>
-<li>
-<p>Auxiliary Task Networks</p>
+<li><p>Auxiliary Task Networks</p>
 </li>
-<li>
-<p>Reconstruction Networks</p>
-</li>
-<li>
-<p>Fusion Networks. Fusion networks</p>
-</li>
-<li>
-<p>Graph Neural Networks</p>
-</li>
-<li>
-<p>Hierarchical Networks</p>
+</ul>
+<ul>
+<li>Reconstruction Networks</li>
+</ul>
+<ul>
+<li>Fusion Networks. Fusion networks </li>
+</ul>
+<ul>
+<li>Graph Neural Networks</li>
+</ul>
+<ul>
+<li><p>Hierarchical Networks</p>
 <p>文档集连接后输入第一层DNN后，获得其表层特征，之后将该第一层输出作为第二层DNN的输入，生成深层次表征，分层模型可以更有效地提取抽象层次和语义特征。</p>
 <p>The Hierarchical networks empower the model with the ability to capture abstract-level and semantic-level features more efficiently.</p>
 </li>
 </ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw7z7p99rdj310p0u0aes.jpg" alt="image-20211108194035375"></p>
-<h4 id="RNN-based-Models">RNN based Models</h4>
-<h4 id="CNN-based-Models">CNN based Models</h4>
-<h4 id="GNN-based-Models">GNN based Models</h4>
-<p>自然语言数据通常由关系密切的词汇和短语组成，相比于序列的表示方法，图结构能够更好地进行表示。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008i3skNgy1gw7z7p99rdj310p0u0aes.jpg" alt="image-20211108194035375"></p>
+<h4 id="RNN-based-Models"><a href="#RNN-based-Models" class="headerlink" title="RNN based Models"></a>RNN based Models</h4><h4 id="CNN-based-Models"><a href="#CNN-based-Models" class="headerlink" title="CNN based Models"></a>CNN based Models</h4><h4 id="GNN-based-Models"><a href="#GNN-based-Models" class="headerlink" title="GNN based Models"></a>GNN based Models</h4><p>自然语言数据通常由关系密切的词汇和短语组成，相比于序列的表示方法，图结构能够更好地进行表示。</p>
 <p>Natural language data consist of vocabularies and phrases with strong relations and they can be better represented with graphs rather than in sequential orders</p>
 <ol>
-<li>
-<p>基于GCN的方法^[1]^ ：构建句子关系图，送入GCN获得句子相关特征。</p>
+<li><p>基于GCN的方法^[1]^ ：构建句子关系图，送入GCN获得句子相关特征。</p>
 <p>This model first builds a sentence-based graph and then feeds the pre-processed data into a GCN [60] to capture the sentence-wise related features.</p>
-<p>**构造图的方法：**每个句子视作一个结点，句子间的关系为边，关系有余弦相似度、近似语篇、个性化语篇等。</p>
-<p>Defined by the model, each sentence is regarded as a node and the relation between each pair of sentences is defined as an edge. Inside each document cluster, the sentence relation graph can be generated through cosine similarity graph [32], approximate discourse graph [23] and the proposed personalized discourse graph.</p>
+<p><strong>构造图的方法：</strong>每个句子视作一个结点，句子间的关系为边，关系有余弦相似度、近似语篇、个性化语篇等。</p>
+<p>Defined by the model, each sentence is regarded as a node and the relation between each pair of sentences is defined as an edge. Inside each document cluster, the sentence relation graph can be generated through cosine similarity graph [32], approximate discourse graph [23] and the proposed personalized discourse graph. </p>
 <p>句子关系图以及RNN抽取出embedding，都送入图卷积神经网络来得到句子最终的表达。最后将输出送入<strong>文档GRU</strong>完成集群嵌入，完全聚合句子之间的特征。</p>
 <p>Both of the sentence relation graph and sentence embeddings extracted by a sentence-level RNN are fed into graph convolution networks to produce the final sentence representation. With the help of a document-level GRU, the model generates cluster embeddings to fully aggregate features between sentences.</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw95ox3f02j31440f4q4w.jpg" alt="image-20211109201016184"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008i3skNgy1gw95ox3f02j31440f4q4w.jpg" alt="image-20211109201016184"></p>
 </li>
-<li>
-<p>基于异构图的方法^[3]^ ：上面的方法只利用了句子级的关系，没有充分考虑单词、句子以及文章之间的关系。</p>
+<li><p>基于异构图的方法^[3]^ ：上面的方法只利用了句子级的关系，没有充分考虑单词、句子以及文章之间的关系。</p>
 <p>The existing graph neural networks based models are mainly focused on the relationship between sentences and do not fully consider the relations among words, sentences and documents</p>
-<p>HeterDoc-Sum Graph^[3]^是一种基于异构图注意力网络，它包含了单词节点、句子节点以及文章节点，句子节点和文章节点通过共现单词关系相连接</p>
-<p>Sentence nodes and document nodes are connected according to the contained word nodes.</p>
+<p> HeterDoc-Sum Graph^[3]^是一种基于异构图注意力网络，它包含了单词节点、句子节点以及文章节点，句子节点和文章节点通过共现单词关系相连接</p>
+<p>Sentence nodes and document nodes are connected according to the contained word nodes. </p>
 <p>TF-IDF值作为单词-句子以及单词-文章的权重</p>
 <p>三种关系图送入图注意力网络^[2]^中进行权重更新，每次更新时，对单词句子和单词文档进行双向更新，以更好地聚合跨层语义知识。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwaau91zzlj30pk0qkjv6.jpg" alt="image-20211110195359995"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008i3skNgy1gwaau91zzlj30pk0qkjv6.jpg" alt="image-20211110195359995"></p>
 </li>
 </ol>
-<h4 id="PGNet-based-Models">PGNet based Models</h4>
-<p>Pointer-generator 网络被提出来解决摘要领域的事实错误以及高冗余性问题。</p>
-<p>Pointer-generator networks is proposed to overcome the problems of factual errors and high redundancy in the summarization task.</p>
+<h4 id="PGNet-based-Models"><a href="#PGNet-based-Models" class="headerlink" title="PGNet based Models"></a>PGNet based Models</h4><p>Pointer-generator 网络被提出来解决摘要领域的事实错误以及高冗余性问题。</p>
+<p>Pointer-generator networks is proposed to overcome the problems of factual errors and high redundancy in the summarization task. </p>
 <p>这类网络架构受到了pointer network、copynet、forced-attention sentence compression 以及 coverage mechanism的启发。对这些概念进行介绍：</p>
 <p><strong>pointer network</strong></p>
 <p><strong>copynet</strong></p>
 <p><strong>converage mechanism</strong></p>
-<p><strong>MMR（Maximal Marginal Relevance）</strong><br>
-$$<br>
-MMR = ArgMAX_{Di\ in \ 未选中集合}[\lambda Sim_1(D_i,Q) - (1-\lambda)max_{Dj \ in \ 已选中集合}Sim_2(Di,D_j))]<br>
-$$<br>
-<em>其中Q为用户，前半部分在摘要领域是对句子的打分。</em></p>
+<p><strong>MMR（Maximal Marginal Relevance）</strong></p>
+<script type="math/tex; mode=display">
+MMR = ArgMAX_{Di\ in \ 未选中集合}[\lambda Sim_1(D_i,Q) - (1-\lambda)max_{Dj \ in \ 已选中集合}Sim_2(Di,D_j))]</script><p><em>其中Q为用户，前半部分在摘要领域是对句子的打分。</em></p>
 <p>该方法目的在于减少排序结果的冗余，保证结果的多样性，常用于推荐领域。</p>
 <p>More accurately, the MMR scores are multiplied to the original attention weights. MMR method is designed to select a set of salience sentences from source documents by considering both importance and redundancy indexes</p>
-<h4 id="Encoder-decoder-based-Models">Encoder-decoder based Models</h4>
-<p>**Encoder：**对原文档进行编码表示，编码包含了压缩语义和句法信息</p>
-<p>**Decoder：**对encoder的编码结果进行处理，生成目标摘要</p>
-<p>For multi-document summarization, the encoder embeds source documents into the hidden representations, i.e., word representation, sentence representation and document representation. Then, the representation containing compressed semantic and syntactic information is passed to the decoder to generate the target summaries.</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwackd5wj8j312g0ckabf.jpg" alt="image-20211110205341614"></p>
-<h4 id="Variational-Auto-Encoder-based-Models">Variational Auto-Encoder based Models</h4>
-<p>变分自编码器：</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwacpjz9ulj315s09wgn2.jpg" alt="image-20211110205840492"></p>
-<h4 id="Transformer-based-Models">Transformer based Models</h4>
-<h4 id="Deep-Hybrid-Models">Deep Hybrid Models</h4>
-<h3 id="References-4"><strong>References</strong></h3>
-<p>[1] Michihiro Yasunaga, Rui Zhang, Kshitijh Meelu, Ayush Pareek, Krishnan Srinivasan, and Dragomir R. Radev. 2017. Graph-based Neural Multi-Document Summarization. In Proceedings of the 21st Conference on Computational Natural Language Learning (CoNLL 2017).</p>
+<h4 id="Encoder-decoder-based-Models"><a href="#Encoder-decoder-based-Models" class="headerlink" title="Encoder-decoder based Models"></a>Encoder-decoder based Models</h4><p><strong>Encoder：</strong>对原文档进行编码表示，编码包含了压缩语义和句法信息</p>
+<p><strong>Decoder：</strong>对encoder的编码结果进行处理，生成目标摘要</p>
+<p>For multi-document summarization, the encoder embeds source documents into the hidden representations, i.e., word representation, sentence representation and document representation. Then, the representation containing compressed semantic and syntactic information is passed to the decoder to generate the target summaries. </p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008i3skNgy1gwackd5wj8j312g0ckabf.jpg" alt="image-20211110205341614"></p>
+<h4 id="Variational-Auto-Encoder-based-Models"><a href="#Variational-Auto-Encoder-based-Models" class="headerlink" title="Variational Auto-Encoder based Models"></a>Variational Auto-Encoder based Models</h4><p>变分自编码器：</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008i3skNgy1gwacpjz9ulj315s09wgn2.jpg" alt="image-20211110205840492"></p>
+<h4 id="Transformer-based-Models"><a href="#Transformer-based-Models" class="headerlink" title="Transformer based Models"></a>Transformer based Models</h4><h4 id="Deep-Hybrid-Models"><a href="#Deep-Hybrid-Models" class="headerlink" title="Deep Hybrid Models"></a>Deep Hybrid Models</h4><h3 id="References"><a href="#References" class="headerlink" title="References"></a><strong>References</strong></h3><p>[1] Michihiro Yasunaga, Rui Zhang, Kshitijh Meelu, Ayush Pareek, Krishnan Srinivasan, and Dragomir R. Radev. 2017. Graph-based Neural Multi-Document Summarization. In Proceedings of the 21st Conference on Computational Natural Language Learning (CoNLL 2017).</p>
 <p>[2] Petar Veličković, Guillem Cucurull, Arantxa Casanova, Adriana Romero, Pietro Lio, and Yoshua Bengio. 2017. Graph Attention Networks. arXiv preprint arXiv:1710.10903.</p>
 <p>[3] Danqing Wang, Pengfei Liu, Yining Zheng, Xipeng Qiu, and Xuanjing Huang. 2020. Heterogeneous Graph Neural Networks for Extractive Document Summarization. arXiv preprint arXiv:2004.12393.</p>
 
@@ -446,6 +422,8 @@ $$<br>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/myblog/js/comments.js"></script><script src="/myblog/js/utils.js"></script><script src="/myblog/js/motion.js"></script><script src="/myblog/js/schemes/muse.js"></script><script src="/myblog/js/next-boot.js"></script>
 
   

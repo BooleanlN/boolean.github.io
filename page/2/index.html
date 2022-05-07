@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
 
     <meta name="description" content="🌲😊😄😁😭😡😮‍💨🐯">
 <meta property="og:type" content="website">
@@ -59,6 +59,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -80,6 +83,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/myblog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/myblog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/myblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -217,27 +224,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h4 id="Java面试题集锦">Java面试题集锦</h4>
-<h5 id="容器相关">容器相关</h5>
-<ol>
-<li>
-<p>介绍ArrayList底层实现</p>
+          <h4 id="Java面试题集锦"><a href="#Java面试题集锦" class="headerlink" title="Java面试题集锦"></a>Java面试题集锦</h4><h5 id="容器相关"><a href="#容器相关" class="headerlink" title="容器相关"></a>容器相关</h5><ol>
+<li><p>介绍ArrayList底层实现</p>
 <p>ArrayList底层通过Object数组实现，可以指定<code>capacity</code>参数，设置容量大小，默认容量是10。</p>
 <p>当添加元素时，会进行空间大小的判定，当容量不够时，执行自动扩容算法。</p>
 <p>在扩容算法中，默认扩大到当前长度的1.5倍，如果扩大后大小仍无法满足要求，则将其设置为所需大小，超出最大值，则设置为<code>Integer.MAX_VALUE</code>。</p>
 <p>支持元素随机访问，末尾插入数据O（1），特定位置插入元素O（n-i）</p>
 </li>
-<li>
-<p>介绍LinkedList底层实现</p>
+<li><p>介绍LinkedList底层实现</p>
 <p>LinkedList底层通过一个Node双向链表实现。首尾插入删除元素复杂度为O(1)，特定位置插入删除元素复杂度为O(n)</p>
 </li>
-<li>
-<p>介绍HashMap</p>
+<li><p>介绍HashMap</p>
 <p>HashMap，一种Hash数据结构，底层通过数组，链表以及红黑树实现：</p>
-<p>整体构建<code> Node&lt;K,V&gt;[] table</code>，存储Node，当发生Hash冲突时，采取链地址法进行解决，当链较长，达到设定的转树阈值，链表会转为红黑树。</p>
+<p>整体构建<code>Node&lt;K,V&gt;[] table</code>，存储Node，当发生Hash冲突时，采取链地址法进行解决，当链较长，达到设定的转树阈值，链表会转为红黑树。</p>
 <ul>
-<li>Node&lt;K,V&gt;链表</li>
-<li>TreeNode&lt;K,V&gt;，红黑树结构</li>
+<li>Node<K,V>链表</li>
+<li>TreeNode<K,V>，红黑树结构</li>
 </ul>
 <p>HashMap扩容机制：</p>
 <p>HashMap默认容量为16，</p>
@@ -247,24 +249,20 @@
 </ol>
 <p>之后，判断加入的元素总和超过设定好的阈值<code>capacity * load factor</code>，触发<code>resize</code>，开始扩容，扩容为原来的2倍大小。扩容时，会新建一个hash结构，新的位置要么在原位置，要么在原长度+原坐标。</p>
 </li>
-<li>
-<p>HashMap1.7与1.8之间的差异</p>
+<li><p>HashMap1.7与1.8之间的差异</p>
 <p>jdk1.7中，采用数组+链表方式，1.8中添加了红黑树，优化了查询效率</p>
 <p>jdk1.7中，链表是采用头插法，1.8中采取尾插法</p>
 <p>jdk1.8优化了hash算法，只需要一次扰动</p>
 <p>jdk1.8中rehash，通过e.hash &amp; oldCap==0来判断新插入的位置是否为原位置，jdk1.7则需要重新计算hash位置，并采用头插法，会有并发问题。</p>
 <p>jdk1.8中，table是懒加载，在第一次putVal时触发扩容进行创建</p>
 </li>
-<li>
-<p>介绍ConcurrentHashMap</p>
+<li><p>介绍ConcurrentHashMap</p>
 <p>线程安全的HashMap，1.7中，底层通过<strong>分段的数组+链表</strong>实现，将数据分为若干段，每段加一把锁。1.8中，使用<code>sychronized关键字</code>以及<code>CAS</code>乐观锁实现。</p>
 <p><code>synchronized</code> 只锁定当前链表或红黑二叉树的首节点，这样只要 hash 不冲突，就不会产生并发，效率又提升 N 倍。扩容操作可以并发。</p>
 </li>
-<li>
-<p>HashSet与HashMap异同</p>
+<li><p>HashSet与HashMap异同</p>
 </li>
-<li>
-<p>HashMap与TreeMap实现原理</p>
+<li><p>HashMap与TreeMap实现原理</p>
 <p>TreeMap提供了对键值的排序功能，默认是按键值的升序排序，也可以指定排序的比较器，当用Iterator遍历TreeMap时，得到的记录是排过序的。如果使用排序的映射，建议使用TreeMap。TreeMap基于红黑树实现。</p>
 </li>
 </ol>
@@ -337,7 +335,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-07 16:46:18" itemprop="dateModified" datetime="2022-05-07T16:46:18+08:00">2022-05-07</time>
+      <time title="Modified: 2022-05-07 16:48:01" itemprop="dateModified" datetime="2022-05-07T16:48:01+08:00">2022-05-07</time>
     </span>
 
   
@@ -350,9 +348,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-<h3 id="GC调优实践-内存泄漏排查">GC调优实践-内存泄漏排查</h3>
-<p><strong>场景说明</strong></p>
+          <h3 id="GC调优实践-内存泄漏排查"><a href="#GC调优实践-内存泄漏排查" class="headerlink" title="GC调优实践-内存泄漏排查"></a>GC调优实践-内存泄漏排查</h3><p><strong>场景说明</strong></p>
 <p>使用<code>HttpAsyncClient</code>库，访问10000次某一个url，并</p>
 <p>设置JVM参数：</p>
 <pre class="line-numbers language-none"><code class="language-none">-XX:+PrintGCDetails -Xloggc:&#x2F;Users&#x2F;jiayi&#x2F;seckill&#x2F;logs&#x2F;gc&#x2F;gcc.log -Xmx200m<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -361,66 +357,14 @@
 
 246.484: [Full GC (Ergonomics) [PSYoungGen: 28160K-&gt;3189K(30720K)] [ParOldGen: 136334K-&gt;136334K(136704K)] 164494K-&gt;139524K(167424K), [Metaspace: 15467K-&gt;15467K(1062912K)], 0.0435582 secs] [Times: user&#x3D;0.35 sys&#x3D;0.00, real&#x3D;0.05 secs] <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>触发了多次Full GC后，程序最终因<code>Exception in thread &quot;I/O dispatcher 1&quot; java.lang.OutOfMemoryError: Java heap space</code>崩溃。</p>
-<p>通过VisualVM对程序进行监控：</p>
-<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsitq8c3ooj30uo0u0qao.jpg" alt="image-20210716153039219" style="zoom:50%;" />
-<p>可以看到，老年代的内存一直在增加。</p>
-<p>由以上内容，我们可以猜测是某些对象，因为没有及时释放，导致无法被回收。按照代码来说，我们只涉及到一个<code>HttpUriRequest</code>的对象列表，老年代应该不会一直增加。</p>
-<p>但是通过查看<code>HttpClientAsyncService</code>的内存占用情况，<code>HttpClientAsyncService$1</code>一直处于上升状态，肯定是这块代码有了问题。<code>HttpClientAsyncService$1</code>表示<code>HttpClientAsyncService</code>的内部类，从代码中，我们可以得知是<code>FutureCallback</code>匿名内部类。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">HttpUriRequest</span><span class="token punctuation">></span></span> <span class="token function">loadMockRequest</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">HttpUriRequest</span><span class="token punctuation">></span></span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    cache<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HttpGet</span><span class="token punctuation">(</span><span class="token string">"http://www.baidu.com?a="</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">// cache.add("http://www.baidu.com?a=" + i);</span>
-  <span class="token punctuation">&#125;</span>
-  <span class="token keyword">return</span> cache<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">HttpUriRequest</span><span class="token punctuation">></span></span> cache<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">final</span> <span class="token class-name">CloseableHttpAsyncClient</span> client <span class="token operator">=</span> <span class="token class-name">HttpAsyncClients</span><span class="token punctuation">.</span><span class="token function">custom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        client<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token comment">// String url = cache.get(i%cache.size());</span>
-            <span class="token comment">// final HttpGet request = new HttpGet(url);</span>
-            <span class="token class-name">HttpUriRequest</span> request <span class="token operator">=</span> cache<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token operator">%</span>cache<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            client<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">FutureCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">HttpResponse</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token annotation punctuation">@Override</span>
-                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">completed</span><span class="token punctuation">(</span><span class="token class-name">HttpResponse</span> httpResponse<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                   <span class="token comment">// System.out.println(request.getRequestLine() + "->" + httpResponse.getStatusLine());</span>
-                <span class="token punctuation">&#125;</span>
-
-                <span class="token annotation punctuation">@Override</span>
-                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">failed</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                   <span class="token comment">// System.out.println(request.getRequestLine() + "->" + e);</span>
-                <span class="token punctuation">&#125;</span>
-
-                <span class="token annotation punctuation">@Override</span>
-                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">cancelled</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                  <span class="token comment">//  System.out.println(request.getRequestLine() + " cancelled");</span>
-                <span class="token punctuation">&#125;</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            i<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>以上是出现内存泄漏的代码部分，对这块代码进行Debug，我们发现了以下结果：</p>
-<p>在Client执行请求时，会将<code>FutureCallback</code>构建<code>Future</code>对象：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">BasicFuture</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> future <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BasicFuture</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>该对象会参与<code>DefaultClientExchangeHandlerImpl</code>的构建：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">DefaultClientExchangeHandlerImpl</span> handler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultClientExchangeHandlerImpl</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>log<span class="token punctuation">,</span> requestProducer<span class="token punctuation">,</span> responseConsumer<span class="token punctuation">,</span> localcontext<span class="token punctuation">,</span> future<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>connmgr<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>connReuseStrategy<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>keepaliveStrategy<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>exec<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>之后，handler调用<code>start</code>方法，其中，会将整个handler设置在请求里面</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">HttpRequest</span> original <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>requestProducer<span class="token punctuation">.</span><span class="token function">generateRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">HttpExecutionAware</span><span class="token punctuation">)</span>original<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setCancellable</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>这也导致了前面构建的匿名内部类被存在请求里面，因为我们的请求是存在集合当中的，没有办法及时释放，随着Young GC，内部类晋升至Old Gen，最终将老年代空间挤爆。</p>
-<p><strong>解决办法</strong></p>
-<p>使用基本数据类型构建缓存，随时释放请求类，也就释放了内部类。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">loadMockRequest</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    cache<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"http://www.baidu.com?a="</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-  <span class="token keyword">return</span> cache<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/myblog/2021/07/16/GC%E8%B0%83%E4%BC%98%E5%AE%9E%E8%B7%B5-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%8E%92%E6%9F%A5/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -564,8 +508,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
-<h4 id="根据身高重建队列"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/queue-reconstruction-by-height/">根据身高重建队列</a></h4>
-<p>假设有打乱顺序的一群人站成一个队列，数组 people 表示队列中一些人的属性（不一定按顺序）。每个 people[i] = [hi, ki] 表示第 i 个人的身高为 hi ，前面 正好 有 ki 个身高大于或等于 hi 的人。</p>
+<h4 id="根据身高重建队列"><a href="#根据身高重建队列" class="headerlink" title="根据身高重建队列"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/queue-reconstruction-by-height/">根据身高重建队列</a></h4><p>假设有打乱顺序的一群人站成一个队列，数组 people 表示队列中一些人的属性（不一定按顺序）。每个 people[i] = [hi, ki] 表示第 i 个人的身高为 hi ，前面 正好 有 ki 个身高大于或等于 hi 的人。</p>
 <p>请你重新构造并返回输入数组 people 所表示的队列。返回的队列应该格式化为数组 queue ，其中 queue[j] = [hj, kj] 是队列中第 j 个人的属性（queue[0] 是排在队列前面的人）。</p>
 <p>思路：</p>
 <ol>
@@ -601,14 +544,12 @@
         <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="完全平方数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/perfect-squares/">完全平方数</a></h4>
-<p>给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, …）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。</p>
+<h4 id="完全平方数"><a href="#完全平方数" class="headerlink" title="完全平方数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/perfect-squares/">完全平方数</a></h4><p>给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, …）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。</p>
 <p>给你一个整数 n ，返回和为 n 的完全平方数的 最少数量 。</p>
 <p>完全平方数 是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，1、4、9 和 16 都是完全平方数，而 3 和 11 不是。</p>
 <p>思路：</p>
 <ol>
-<li>
-<p>动态规划：</p>
+<li><p>动态规划：</p>
 <p>本题考虑到n的完全平方数f(n)，与<code>f(n-k)+1</code>有关，也就是与子状态相关，考虑使用DP。</p>
 <p>$f(n) = Math.min(f(n-k) + 1),k=1,4,9,16…$</p>
 <p>时间复杂度为$O(n\sqrt{n})$</p>
@@ -633,8 +574,7 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li>
-<p>贪心算法</p>
+<li><p>贪心算法</p>
 <p>需要的数目从1到n，去判断能否组成，需要预设完全平方数列表。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> nums<span class="token punctuation">;</span>
@@ -738,8 +678,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
-<h4 id="字母异位词分组"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/group-anagrams/">字母异位词分组</a></h4>
-<p>给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。</p>
+<h4 id="字母异位词分组"><a href="#字母异位词分组" class="headerlink" title="字母异位词分组"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/group-anagrams/">字母异位词分组</a></h4><p>给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。</p>
 <p><em>思路：对每个字符串，转为char数组，再将其排序，转为String后，存储于Map当中</em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token function">groupAnagrams</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> strs<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -758,9 +697,8 @@
         <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span><span class="token punctuation">></span></span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Excel表列名称"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/excel-sheet-column-title/">Excel表列名称</a></h4>
-<p>给你一个整数 <code>columnNumber</code> ，返回它在 Excel 表中相对应的列名称。</p>
-<p>思路：按理说是一个26进制题，但是26时，应该输出<code>z</code>，1时应该输出’A’，$26%26==0$，这样就没办法对齐，因此需要每轮对其减一，这样<code>0-25=&gt;A-Z</code></p>
+<h4 id="Excel表列名称"><a href="#Excel表列名称" class="headerlink" title="Excel表列名称"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/excel-sheet-column-title/">Excel表列名称</a></h4><p>给你一个整数 <code>columnNumber</code> ，返回它在 Excel 表中相对应的列名称。</p>
+<p>思路：按理说是一个26进制题，但是26时，应该输出<code>z</code>，1时应该输出’A’，$26\%26==0$，这样就没办法对齐，因此需要每轮对其减一，这样<code>0-25=&gt;A-Z</code></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">convertToTitle</span><span class="token punctuation">(</span><span class="token keyword">int</span> columnNumber<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -772,18 +710,16 @@
         <span class="token keyword">return</span> sb<span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="字符串解码"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/decode-string/">字符串解码</a></h4>
-<p>给定一个经过编码的字符串，返回它解码后的字符串。</p>
+<h4 id="字符串解码"><a href="#字符串解码" class="headerlink" title="字符串解码"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/decode-string/">字符串解码</a></h4><p>给定一个经过编码的字符串，返回它解码后的字符串。</p>
 <p>编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。</p>
 <p>你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。</p>
 <p>此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入。</p>
 <p>思路：</p>
-<p>本题的字符串，形式很像一颗递归树，因此自然而然想到用DFS去解决，逐层地剥开，拿出子串，重复相同的操作，直至最后的结果。<br>
-以abc3[a2[c]]100b为例子：</p>
+<p>本题的字符串，形式很像一颗递归树，因此自然而然想到用DFS去解决，逐层地剥开，拿出子串，重复相同的操作，直至最后的结果。<br>以abc3[a2[c]]100b为例子：</p>
 <ol>
 <li>首先遍历到字符类型，我们将其直接加入到结果字符串当中</li>
 <li>如果是数字类型字符，则需要往下遍历，直到非数字字符，这样是为了拿到像100这样的情况出现</li>
-<li>拿到数字字符后，需要将其子串取出，本质上是栈的思想，但本题中’[‘’]‘肯定是成对出现的，那么我们统计这两个的次数，如[a2[c]]，设置初值flag=1，表示出现一个’[‘，从a开始遍历，当出现’[‘则flag自增，出现’]'则自减，当flag==1时，表示我们的子串的位置已经拿到，直接重复1、2、3操作即可</li>
+<li>拿到数字字符后，需要将其子串取出，本质上是栈的思想，但本题中’[‘’]’肯定是成对出现的，那么我们统计这两个的次数，如[a2[c]]，设置初值flag=1，表示出现一个’[‘，从a开始遍历，当出现’[‘则flag自增，出现’]’则自减，当flag==1时，表示我们的子串的位置已经拿到，直接重复1、2、3操作即可</li>
 </ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">decodeString</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -832,14 +768,11 @@
         <span class="token keyword">return</span> cnt<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="翻转字符串里的单词"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-words-in-a-string/">翻转字符串里的单词</a></h4>
-<p>给你一个字符串 s ，逐个翻转字符串中的所有 单词 。</p>
+<h4 id="翻转字符串里的单词"><a href="#翻转字符串里的单词" class="headerlink" title="翻转字符串里的单词"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-words-in-a-string/">翻转字符串里的单词</a></h4><p>给你一个字符串 s ，逐个翻转字符串中的所有 单词 。</p>
 <p>单词 是由非空格字符组成的字符串。s 中使用至少一个空格将字符串中的 单词 分隔开。</p>
 <p>请你返回一个翻转 s 中单词顺序并用单个空格相连的字符串。</p>
 <p>说明：</p>
-<p>输入字符串 s 可以在前面、后面或者单词间包含多余的空格。<br>
-翻转后单词间应当仅用一个空格分隔。<br>
-翻转后的字符串中不应包含额外的空格。</p>
+<p>输入字符串 s 可以在前面、后面或者单词间包含多余的空格。<br>翻转后单词间应当仅用一个空格分隔。<br>翻转后的字符串中不应包含额外的空格。</p>
 <p>思路：根据题目说明，我们需要先过滤掉两边的空格，然后，再从尾到头收集单词</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">reverseWords</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -872,8 +805,7 @@
         <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="无重复字符的最长子串"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">无重复字符的最长子串</a></h4>
-<p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<h4 id="无重复字符的最长子串"><a href="#无重复字符的最长子串" class="headerlink" title="无重复字符的最长子串"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">无重复字符的最长子串</a></h4><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
 <p>题解：</p>
 <p>左右指针，滑动窗口，使用set统计字符，如果重复，则从重复的字符再开始继续统计。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -975,8 +907,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
-<h4 id="除法求值"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/evaluate-division/">除法求值</a></h4>
-<p>给你一个变量对数组 equations 和一个实数值数组 values 作为已知条件，其中 equations[i] = [Ai, Bi] 和 values[i] 共同表示等式 Ai / Bi = values[i] 。每个 Ai 或 Bi 是一个表示单个变量的字符串。</p>
+<h4 id="除法求值"><a href="#除法求值" class="headerlink" title="除法求值"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/evaluate-division/">除法求值</a></h4><p>给你一个变量对数组 equations 和一个实数值数组 values 作为已知条件，其中 equations[i] = [Ai, Bi] 和 values[i] 共同表示等式 Ai / Bi = values[i] 。每个 Ai 或 Bi 是一个表示单个变量的字符串。</p>
 <p>另有一些以数组 queries 表示的问题，其中 queries[j] = [Cj, Dj] 表示第 j 个问题，请你根据已知条件找出 Cj / Dj = ? 的结果作为答案。</p>
 <p>返回 所有问题的答案 。如果存在某个无法确定的答案，则用 -1.0 替代这个答案。如果问题中出现了给定的已知条件中没有出现的字符串，也需要用 -1.0 替代这个答案。</p>
 <p>注意：输入总是有效的。你可以假设除法运算中不会出现除数为 0 的情况，且不存在任何矛盾的结果。</p>
@@ -1032,19 +963,15 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="课程表"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/course-schedule/">课程表</a></h4>
-<p>你这个学期必须选修 numCourses 门课程，记为 0 到 numCourses - 1 。</p>
+<h4 id="课程表"><a href="#课程表" class="headerlink" title="课程表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/course-schedule/">课程表</a></h4><p>你这个学期必须选修 numCourses 门课程，记为 0 到 numCourses - 1 。</p>
 <p>在选修某些课程之前需要一些先修课程。 先修课程按数组 prerequisites 给出，其中 prerequisites[i] = [ai, bi] ，表示如果要学习课程 ai 则 必须 先学习课程  bi 。</p>
-<p>例如，先修课程对 [0, 1] 表示：想要学习课程 0 ，你需要先完成课程 1 。<br>
-请你判断是否可能完成所有课程的学习？如果可以，返回 true ；否则，返回 false 。</p>
+<p>例如，先修课程对 [0, 1] 表示：想要学习课程 0 ，你需要先完成课程 1 。<br>请你判断是否可能完成所有课程的学习？如果可以，返回 true ；否则，返回 false 。</p>
 <p>思路：典型的拓扑排序，方法一般有两种：</p>
 <ul>
-<li>
-<p>BFS</p>
+<li><p>BFS</p>
 <p>广度优先搜索，采用拓扑排序正向的处理方法，首先找出入度为0的点，然后，遍历这些点指向的点，将这些点的入度减一，循环此流程，直至所有节点都被访问，如果存在未被访问的节点，则表示存在环。无法形成拓扑排序</p>
 </li>
-<li>
-<p>DFS</p>
+<li><p>DFS</p>
 <p>深度优先搜索，考虑设置三种状态，未访问、搜索中、搜索完成，任意选取点，从该点出发开始访问，并更改状态为搜索中。</p>
 <p>因为是深度优先搜索，因此一个节点的祖先节点都是要比它先访问到，因此会转为搜索中，但是该节点要比祖先节点先一步转为搜索完成。</p>
 <p>那么如果一个节点搜索中，发现其指向的节点出现了搜索中的状态，则表示访问到了其祖先节点，也就是出现了环。</p>
@@ -1087,8 +1014,7 @@
 
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="课程表-II"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/course-schedule-ii/">课程表 II</a></h4>
-<p>现在你总共有 n 门课需要选，记为 0 到 n-1。</p>
+<h4 id="课程表-II"><a href="#课程表-II" class="headerlink" title="课程表 II"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/course-schedule-ii/">课程表 II</a></h4><p>现在你总共有 n 门课需要选，记为 0 到 n-1。</p>
 <p>在选修某些课程之前需要一些先修课程。 例如，想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示他们: [0,1]</p>
 <p>给定课程总量以及它们的先决条件，返回你为了学完所有课程所安排的学习顺序。</p>
 <p>可能会有多个正确的顺序，你只要返回一种就可以了。如果不可能完成所有课程，返回一个空数组。</p>
@@ -1212,11 +1138,10 @@
     
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
-<h4 id="汉明距离"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/hamming-distance/">汉明距离</a></h4>
-<p>两个整数之间的 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB">汉明距离</a> 指的是这两个数字对应二进制位不同的位置的数目。</p>
+<h4 id="汉明距离"><a href="#汉明距离" class="headerlink" title="汉明距离"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/hamming-distance/">汉明距离</a></h4><p>两个整数之间的 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/汉明距离">汉明距离</a> 指的是这两个数字对应二进制位不同的位置的数目。</p>
 <p><em>思路：首先想到异或，之后统计1的个数即可。</em></p>
 <p>算法介绍：<strong>《Brian Kernighan 算法》</strong></p>
-<p>假设 $z = 24 = (11000)_2$，那么$z-1 = 23 = (10111)$，则$z = z &amp; z-1 = 10000$，此时就将最右侧的1去掉了，同样的再次$z &amp;z-1 = 0$，统计可以做&amp;的次数，即可得到1的出现次数。</p>
+<p>假设 $z = 24 = (11000)_2$，那么$z-1 = 23 = (10111)$，则$z = z \&amp; z-1 = 10000$，此时就将最右侧的1去掉了，同样的再次$z \&amp;z-1 = 0$，统计可以做&amp;的次数，即可得到1的出现次数。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hammingDistance</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> z <span class="token operator">=</span> x<span class="token operator">^</span>y<span class="token punctuation">;</span>
@@ -1315,8 +1240,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
-<h4 id="组合总和-Ⅳ"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum-iv/">组合总和 Ⅳ</a></h4>
-<p>给你一个由 <strong>不同</strong> 整数组成的数组 <code>nums</code> ，和一个目标整数 <code>target</code> 。请你从 <code>nums</code> 中找出并返回总和为 <code>target</code> 的元素组合的个数。</p>
+<h4 id="组合总和-Ⅳ"><a href="#组合总和-Ⅳ" class="headerlink" title="组合总和 Ⅳ"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum-iv/">组合总和 Ⅳ</a></h4><p>给你一个由 <strong>不同</strong> 整数组成的数组 <code>nums</code> ，和一个目标整数 <code>target</code> 。请你从 <code>nums</code> 中找出并返回总和为 <code>target</code> 的元素组合的个数。</p>
 <p><em>思路：该题目回溯是不行的，会超时，考虑到<code>target=k</code>的状态与<code>target=k-nums[i]</code>的状态相关，可以用动态规划来做。</em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">combinationSum4</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1335,8 +1259,7 @@
         <span class="token keyword">return</span> dp<span class="token punctuation">[</span>target<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="买卖股票的最佳时机"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">买卖股票的最佳时机</a></h4>
-<p>给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。</p>
+<h4 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">买卖股票的最佳时机</a></h4><p>给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。</p>
 <p>你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。</p>
 <p>返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。</p>
 <p><em>思路：记录最低点，每次算差值，得到最大的差值</em></p>
@@ -1354,11 +1277,10 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="最大正方形"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximal-square/">最大正方形</a></h4>
-<p>在一个由 <code>'0'</code> 和 <code>'1'</code> 组成的二维矩阵内，找到只包含 <code>'1'</code> 的最大正方形，并返回其面积。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gry15qsarlj30b808yglt.jpg" alt=""></p>
+<h4 id="最大正方形"><a href="#最大正方形" class="headerlink" title="最大正方形"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximal-square/">最大正方形</a></h4><p>在一个由 <code>&#39;0&#39;</code> 和 <code>&#39;1&#39;</code> 组成的二维矩阵内，找到只包含 <code>&#39;1&#39;</code> 的最大正方形，并返回其面积。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008i3skNgy1gry15qsarlj30b808yglt.jpg" alt=""></p>
 <p>思路：画了下图，假设从右下角开始，往上，往左扩散，可以发现，（i，j）能构成多大的正方形与它的右、下以及右下有关，因此，设置转移方程：</p>
-<p>​							$dp((i,j)) = min(dp(i+1,j),dp(i,j+1),dp(i+1,j+1)) + 1$</p>
+<p>​                            $dp((i,j)) = min(dp(i+1,j),dp(i,j+1),dp(i+1,j+1)) + 1$</p>
 <p>如果$(i,j)==0$，则dp也为0.</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maximalSquare</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> matrix<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1385,8 +1307,7 @@
         <span class="token keyword">return</span> max<span class="token operator">*</span>max<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="比特位计数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/counting-bits/">比特位计数</a></h4>
-<p>给定一个非负整数 <strong>num</strong>。对于 <strong>0 ≤ i ≤ num</strong> 范围中的每个数字 <strong>i</strong> ，计算其二进制数中的 1 的数目并将它们作为数组返回。</p>
+<h4 id="比特位计数"><a href="#比特位计数" class="headerlink" title="比特位计数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/counting-bits/">比特位计数</a></h4><p>给定一个非负整数 <strong>num</strong>。对于 <strong>0 ≤ i ≤ num</strong> 范围中的每个数字 <strong>i</strong> ，计算其二进制数中的 1 的数目并将它们作为数组返回。</p>
 <p>思路：</p>
 <p><em>保留高位有效位，看下题解吧😓</em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1407,8 +1328,7 @@
         <span class="token keyword">return</span> dp<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="最长回文子串"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-palindromic-substring/">最长回文子串</a></h4>
-<p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
+<h4 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-palindromic-substring/">最长回文子串</a></h4><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
 <p><em>思路：因为一个子串<code>(left,right)</code>是否是子串，与<code>(left+1,right-1)</code>是否是子串相关，因此考虑使用DP记忆<code>(i,j)</code>之间的串是否是回文。</em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">longestPalindrome</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1442,8 +1362,7 @@
         <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span>right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="回文子串"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindromic-substrings/">回文子串</a></h4>
-<p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
+<h4 id="回文子串"><a href="#回文子串" class="headerlink" title="回文子串"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindromic-substrings/">回文子串</a></h4><p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
 <p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。</p>
 <p><em>思路：同上一题</em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1470,8 +1389,7 @@
         <span class="token keyword">return</span> cnt<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="打家劫舍"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber/">打家劫舍</a></h4>
-<p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
+<h4 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber/">打家劫舍</a></h4><p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
 <p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
 <p>思路：</p>
 <p>考虑当我偷到第<code>n</code>个屋子，我当前能拿到的最大的金额是多少呢？</p>
@@ -1493,8 +1411,7 @@
         <span class="token keyword">return</span> dp<span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="打家劫舍-II"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-ii/">打家劫舍 II</a></h4>
-<p>你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都 围成一圈 ，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警 。</p>
+<h4 id="打家劫舍-II"><a href="#打家劫舍-II" class="headerlink" title="打家劫舍 II"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-ii/">打家劫舍 II</a></h4><p>你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都 围成一圈 ，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警 。</p>
 <p>给定一个代表每个房屋存放金额的非负整数数组，计算你 在不触动警报装置的情况下 ，今晚能够偷窃到的最高金额。</p>
 <p>思路：</p>
 <p>该题目头尾连在一起，那么其实和上一题相比，中间的没有受到影响，而最后一个节点要求不包含第一个节点的最大值，所以就搞了另外一个dp来记录[1,n-1]的最大值，结尾要么就是</p>
@@ -1550,17 +1467,14 @@
         <span class="token keyword">return</span> second<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="打家劫舍-III"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-iii/">打家劫舍 III</a></h4>
-<p>在上次打劫完一条街道之后和一圈房屋后，小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为“根”。 除了“根”之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果两个直接相连的房子在同一天晚上被打劫，房屋将自动报警。</p>
+<h4 id="打家劫舍-III"><a href="#打家劫舍-III" class="headerlink" title="打家劫舍 III"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-iii/">打家劫舍 III</a></h4><p>在上次打劫完一条街道之后和一圈房屋后，小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为“根”。 除了“根”之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果两个直接相连的房子在同一天晚上被打劫，房屋将自动报警。</p>
 <p>计算在不触动警报的情况下，小偷一晚能够盗取的最高金额。</p>
 <p>思路：</p>
 <p>因为直接相连的房子不可以同时访问，因此，该题目下如何得到子节点与父节点之间最大值关系是最重要的。</p>
-<p>考虑该节点访问和不访问两种情况，可以得到两种与子节点的关系：<br>
-$$<br>
-访问的情况：f(root) = root.val + g(left) + g(right) \ \  \<br>
-不访问的情况：g(root) = max(f(left),g(left)) + max(f(right),g(right)) \ \ \<br>
-$$</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<p>考虑该节点访问和不访问两种情况，可以得到两种与子节点的关系：</p>
+<script type="math/tex; mode=display">
+访问的情况：f(root) = root.val + g(left) + g(right) \ \  \\
+不访问的情况：g(root) = max(f(left),g(left)) + max(f(right),g(right)) \ \ \\</script><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">,</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> f<span class="token punctuation">;</span>
     <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">,</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> g<span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">rob</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1585,8 +1499,7 @@ $$</p>
         g<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>fl<span class="token punctuation">,</span>gl<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>fr<span class="token punctuation">,</span>gr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="斐波那契数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fibonacci-number/">斐波那契数</a></h4>
-<p><strong>斐波那契数</strong>，通常用 <code>F(n)</code> 表示，形成的序列称为 <strong>斐波那契数列</strong> 。该数列由 <code>0</code> 和 <code>1</code> 开始，后面的每一项数字都是前面两项数字的和。</p>
+<h4 id="斐波那契数"><a href="#斐波那契数" class="headerlink" title="斐波那契数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fibonacci-number/">斐波那契数</a></h4><p><strong>斐波那契数</strong>，通常用 <code>F(n)</code> 表示，形成的序列称为 <strong>斐波那契数列</strong> 。该数列由 <code>0</code> 和 <code>1</code> 开始，后面的每一项数字都是前面两项数字的和。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">fib</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">0</span><span class="token operator">||</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token keyword">return</span> n<span class="token punctuation">;</span>
@@ -1599,8 +1512,7 @@ $$</p>
         <span class="token keyword">return</span> dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="第-N-个泰波那契数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/n-th-tribonacci-number/">第 N 个泰波那契数</a></h4>
-<p>泰波那契序列 Tn 定义如下：</p>
+<h4 id="第-N-个泰波那契数"><a href="#第-N-个泰波那契数" class="headerlink" title="第 N 个泰波那契数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/n-th-tribonacci-number/">第 N 个泰波那契数</a></h4><p>泰波那契序列 Tn 定义如下： </p>
 <p>T0 = 0, T1 = 1, T2 = 1, 且在 n &gt;= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2</p>
 <p>给你整数 n，请返回第 n 个泰波那契数 Tn 的值。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1617,19 +1529,12 @@ $$</p>
         <span class="token keyword">return</span> dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="解码方法"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/decode-ways/">解码方法</a></h4>
-<p>一条包含字母 A-Z 的消息通过以下映射进行了 编码 ：</p>
-<p>‘A’ -&gt; 1<br>
-‘B’ -&gt; 2<br>
-…<br>
-‘Z’ -&gt; 26<br>
-要 解码 已编码的消息，所有数字必须基于上述映射的方法，反向映射回字母（可能有多种方法）。例如，“11106” 可以映射为：</p>
-<p>“AAJF” ，将消息分组为 (1 1 10 6)<br>
-“KJF” ，将消息分组为 (11 10 6)<br>
-注意，消息不能分组为  (1 11 06) ，因为 “06” 不能映射为 “F” ，这是由于 “6” 和 “06” 在映射中并不等价。</p>
+<h4 id="解码方法"><a href="#解码方法" class="headerlink" title="解码方法"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/decode-ways/">解码方法</a></h4><p>一条包含字母 A-Z 的消息通过以下映射进行了 编码 ：</p>
+<p>‘A’ -&gt; 1<br>‘B’ -&gt; 2<br>…<br>‘Z’ -&gt; 26<br>要 解码 已编码的消息，所有数字必须基于上述映射的方法，反向映射回字母（可能有多种方法）。例如，”11106” 可以映射为：</p>
+<p>“AAJF” ，将消息分组为 (1 1 10 6)<br>“KJF” ，将消息分组为 (11 10 6)<br>注意，消息不能分组为  (1 11 06) ，因为 “06” 不能映射为 “F” ，这是由于 “6” 和 “06” 在映射中并不等价。</p>
 <p>给你一个只含数字的 非空 字符串 s ，请计算并返回 解码 方法的 总数 。</p>
 <p><strong>思路：</strong></p>
-<p>考虑用深度优先搜索，对字符串进行遍历统计，其中，遇到’1’ 和 '2’的字符要特殊处理。除此之外，如果单纯用dfs，必然会导致超时，因此，通过一个map进行结果记录，优化效率。</p>
+<p>考虑用深度优先搜索，对字符串进行遍历统计，其中，遇到’1’ 和 ‘2’的字符要特殊处理。除此之外，如果单纯用dfs，必然会导致超时，因此，通过一个map进行结果记录，优化效率。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> map<span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">numDecodings</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1686,12 +1591,10 @@ $$</p>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当然，这个解法只打败了9%的用户，接下来就要将暴力转化为动态规划解法：</p>
-<p>转移方程：<br>
-$$<br>
-f(i) += f(i-1) \ 当前字符不为’0’时 \<br>
-f(i) += f(i - 2) \ 当前一个字符 + 当前字符满足26以内的条件时<br>
-$$</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<p>转移方程：</p>
+<script type="math/tex; mode=display">
+f(i) += f(i-1) \ 当前字符不为'0'时 \\
+f(i) += f(i - 2) \ 当前一个字符 + 当前字符满足26以内的条件时</script><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">numDecodings</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> n <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -1787,8 +1690,7 @@ $$</p>
     
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
-<h4 id="二叉树的中序遍历"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">二叉树的中序遍历</a></h4>
-<p>给定一个二叉树的根节点 <code>root</code> ，返回它的 <strong>中序</strong> 遍历。</p>
+<h4 id="二叉树的中序遍历"><a href="#二叉树的中序遍历" class="headerlink" title="二叉树的中序遍历"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">二叉树的中序遍历</a></h4><p>给定一个二叉树的根节点 <code>root</code> ，返回它的 <strong>中序</strong> 遍历。</p>
 <p>有递归和非递归俩种方案：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 递归版本</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1819,8 +1721,7 @@ $$</p>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="合并二叉树"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-two-binary-trees/">合并二叉树</a></h4>
-<p>给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。</p>
+<h4 id="合并二叉树"><a href="#合并二叉树" class="headerlink" title="合并二叉树"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-two-binary-trees/">合并二叉树</a></h4><p>给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。</p>
 <p>你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。</p>
 <p><em>思路：DFS，递归地合并同位置节点</em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1834,10 +1735,8 @@ $$</p>
         <span class="token keyword">return</span> root1<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="二叉树展开为链表"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/">二叉树展开为链表</a></h4>
-<p>给你二叉树的根结点 root ，请你将它展开为一个单链表：</p>
-<p>展开后的单链表应该同样使用 TreeNode ，其中 right 子指针指向链表中下一个结点，而左子指针始终为 null 。<br>
-展开后的单链表应该与二叉树 先序遍历 顺序相同。</p>
+<h4 id="二叉树展开为链表"><a href="#二叉树展开为链表" class="headerlink" title="二叉树展开为链表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/">二叉树展开为链表</a></h4><p>给你二叉树的根结点 root ，请你将它展开为一个单链表：</p>
+<p>展开后的单链表应该同样使用 TreeNode ，其中 right 子指针指向链表中下一个结点，而左子指针始终为 null 。<br>展开后的单链表应该与二叉树 先序遍历 顺序相同。</p>
 <p>思路：</p>
 <p>使用栈结构进行前序遍历，并用<code>left</code>指针保存先序遍历顺序（因为左指针在访问完后就没用了，右指针后面访问右子树还有用）,之后左右指针调换下就行。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1863,12 +1762,9 @@ $$</p>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="把二叉搜索树转换为累加树"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/convert-bst-to-greater-tree/">把二叉搜索树转换为累加树</a></h4>
-<p>给出二叉 搜索 树的根节点，该树的节点值各不相同，请你将其转换为累加树（Greater Sum Tree），使每个节点 node 的新值等于原树中大于或等于 node.val 的值之和。</p>
+<h4 id="把二叉搜索树转换为累加树"><a href="#把二叉搜索树转换为累加树" class="headerlink" title="把二叉搜索树转换为累加树"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/convert-bst-to-greater-tree/">把二叉搜索树转换为累加树</a></h4><p>给出二叉 搜索 树的根节点，该树的节点值各不相同，请你将其转换为累加树（Greater Sum Tree），使每个节点 node 的新值等于原树中大于或等于 node.val 的值之和。</p>
 <p>提醒一下，二叉搜索树满足下列约束条件：</p>
-<p>节点的左子树仅包含键 小于 节点键的节点。<br>
-节点的右子树仅包含键 大于 节点键的节点。<br>
-左右子树也必须是二叉搜索树。</p>
+<p>节点的左子树仅包含键 小于 节点键的节点。<br>节点的右子树仅包含键 大于 节点键的节点。<br>左右子树也必须是二叉搜索树。</p>
 <p>思路：</p>
 <p>一开始想的复杂了，直接把中序遍历整出来，再一个个算。其实可以反序的中序遍历来做，这种的话，递归或者迭代，都可以，递归结果会快点。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1887,8 +1783,7 @@ $$</p>
         <span class="token keyword">return</span> root<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="皇位继承顺序"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/throne-inheritance/">皇位继承顺序</a></h4>
-<p>题目太长，不复制了。</p>
+<h4 id="皇位继承顺序"><a href="#皇位继承顺序" class="headerlink" title="皇位继承顺序"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/throne-inheritance/">皇位继承顺序</a></h4><p>题目太长，不复制了。</p>
 <p>思路：转化为树，继承顺序可以用前序遍历</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">ThroneInheritance</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span><span class="token punctuation">></span></span> orders<span class="token punctuation">;</span>
@@ -1931,8 +1826,7 @@ $$</p>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="二叉树的最大深度"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/">二叉树的最大深度</a></h4>
-<p>给定一个二叉树，找出其最大深度。</p>
+<h4 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/">二叉树的最大深度</a></h4><p>给定一个二叉树，找出其最大深度。</p>
 <p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
 <p><em>思路：使用DFS，比较左右子树大小，取其大。</em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -1943,16 +1837,12 @@ $$</p>
         <span class="token keyword">return</span> left <span class="token operator">></span> right <span class="token operator">?</span> left <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">:</span> right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="验证二叉搜索树"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/validate-binary-search-tree/">验证二叉搜索树</a></h4>
-<p>给定一个二叉树，判断其是否是一个有效的二叉搜索树。</p>
+<h4 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/validate-binary-search-tree/">验证二叉搜索树</a></h4><p>给定一个二叉树，判断其是否是一个有效的二叉搜索树。</p>
 <p>假设一个二叉搜索树具有如下特征：</p>
-<p>节点的左子树只包含小于当前节点的数。<br>
-节点的右子树只包含大于当前节点的数。<br>
-所有左子树和右子树自身必须也是二叉搜索树。</p>
+<p>节点的左子树只包含小于当前节点的数。<br>节点的右子树只包含大于当前节点的数。<br>所有左子树和右子树自身必须也是二叉搜索树。</p>
 <p>思路：</p>
 <ol>
-<li>
-<p>中序遍历，判断递增关系</p>
+<li><p>中序遍历，判断递增关系</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValidBST</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">></span></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1978,8 +1868,7 @@ $$</p>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li>
-<p>递归，设置区间</p>
+<li><p>递归，设置区间</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValidBST</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
@@ -1993,8 +1882,7 @@ $$</p>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
-<h4 id="二叉树的后序遍历"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/">二叉树的后序遍历</a></h4>
-<p>给定一个二叉树，返回它的 后序 遍历。</p>
+<h4 id="二叉树的后序遍历"><a href="#二叉树的后序遍历" class="headerlink" title="二叉树的后序遍历"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/">二叉树的后序遍历</a></h4><p>给定一个二叉树，返回它的 后序 遍历。</p>
 <p>思路：用栈，在弹出时，需要判断是否要输出：</p>
 <ul>
 <li>当前节点无右子节点</li>
@@ -2025,8 +1913,7 @@ $$</p>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="翻转二叉树"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/invert-binary-tree/">翻转二叉树</a></h4>
-<p>翻转一棵二叉树。</p>
+<h4 id="翻转二叉树"><a href="#翻转二叉树" class="headerlink" title="翻转二叉树"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/invert-binary-tree/">翻转二叉树</a></h4><p>翻转一棵二叉树。</p>
 <p><em>思路：左右交换，递归处理左右子树</em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">invertTree</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -2039,8 +1926,7 @@ $$</p>
         <span class="token keyword">return</span> root<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="路径总和"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum/">路径总和</a></h4>
-<p>给你二叉树的根节点 root 和一个表示目标和的整数 targetSum ，判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和 targetSum 。</p>
+<h4 id="路径总和"><a href="#路径总和" class="headerlink" title="路径总和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum/">路径总和</a></h4><p>给你二叉树的根节点 root 和一个表示目标和的整数 targetSum ，判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和 targetSum 。</p>
 <p>叶子节点 是指没有子节点的节点。</p>
 <p><em>思路：<code>[],0</code>时，需要返回<code>false</code></em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -2050,8 +1936,7 @@ $$</p>
         <span class="token keyword">return</span> <span class="token function">hasPathSum</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span>targetSum <span class="token operator">-</span> root<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">hasPathSum</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span>targetSum <span class="token operator">-</span> root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="路径总和-II"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-ii/">路径总和 II</a></h4>
-<p>给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。</p>
+<h4 id="路径总和-II"><a href="#路径总和-II" class="headerlink" title="路径总和 II"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-ii/">路径总和 II</a></h4><p>给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。</p>
 <p>叶子节点 是指没有子节点的节点。</p>
 <p><em>思路：思路与上题一致，只是要记录路径，使用List回溯</em></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -2075,8 +1960,7 @@ $$</p>
         tmp<span class="token punctuation">.</span><span class="token function">removeLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="路径总和-III"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-iii/">路径总和 III</a></h4>
-<p>给定一个二叉树，它的每个结点都存放着一个整数值。</p>
+<h4 id="路径总和-III"><a href="#路径总和-III" class="headerlink" title="路径总和 III"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-iii/">路径总和 III</a></h4><p>给定一个二叉树，它的每个结点都存放着一个整数值。</p>
 <p>找出路径和等于给定数值的路径总数。</p>
 <p>路径不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。</p>
 <p>二叉树不超过1000个节点，且节点数值范围是 [-1000000,1000000] 的整数。</p>
@@ -2138,13 +2022,11 @@ $$</p>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="二叉树的最近公共祖先"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/">二叉树的最近公共祖先</a></h4>
-<p>给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。</p>
+<h4 id="二叉树的最近公共祖先"><a href="#二叉树的最近公共祖先" class="headerlink" title="二叉树的最近公共祖先"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/">二叉树的最近公共祖先</a></h4><p>给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。</p>
 <p>思路：</p>
 <ol>
-<li>
-<p>递归</p>
-<p>递归寻找$l_{son} &amp;&amp; r_{son}$的节点，或者$(l_{son}||r_{som}) &amp;&amp; (root == p||root==q)$的节点。</p>
+<li><p>递归</p>
+<p>递归寻找$l_{son} \&amp;\&amp; r_{son}$的节点，或者$(l_{son}||r_{som}) \&amp;\&amp; (root == p||root==q)$的节点。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">TreeNode</span> res <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">lowestCommonAncestor</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span> <span class="token class-name">TreeNode</span> p<span class="token punctuation">,</span> <span class="token class-name">TreeNode</span> q<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -2163,8 +2045,7 @@ $$</p>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li>
-<p>DFS</p>
+<li><p>DFS</p>
 <p>记录每个节点的父节点，之后对从p节点往上走，记录每个祖先节点，再从q节点往上走，判断是否访问过，访问过则是最近的公共祖先节点。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">lowestCommonAncestor</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span> <span class="token class-name">TreeNode</span> p<span class="token punctuation">,</span> <span class="token class-name">TreeNode</span> q<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -2204,8 +2085,7 @@ $$</p>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
-<h4 id="二叉树的锯齿形层序遍历"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/">二叉树的锯齿形层序遍历</a></h4>
-<p>给定一个二叉树，返回其节点值的锯齿形层序遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。</p>
+<h4 id="二叉树的锯齿形层序遍历"><a href="#二叉树的锯齿形层序遍历" class="headerlink" title="二叉树的锯齿形层序遍历"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/">二叉树的锯齿形层序遍历</a></h4><p>给定一个二叉树，返回其节点值的锯齿形层序遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token function">zigzagLevelOrder</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">></span></span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2232,16 +2112,13 @@ $$</p>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="二叉树展开为链表-2"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/">二叉树展开为链表</a></h4>
-<p>给你二叉树的根结点 root ，请你将它展开为一个单链表：</p>
-<p>展开后的单链表应该同样使用 TreeNode ，其中 right 子指针指向链表中下一个结点，而左子指针始终为 null 。<br>
-展开后的单链表应该与二叉树 先序遍历 顺序相同。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx8ltdiikwj30v60f6dgc.jpg" alt="image-20211210120254581"></p>
+<h4 id="二叉树展开为链表-1"><a href="#二叉树展开为链表-1" class="headerlink" title="二叉树展开为链表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/">二叉树展开为链表</a></h4><p>给你二叉树的根结点 root ，请你将它展开为一个单链表：</p>
+<p>展开后的单链表应该同样使用 TreeNode ，其中 right 子指针指向链表中下一个结点，而左子指针始终为 null 。<br>展开后的单链表应该与二叉树 先序遍历 顺序相同。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008i3skNgy1gx8ltdiikwj30v60f6dgc.jpg" alt="image-20211210120254581"></p>
 <p>思路：</p>
 <ol>
 <li>基于先序遍历，将树按顺序收集起来，之后进行指针变换即可，O(n)的空间复杂度</li>
-<li>观察示例，分解后步骤：
-<ul>
+<li>观察示例，分解后步骤：<ul>
 <li>将根节点的左子树的最右节点的右节点指向当前节点的右子树，示例中就是序号4要指向序号5</li>
 <li>同时，根节点也就是，序号1的右子树指向左子树，左子树指空，此时将序号1的左右子树都移到了右边</li>
 <li>接着处理右子树，也就是序号2即可，重复123步骤</li>
@@ -2266,8 +2143,7 @@ $$</p>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="对称二叉树"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/symmetric-tree/">对称二叉树</a></h4>
-<p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<h4 id="对称二叉树"><a href="#对称二叉树" class="headerlink" title="对称二叉树"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/symmetric-tree/">对称二叉树</a></h4><p>给定一个二叉树，检查它是否是镜像对称的。</p>
 <p>例如，二叉树 <code>[1,2,2,3,4,4,3]</code> 是对称的。</p>
 <pre class="line-numbers language-none"><code class="language-none">    1
    &#x2F; \
@@ -2302,7 +2178,7 @@ $$</p>
         <span class="token keyword">return</span> <span class="token function">isSame</span><span class="token punctuation">(</span>left<span class="token punctuation">.</span>left<span class="token punctuation">,</span>right<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isSame</span><span class="token punctuation">(</span>left<span class="token punctuation">.</span>right<span class="token punctuation">,</span>right<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="2">
+<ol>
 <li>递归</li>
 </ol>
 <p>精华是将根结点<strong>加入两次</strong>，化解为两棵树是否对称。</p>
@@ -2407,23 +2283,15 @@ $$</p>
 <p><strong># {Title}（文章标题）</strong></p>
 <p><strong>{Year}, {Authors}, {Journal Name}</strong></p>
 <p><strong>{引用格式}</strong></p>
-<h3 id="Summary-2"><strong>Summary</strong></h3>
-<p>写完笔记之后最后填，概述文章的内容，以后查阅笔记的时候先看这一段。注：写文章summary切记需要通过自己的思考，用自己的语言描述。忌讳直接Ctrl + c原文。</p>
-<h3 id="Research-Objective-s-2"><strong>Research Objective(s)</strong></h3>
-<p>作者的研究目标是什么？</p>
-<h3 id="Background-Problem-Statement"><strong>Background / Problem Statement</strong></h3>
-<p>研究的背景以及问题陈述：作者需要解决的问题是什么？</p>
-<h3 id="Method-s"><strong>Method(s)</strong></h3>
-<p>作者解决问题的方法/算法是什么？是否基于前人的方法？基于了哪些？</p>
-<h3 id="Evaluation"><strong>Evaluation</strong></h3>
-<p>作者如何评估自己的方法？实验的setup是什么样的？感兴趣实验数据和结果有哪些？有没有问题或者可以借鉴的地方？</p>
-<h3 id="Conclusion"><strong>Conclusion</strong></h3>
-<p>作者给出了哪些结论？哪些是strong conclusions, 哪些又是weak的conclusions（即作者并没有通过实验提供evidence，只在discussion中提到；或实验的数据并没有给出充分的evidence）?</p>
-<h3 id="Notes-2"><strong>Notes</strong></h3>
-<p>(optional) 不在以上列表中，但需要特别记录的笔记。</p>
-<h3 id="References-2"><strong>References</strong></h3>
-<p>(optional) 列出相关性高的文献，以便之后可以继续track下去。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw355lq4fuj30u01jvjz7.jpg" alt=""></p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a><strong>Summary</strong></h3><p>写完笔记之后最后填，概述文章的内容，以后查阅笔记的时候先看这一段。注：写文章summary切记需要通过自己的思考，用自己的语言描述。忌讳直接Ctrl + c原文。</p>
+<h3 id="Research-Objective-s"><a href="#Research-Objective-s" class="headerlink" title="Research Objective(s)"></a><strong>Research Objective(s)</strong></h3><p>作者的研究目标是什么？</p>
+<h3 id="Background-Problem-Statement"><a href="#Background-Problem-Statement" class="headerlink" title="Background / Problem Statement"></a><strong>Background / Problem Statement</strong></h3><p>研究的背景以及问题陈述：作者需要解决的问题是什么？</p>
+<h3 id="Method-s"><a href="#Method-s" class="headerlink" title="Method(s)"></a><strong>Method(s)</strong></h3><p>作者解决问题的方法/算法是什么？是否基于前人的方法？基于了哪些？</p>
+<h3 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a><strong>Evaluation</strong></h3><p>作者如何评估自己的方法？实验的setup是什么样的？感兴趣实验数据和结果有哪些？有没有问题或者可以借鉴的地方？</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a><strong>Conclusion</strong></h3><p>作者给出了哪些结论？哪些是strong conclusions, 哪些又是weak的conclusions（即作者并没有通过实验提供evidence，只在discussion中提到；或实验的数据并没有给出充分的evidence）?</p>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a><strong>Notes</strong></h3><p>(optional) 不在以上列表中，但需要特别记录的笔记。</p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a><strong>References</strong></h3><p>(optional) 列出相关性高的文献，以便之后可以继续track下去。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008i3skNgy1gw355lq4fuj30u01jvjz7.jpg" alt=""></p>
 
       
     </div>
@@ -2469,6 +2337,8 @@ $$</p>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/myblog/js/comments.js"></script><script src="/myblog/js/utils.js"></script><script src="/myblog/js/motion.js"></script><script src="/myblog/js/schemes/muse.js"></script><script src="/myblog/js/next-boot.js"></script>
 
   

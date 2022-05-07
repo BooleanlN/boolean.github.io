@@ -18,14 +18,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
 
-    <meta name="description" content="汉明距离 两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。 思路：首先想到异或，之后统计1的个数即可。 算法介绍：《Brian Kernighan 算法》 假设 $z &#x3D; 24 &#x3D; (11000)_2$，那么$z-1 &#x3D; 23 &#x3D; (10111)$，则$z &#x3D; z &amp; z-1 &#x3D; 10000$，此时就将最右侧的1去掉了，同样的再次$z &amp;z-1 &#x3D; 0$，">
+    <meta name="description" content="汉明距离两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。 思路：首先想到异或，之后统计1的个数即可。 算法介绍：《Brian Kernighan 算法》 假设 $z &#x3D; 24 &#x3D; (11000)_2$，那么$z-1 &#x3D; 23 &#x3D; (10111)$，则$z &#x3D; z \&amp; z-1 &#x3D; 10000$，此时就将最右侧的1去掉了，同样的再次$z \&amp;z-1 &#x3D; 0$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="位运算">
 <meta property="og:url" content="http://booleanln.github.io/myblog/2021/06/23/%E4%BD%8D%E8%BF%90%E7%AE%97/index.html">
 <meta property="og:site_name" content="Boolean">
-<meta property="og:description" content="汉明距离 两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。 思路：首先想到异或，之后统计1的个数即可。 算法介绍：《Brian Kernighan 算法》 假设 $z &#x3D; 24 &#x3D; (11000)_2$，那么$z-1 &#x3D; 23 &#x3D; (10111)$，则$z &#x3D; z &amp; z-1 &#x3D; 10000$，此时就将最右侧的1去掉了，同样的再次$z &amp;z-1 &#x3D; 0$，">
+<meta property="og:description" content="汉明距离两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。 思路：首先想到异或，之后统计1的个数即可。 算法介绍：《Brian Kernighan 算法》 假设 $z &#x3D; 24 &#x3D; (11000)_2$，那么$z-1 &#x3D; 23 &#x3D; (10111)$，则$z &#x3D; z \&amp; z-1 &#x3D; 10000$，此时就将最右侧的1去掉了，同样的再次$z \&amp;z-1 &#x3D; 0$">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-06-23T07:50:33.000Z">
 <meta property="article:modified_time" content="2022-05-07T08:45:41.455Z">
@@ -63,6 +63,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -84,6 +87,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/myblog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/myblog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/myblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -224,11 +231,10 @@
     
     <div class="post-body" itemprop="articleBody">
         <span id="more"></span>
-<h4 id="汉明距离"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/hamming-distance/">汉明距离</a></h4>
-<p>两个整数之间的 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB">汉明距离</a> 指的是这两个数字对应二进制位不同的位置的数目。</p>
+<h4 id="汉明距离"><a href="#汉明距离" class="headerlink" title="汉明距离"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/hamming-distance/">汉明距离</a></h4><p>两个整数之间的 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/汉明距离">汉明距离</a> 指的是这两个数字对应二进制位不同的位置的数目。</p>
 <p><em>思路：首先想到异或，之后统计1的个数即可。</em></p>
 <p>算法介绍：<strong>《Brian Kernighan 算法》</strong></p>
-<p>假设 $z = 24 = (11000)_2$，那么$z-1 = 23 = (10111)$，则$z = z &amp; z-1 = 10000$，此时就将最右侧的1去掉了，同样的再次$z &amp;z-1 = 0$，统计可以做&amp;的次数，即可得到1的出现次数。</p>
+<p>假设 $z = 24 = (11000)_2$，那么$z-1 = 23 = (10111)$，则$z = z \&amp; z-1 = 10000$，此时就将最右侧的1去掉了，同样的再次$z \&amp;z-1 = 0$，统计可以做&amp;的次数，即可得到1的出现次数。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hammingDistance</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> z <span class="token operator">=</span> x<span class="token operator">^</span>y<span class="token punctuation">;</span>
@@ -310,6 +316,8 @@
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/myblog/js/comments.js"></script><script src="/myblog/js/utils.js"></script><script src="/myblog/js/motion.js"></script><script src="/myblog/js/schemes/muse.js"></script><script src="/myblog/js/next-boot.js"></script>
 
   

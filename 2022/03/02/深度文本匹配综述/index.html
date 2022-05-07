@@ -18,14 +18,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
 
-    <meta name="description" content="深度文本匹配综述 {2017}, {庞亮，兰艳艳，徐君}, {计算机学报} @article&amp;#123;庞亮2017深度文本匹配综述,   title&#x3D;&amp;#123;深度文本匹配综述&amp;#125;,   author&#x3D;&amp;#123;庞亮 and 兰艳艳 and 徐君 and 郭嘉丰 and 万圣贤 and 程学旗&amp;#125;,   journal&#x3D;&amp;#123;计算机学报&amp;#">
+    <meta name="description" content="深度文本匹配综述{2017}, {庞亮，兰艳艳，徐君}, {计算机学报} @article&amp;#123;庞亮2017深度文本匹配综述,   title&#x3D;&amp;#123;深度文本匹配综述&amp;#125;,   author&#x3D;&amp;#123;庞亮 and 兰艳艳 and 徐君 and 郭嘉丰 and 万圣贤 and 程学旗&amp;#125;,   journal&#x3D;&amp;#123;计算机学报&amp;#1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度文本匹配综述">
 <meta property="og:url" content="http://booleanln.github.io/myblog/2022/03/02/%E6%B7%B1%E5%BA%A6%E6%96%87%E6%9C%AC%E5%8C%B9%E9%85%8D%E7%BB%BC%E8%BF%B0/index.html">
 <meta property="og:site_name" content="Boolean">
-<meta property="og:description" content="深度文本匹配综述 {2017}, {庞亮，兰艳艳，徐君}, {计算机学报} @article&amp;#123;庞亮2017深度文本匹配综述,   title&#x3D;&amp;#123;深度文本匹配综述&amp;#125;,   author&#x3D;&amp;#123;庞亮 and 兰艳艳 and 徐君 and 郭嘉丰 and 万圣贤 and 程学旗&amp;#125;,   journal&#x3D;&amp;#123;计算机学报&amp;#">
+<meta property="og:description" content="深度文本匹配综述{2017}, {庞亮，兰艳艳，徐君}, {计算机学报} @article&amp;#123;庞亮2017深度文本匹配综述,   title&#x3D;&amp;#123;深度文本匹配综述&amp;#125;,   author&#x3D;&amp;#123;庞亮 and 兰艳艳 and 徐君 and 郭嘉丰 and 万圣贤 and 程学旗&amp;#125;,   journal&#x3D;&amp;#123;计算机学报&amp;#1">
 <meta property="og:locale">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1gzvvkb2apwj20oq0buwg5.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwq2ai36fj20l00e2dgx.jpg">
@@ -74,6 +74,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -95,6 +98,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/myblog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/myblog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/myblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -234,8 +241,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="深度文本匹配综述">深度文本匹配综述</h2>
-<p><strong>{2017}, {庞亮，兰艳艳，徐君}, {计算机学报}</strong></p>
+        <h2 id="深度文本匹配综述"><a href="#深度文本匹配综述" class="headerlink" title="深度文本匹配综述"></a>深度文本匹配综述</h2><p><strong>{2017}, {庞亮，兰艳艳，徐君}, {计算机学报}</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">@article&#123;庞亮2017深度文本匹配综述,
   title&#x3D;&#123;深度文本匹配综述&#125;,
   author&#x3D;&#123;庞亮 and 兰艳艳 and 徐君 and 郭嘉丰 and 万圣贤 and 程学旗&#125;,
@@ -245,90 +251,77 @@
   pages&#x3D;&#123;985--1003&#125;,
   year&#x3D;&#123;2017&#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Research-Objective-s"><strong>Research Objective(s)</strong></h3>
-<p>深度文本匹配综述</p>
+<h3 id="Research-Objective-s"><a href="#Research-Objective-s" class="headerlink" title="Research Objective(s)"></a><strong>Research Objective(s)</strong></h3><p>深度文本匹配综述</p>
 <span id="more"></span>
-<h3 id="Notes"><strong>Notes</strong></h3>
-<ol>
-<li>
-<p>相比于传统方法，深度文本匹配模型能够从大量的样本中自动提取出词语之 间的关系，并能结合短语匹配中的结构信息和文本匹配的层次化特性，更精细地描述文本匹配问题．根据特征提取 的不同结构，深度文本匹配模型可以分为３类：<strong>基于单语义文档表达的深度学习模型、基于多语义文档表达的深度学习模型和直接建模匹配模式的深度学习模型．</strong></p>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a><strong>Notes</strong></h3><ol>
+<li><p>相比于传统方法，深度文本匹配模型能够从大量的样本中自动提取出词语之 间的关系，并能结合短语匹配中的结构信息和文本匹配的层次化特性，更精细地描述文本匹配问题．根据特征提取 的不同结构，深度文本匹配模型可以分为３类：<strong>基于单语义文档表达的深度学习模型、基于多语义文档表达的深度学习模型和直接建模匹配模式的深度学习模型．</strong></p>
 </li>
-<li>
-<p>三种深度文本匹配模型：</p>
+<li><p>三种深度文本匹配模型：</p>
 <ul>
 <li>基于单语义文档表达的深度学习模型：将单个文本先表达为一个稠密向量，然后计算两个向量之间的相似度</li>
 <li>基于多语义文档表达的深度学习模型 ：认为单一粒度的向量表示文本不够精细，分别提取词、短语、句子等不同级别的表达向量，计算不同粒度的相似度作为最终的相似度</li>
 <li>直接建模匹配模式的深度学习模型 ：更早地让两段文本进行交互，挖掘文本交互后的模式特征，综合得到文本的匹配度</li>
 </ul>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzvvkb2apwj20oq0buwg5.jpg" alt="image-20220302214850408"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzvvkb2apwj20oq0buwg5.jpg" alt="image-20220302214850408"></p>
 </li>
-<li>
-<p>基于单语义文档表达的深度学习模型</p>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwq2ai36fj20l00e2dgx.jpg" alt="image-20220303152408366" style="zoom:50%;" />
+<li><p>基于单语义文档表达的深度学习模型</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwq2ai36fj20l00e2dgx.jpg" alt="image-20220303152408366" style="zoom:50%;" /></p>
 <p>整体框架流程如图所示，Siamese框架（利用同质的网络得到两个对象的表达，然后通过表 达的相似度来衡量两个对象的匹配度）^[1]^</p>
 <ul>
-<li>
-<p>全连接网络DSSM^[2]^：</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx7jzi2mj20oi0j4406.jpg" alt=""></p>
-</li>
-<li>
-<p>基于卷积神经网络CDSSM^[3]^：</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx789hnej20om0kogn2.jpg" alt=""></p>
-<p>CNTN模型^[4]^</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwqaozqbzj21280f0q52.jpg" alt="image-20220303153210542"></p>
-</li>
-<li>
-<p>基于循环神经网络LSTM-RNN^[5]^：</p>
-</li>
-</ul>
-</li>
-<li>
-<p>基于多语义文档表达的深度学习模型：</p>
-<ul>
-<li>
-<p>uRAE可伸展递归自动编码器(unfoldingRecursiveAutoEncoder，uRAE)[6]：</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx6xl38ij217q0dkmzb.jpg" alt=""></p>
-</li>
-<li>
-<p>MultiGranCNN^[7]^：</p>
-<p>将1个句子拆解为4个层次，分别是单词、短语、长短语和句子，之后将两个句子不同级别的特征进行两两的相似度计算得到一个相似度矩阵，对该矩阵进行动态最大值池化，得到相似度得分。</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zxjral4kj20og0dqq4h.jpg" alt=""></p>
-</li>
-<li>
-<p>MV-LSTM^[8]^：</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zxk0j0odj20o60fmabr.jpg" alt=""></p>
-</li>
-</ul>
-</li>
-<li>
-<p>直接建模匹配模式的深度学习模型</p>
-<p>旨在直接捕获匹配的特征，匹配的结构和匹配的程度</p>
-<ul>
-<li>主题深度匹配模型DepMatch^[9]^：</li>
-</ul>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwud3hzfxj213c0hon0p.jpg" alt="image-20220303175255332" style="zoom:50%;" />
-<ul>
-<li>
-<p>树深度匹配模型DeepMatch~tree~^[10]^：</p>
-<img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwuk2d7ujj210c0ruadg.jpg" alt="image-20220303175936074" style="zoom:50%;" />
-</li>
-<li>
-<p>MatchPyramid^[11]^</p>
-</li>
-<li>
-<p>Match-SRNN^[12]^:</p>
-<p>利用二维循环神经网络建模特征空间，二维循环神经网络能够模拟最长公共子序列的计算过程。</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx6jggxaj20nk0d2jsf.jpg" alt=""></p>
+<li><p>全连接网络DSSM^[2]^：</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx7jzi2mj20oi0j4406.jpg" alt=""></p>
 </li>
 </ul>
 </li>
 </ol>
-<h3 id="References"><strong>References</strong></h3>
-<p>[1] ChopraS，HadselR，LecunY.Learning a similarity metric discriminatively，withaplicationtofaceverification/ Procedingsofthe205IEComputerSocietyConference onComputerVisionandPaternRecognition.SanDiego， USA，205，1:539546</p>
+<ul>
+<li><p>基于卷积神经网络CDSSM^[3]^：</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx789hnej20om0kogn2.jpg" alt=""></p>
+<p>CNTN模型^[4]^</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwqaozqbzj21280f0q52.jpg" alt="image-20220303153210542"></p>
+</li>
+<li><p>基于循环神经网络LSTM-RNN^[5]^：</p>
+</li>
+</ul>
+<ol>
+<li><p>基于多语义文档表达的深度学习模型：</p>
+<ul>
+<li><p>uRAE可伸展递归自动编码器(unfoldingRecursiveAutoEncoder，uRAE)[6]：</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx6xl38ij217q0dkmzb.jpg" alt=""></p>
+</li>
+<li><p>MultiGranCNN^[7]^：</p>
+<p>将1个句子拆解为4个层次，分别是单词、短语、长短语和句子，之后将两个句子不同级别的特征进行两两的相似度计算得到一个相似度矩阵，对该矩阵进行动态最大值池化，得到相似度得分。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zxjral4kj20og0dqq4h.jpg" alt=""></p>
+</li>
+<li><p>MV-LSTM^[8]^：</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zxk0j0odj20o60fmabr.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p>直接建模匹配模式的深度学习模型</p>
+<p>旨在直接捕获匹配的特征，匹配的结构和匹配的程度</p>
+<ul>
+<li>主题深度匹配模型DepMatch^[9]^：</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwud3hzfxj213c0hon0p.jpg" alt="image-20220303175255332" style="zoom:50%;" /></p>
+<ul>
+<li><p>树深度匹配模型DeepMatch~tree~^[10]^：</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzwuk2d7ujj210c0ruadg.jpg" alt="image-20220303175936074" style="zoom:50%;" /></p>
+</li>
+<li><p>MatchPyramid^[11]^</p>
+</li>
+<li><p>Match-SRNN^[12]^:</p>
+<p>利用二维循环神经网络建模特征空间，二维循环神经网络能够模拟最长公共子序列的计算过程。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1zx6jggxaj20nk0d2jsf.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a><strong>References</strong></h3><p>[1] ChopraS，HadselR，LecunY.Learning a similarity metric discriminatively，withaplicationtofaceverification/ Procedingsofthe205IEComputerSocietyConference onComputerVisionandPaternRecognition.SanDiego， USA，205，1:539546</p>
 <p>[2] HuangPS，HeX，GaoJ，etal.Learningdepstructured semanticmodelsforwebsearchusingclickthroughdata/ Procedingsofthe2ndACMInternationalConferenceon ConferenceonInformationandKnowledgeManagement.Amazon，India，2013:23238</p>
 <p>[3] HuB，LuZ，LiH，etal.Convolutionalneuralnetwork architecturesformatchingnaturallanguagesentences/ ProcedingsoftheAdvancesinNeuralInformationProcesing Systems.Montreal，Canada，2014:20422050</p>
 <p>[4] QiuX，HuangX.Convolutionalneuraltensornetwork architectureforcomunitybasedquestionanswering/ Procedingsofthe24thInternationalJointConferenceonArtificialInteligence(IJCAI).BuenosAires，Argentina， 2015:1305131</p>
-<p>[5] PalangiH，DengL，ShenY，etal.Depsentenc embeding using longshorttermmemorynetworks:Analysisand <a target="_blank" rel="noopener" href="http://aplicationtoinformationretrieval.IE/ACMTransactions">aplicationtoinformationretrieval.IE/ACMTransactions</a> onAudio，Spech，andLanguageProcesing，2016，24(4): 694707</p>
+<p>[5] PalangiH，DengL，ShenY，etal.Depsentenc embeding using longshorttermmemorynetworks:Analysisand aplicationtoinformationretrieval.IE/ACMTransactions onAudio，Spech，andLanguageProcesing，2016，24(4): 694707</p>
 <p>[6] SocherR，HuangEH，PeninJ，etal.Dynamicpolingand unfoldingrecursiveautoencodersforparaphrasedetection/ ProcedingsoftheAdvancesinNeuralInformationProcesing Systems.Granada，Spain，201:801809</p>
 <p>[7] YinW，SchützeT，Hinrich.MultiGranCN:Anarchitecture forgeneralmatchingoftextchunksonmultiplelevelsof granularity/Procedingsofthe53rdAnualMetingofthe AsociationforComputationalLinguistics.Beijing，China，2015:6373</p>
 <p>[8] WanS，LanY，GuoJ，etal.Adeparchitectureforsemantic matchingwithmultiplepositionalsentencerepresentations/ Procedingsofthe30thAIConferenceonArtificialInteligence.Phoenix，USA，2016:28352841</p>
@@ -393,6 +386,8 @@
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/myblog/js/comments.js"></script><script src="/myblog/js/utils.js"></script><script src="/myblog/js/motion.js"></script><script src="/myblog/js/schemes/muse.js"></script><script src="/myblog/js/next-boot.js"></script>
 
   

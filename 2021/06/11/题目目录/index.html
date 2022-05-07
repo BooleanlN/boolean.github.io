@@ -18,14 +18,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"booleanln.github.io","root":"/myblog/","images":"/myblog/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myblog/js/config.js"></script>
 
-    <meta name="description" content="题号 题名 考察类别 备注     1 两数之和 数组，哈希表    2 两数相加 链表，归并    48 旋转图像 数组    16 最接近的三数之和 数组，双指针 ❤️   94 二叉树的中序遍历 树，递归，    160 相交链表 链表，双指针 ❤️   78 子集 数组，回溯    90 子集 II 数组，回溯 ❤️   617 合并二叉树 树，DFS    538 把二叉搜索树转换">
+    <meta name="description" content="题号 题名 考察类别 备注     1 两数之和 数组，哈希表    2 两数相加 链表，归并    48 旋转图像 数组    16 最接近的三数之和 数组，双指针 ❤️   94 二叉树的中序遍历 树，递归，    160 相交链表 链表，双指针 ❤️   78 子集 数组，回溯    90 子集 II 数组，回溯 ❤️   617 合并二叉树 树，DFS    538 把二叉搜索树转">
 <meta property="og:type" content="article">
 <meta property="og:title" content="题目目录">
 <meta property="og:url" content="http://booleanln.github.io/myblog/2021/06/11/%E9%A2%98%E7%9B%AE%E7%9B%AE%E5%BD%95/index.html">
 <meta property="og:site_name" content="Boolean">
-<meta property="og:description" content="题号 题名 考察类别 备注     1 两数之和 数组，哈希表    2 两数相加 链表，归并    48 旋转图像 数组    16 最接近的三数之和 数组，双指针 ❤️   94 二叉树的中序遍历 树，递归，    160 相交链表 链表，双指针 ❤️   78 子集 数组，回溯    90 子集 II 数组，回溯 ❤️   617 合并二叉树 树，DFS    538 把二叉搜索树转换">
+<meta property="og:description" content="题号 题名 考察类别 备注     1 两数之和 数组，哈希表    2 两数相加 链表，归并    48 旋转图像 数组    16 最接近的三数之和 数组，双指针 ❤️   94 二叉树的中序遍历 树，递归，    160 相交链表 链表，双指针 ❤️   78 子集 数组，回溯    90 子集 II 数组，回溯 ❤️   617 合并二叉树 树，DFS    538 把二叉搜索树转">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-06-11T03:25:31.000Z">
 <meta property="article:modified_time" content="2021-12-10T08:41:06.358Z">
@@ -62,6 +62,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -83,6 +86,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/myblog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/myblog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/myblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -222,7 +229,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <table>
+        <div class="table-container">
+<table>
 <thead>
 <tr>
 <th>题号</th>
@@ -606,8 +614,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="146-LRU-缓存机制"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lru-cache/">146. LRU 缓存机制</a></h4>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">LRUCache</span> <span class="token punctuation">&#123;</span>
+</div>
+<h4 id="146-LRU-缓存机制"><a href="#146-LRU-缓存机制" class="headerlink" title="146. LRU 缓存机制"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lru-cache/">146. LRU 缓存机制</a></h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">LRUCache</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token class-name">Node</span> head<span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token class-name">Node</span> tail<span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> capacity<span class="token punctuation">;</span>
@@ -732,6 +740,8 @@
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/myblog/js/comments.js"></script><script src="/myblog/js/utils.js"></script><script src="/myblog/js/motion.js"></script><script src="/myblog/js/schemes/muse.js"></script><script src="/myblog/js/next-boot.js"></script>
 
   
